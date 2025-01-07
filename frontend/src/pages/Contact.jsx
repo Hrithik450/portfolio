@@ -166,7 +166,7 @@ const LeftSection = styled.div`
     }
 
     @media (max-width: 450px) {
-      font-size: 4rem;
+      font-size: 3rem;
     }
   }
 
