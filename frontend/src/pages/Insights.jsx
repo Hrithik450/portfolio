@@ -14,7 +14,7 @@ const object = {
   theme: "dark",
   title: "Portfolio",
   sizing: {
-    minWidth: "280px",
+    minWidth: "290px",
   },
   NavItems: [
     { title: "Home", type: "normal", href: "/", icon: <MdHome /> },
