@@ -1,6 +1,6 @@
 import React from "react";
-import Hero from "../components/hero";
 import styled from "styled-components";
+import Hero from "../components/Hero";
 import Services from "../components/Services";
 import SelectedProjects from "../components/Projects";
 import { MdHome } from "react-icons/md";
