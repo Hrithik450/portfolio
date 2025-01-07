@@ -68,7 +68,7 @@ const SelectedProjects = () => {
           ))}
         </Grid>
         <BtnCont>
-          <Button href="#">
+          <Button href="/projects">
             <span>View All Projects</span>
             <RightIcon />
           </Button>

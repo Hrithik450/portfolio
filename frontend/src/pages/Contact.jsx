@@ -143,7 +143,7 @@ const Container = styled.div`
   color: white;
 
   @media (max-width: 450px) {
-    padding: 10rem 1rem 1rem 1rem;
+    padding: 10rem 1.5rem 1rem 1.5rem;
     flex-direction: column;
     gap: 2rem;
   }

@@ -14,7 +14,7 @@ const Process = () => {
           that why you can trust blindly
         </p>
         <BtnCont>
-          <Button href="#">
+          <Button href="/contact">
             <span>Book a FREE Call</span>
             <RightIcon />
           </Button>
@@ -190,7 +190,7 @@ const StepsContainer = styled.div`
   width: 48%;
 
   @media (max-width: 450px) {
-    padding: 1.5rem;
+    padding: 1rem;
     width: 100%;
   }
 `;

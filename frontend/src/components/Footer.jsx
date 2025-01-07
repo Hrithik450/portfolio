@@ -18,7 +18,7 @@ const Footer = ({ header }) => {
             creative boundaries
           </Subtitle>
           <BtnCont>
-            <Button href="#">
+            <Button href="/contact">
               <span>Book a FREE Call</span>
               <RightIcon />
             </Button>

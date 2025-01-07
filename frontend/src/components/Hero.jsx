@@ -1,6 +1,8 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 import { FaArrowRight } from "react-icons/fa";
+import { IoPlayCircleOutline } from "react-icons/io5";
+import { FaYoutube } from "react-icons/fa";
 
 const Hero = () => {
   return (
@@ -25,9 +27,16 @@ const Hero = () => {
             </p>
           </Subheading>
           <BtnCont>
-            <Button href="#">
+            <Button href="/contact">
               <span>Book a FREE Call</span>
               <RightIcon />
+            </Button>
+            <Button
+              className="play-btn"
+              href="https://youtube.com/@mhrithik450?si=B4xlNyPRb1VLUJ-a"
+            >
+              <FaYoutube />
+              <h1>Watch Now</h1>
             </Button>
           </BtnCont>
         </Content>
@@ -154,11 +163,6 @@ const Subheading = styled.div`
   }
 `;
 
-const BtnCont = styled.div`
-  overflow: hidden;
-  margin-top: 1.5rem;
-`;
-
 const Button = styled.a`
   animation: ${TextAnimation} 500ms linear;
   animation-fill-mode: forwards;
@@ -184,6 +188,42 @@ const Button = styled.a`
   span {
     font-size: 1.5rem;
     padding: 1rem 1rem;
+  }
+`;
+
+const BtnCont = styled.div`
+  overflow: hidden;
+  margin-top: 1.5rem;
+
+  display: inline-flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .play-btn {
+    background: rgba(255, 255, 255, 0.1);
+    animation: ${TextAnimation} 500ms linear;
+    animation-fill-mode: forwards;
+    animation-delay: 750ms;
+    opacity: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    gap: 0.5rem;
+
+    svg {
+      transition: all 0.3s ease;
+      &:hover {
+        transform: scale(1.1);
+      }
+      font-size: 3rem;
+      color: red;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
   }
 `;
 
