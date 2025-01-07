@@ -1,6 +1,8 @@
 import React from "react";
 import { FaArrowRight } from "react-icons/fa";
 import styled, { keyframes } from "styled-components";
+import { MdEmail } from "react-icons/md";
+import { FaPhoneAlt } from "react-icons/fa";
 
 const Footer = ({ header }) => {
   return (
@@ -28,10 +30,16 @@ const Footer = ({ header }) => {
       <FooterComp>
         <ContactInfo>
           <ContactItem>
-            <Icon>📧</Icon> hello@herison.com
+            <Icon>
+              <MdEmail />
+            </Icon>
+            hello@herison.com
           </ContactItem>
           <ContactItem>
-            <Icon>📞</Icon> +468-356-356
+            <Icon>
+              <FaPhoneAlt />
+            </Icon>
+            +468-356-356
           </ContactItem>
         </ContactInfo>
         <FooterLinks>

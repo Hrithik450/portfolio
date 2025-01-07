@@ -6,6 +6,7 @@ import ServicesPage from "./pages/Services";
 import About from "./pages/About";
 import Insights from "./pages/Insights";
 import Contact from "./pages/Contact";
+import ProjectBlog from "./components/Project/ProjectBlog";
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/blogs" element={<Insights />} />
         <Route path="/contact" element={<Contact />} />
+
+        <Route path="/project/:id" element={<ProjectBlog />} />
       </Routes>
     </Router>
   );

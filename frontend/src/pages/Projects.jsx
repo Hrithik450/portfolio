@@ -4,7 +4,6 @@ import Navbar from "../components/Navbar/Navbar";
 import { MdHome, MdMessage } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
 import { IoMdLogIn } from "react-icons/io";
-import ParallaxSwiper from "../components/Swiper3";
 import ProjectCard from "../components/Project/ProjectCard";
 import Footer from "../components/Footer";
 

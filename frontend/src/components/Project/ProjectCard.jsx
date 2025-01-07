@@ -26,7 +26,7 @@ const ProjectCard = ({ project, ClassProp }) => {
               {project.location}
             </p>
           </Details>
-          <ViewProjectButton>
+          <ViewProjectButton href={`/project/${project.id}`}>
             <p>VIEW PROJECT</p>
             <RightIcon />
           </ViewProjectButton>
@@ -167,6 +167,7 @@ const ViewProjectButton = styled.a`
   font-size: 1.3rem;
   border: none;
   background-color: transparent;
+  text-decoration: none;
 
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
