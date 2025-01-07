@@ -126,6 +126,7 @@ const Title = styled.h1`
   }
 
   @media (max-width: 450px) {
+    font-size: 3rem;
     text-align: left;
   }
 `;

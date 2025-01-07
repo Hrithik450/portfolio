@@ -170,6 +170,10 @@ const SectionTitle = styled.h2`
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
+  @media (max-width: 450px) {
+    font-size: 3rem;
+  }
 `;
 
 const Description = styled.p`

@@ -46,9 +46,9 @@ const SelectedProjects = () => {
     <Container>
       <div className="left-container">
         <Header>
-          <h2>
+          <h1>
             Popular <span>Projects</span>
-          </h2>
+          </h1>
           <p>
             Over the years, I've partnered with startups of all sizes and
             various stages to create some truly unique products. Here are a few
@@ -125,7 +125,7 @@ const Container = styled.div`
 const Header = styled.div`
   margin-bottom: 2rem;
 
-  h2 {
+  h1 {
     animation: ${Animation} linear;
     animation-timeline: view();
     animation-range: entry 0% cover 40%;
@@ -135,6 +135,10 @@ const Header = styled.div`
       background: linear-gradient(90deg, #ff00ff, #ff7300);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+    }
+
+    @media (max-width: 450px) {
+      font-size: 3rem;
     }
   }
 

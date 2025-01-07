@@ -123,7 +123,7 @@ const TextSection = styled.div`
     }
 
     @media (max-width: 450px) {
-      font-size: 3.5rem;
+      font-size: 3rem;
     }
   }
 
