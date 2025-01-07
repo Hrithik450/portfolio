@@ -301,7 +301,7 @@ const MainContainer = styled.div`
     padding: 3.3rem 1rem 2rem 1rem;
 
     h1 {
-      font-size: 3rem;
+      font-size: 2.6rem;
       font-weight: bold;
     }
   }

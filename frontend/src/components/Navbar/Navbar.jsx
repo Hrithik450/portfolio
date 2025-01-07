@@ -123,15 +123,11 @@ const Logo = styled(Standard)`
   gap: 0.5rem;
   flex-basis: 80%;
   color: white;
-  font-size: 3rem;
+  font-size: 2.6rem;
   animation: ${Animation} 1s ease-in-out;
 
   .bars {
     width: 30px;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 3rem;
   }
 `;
 

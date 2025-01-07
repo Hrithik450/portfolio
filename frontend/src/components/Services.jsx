@@ -162,7 +162,7 @@ const CardTitle = styled.h2`
   font-size: 2rem;
   margin: 1.5rem 0;
   @media (max-width: 450px) {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
 `;
 

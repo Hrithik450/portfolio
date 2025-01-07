@@ -171,12 +171,7 @@ const Stat = styled.div`
   animation: ${Animation} 1000ms ease-in-out;
   text-align: left;
 
-  @media (max-width: 450px) {
-    text-align: center;
-  }
-
   & > h1 {
-    text-align: center;
     font-size: 3rem;
     color: white;
     margin: 0;
