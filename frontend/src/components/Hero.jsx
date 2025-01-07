@@ -135,7 +135,7 @@ const Heading = styled.h1`
   @media (max-width: 450px) {
     .overflow-hidden {
       h1 {
-        font-size: 3.5rem;
+        font-size: 3rem;
       }
     }
   }

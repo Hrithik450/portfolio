@@ -174,10 +174,6 @@ const Stat = styled.div`
   animation-range: entry 0% cover 40%;
   text-align: left;
 
-  @media (max-width: 450px) {
-    text-align: center;
-  }
-
   & > h1 {
     font-size: 3rem;
     color: black;
