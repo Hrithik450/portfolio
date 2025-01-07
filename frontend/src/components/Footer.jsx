@@ -104,6 +104,10 @@ const Container = styled.div`
         text-decoration: underline;
       }
     }
+
+    @media (max-width: 450px) {
+      font-size: 0.9rem;
+    }
   }
 `;
 
@@ -227,6 +231,10 @@ const ContactItem = styled.div`
   display: flex;
   align-items: center;
   font-weight: bold;
+
+  @media (max-width: 450px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const Icon = styled.span`
