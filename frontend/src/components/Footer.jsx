@@ -30,43 +30,51 @@ const Footer = ({ header }) => {
       <FooterComp>
         <ContactInfo>
           <ContactItem>
-            <Icon>
-              <MdEmail />
-            </Icon>
-            hello@herison.com
+            <MdEmail />
+            mhrithik450@gmail.com
           </ContactItem>
           <ContactItem>
-            <Icon>
-              <FaPhoneAlt />
-            </Icon>
-            +468-356-356
+            <FaPhoneAlt />
+            +91-7483229386
           </ContactItem>
         </ContactInfo>
         <FooterLinks>
           <Section>
             <SectionTitle>Pages</SectionTitle>
             <LinkList>
-              <li>Home</li>
-              <li>Services</li>
-              <li>Projects</li>
-              <li>About Me</li>
-              <li>Blog</li>
-              <li>Contact</li>
+              <li>
+                <a href="/">Home</a>
+              </li>
+              <li>
+                <a href="/services">Services</a>
+              </li>
+              <li>
+                <a href="/projects">Projects</a>
+              </li>
+              <li>
+                <a href="/about">About Me</a>
+              </li>
+              <li>
+                <a href="/blogs">Blog</a>
+              </li>
+              <li>
+                <a href="/contact">Contact</a>
+              </li>
             </LinkList>
           </Section>
           <Section>
             <SectionTitle>Social</SectionTitle>
             <LinkList>
-              <li>Twitter</li>
+              <li>Instagram</li>
               <li>LinkedIn</li>
-              <li>Dribbble</li>
+              <li>Youtube</li>
               <li>Facebook</li>
             </LinkList>
           </Section>
           <Section>
             <SectionTitle>Visit</SectionTitle>
             <LinkList>
-              <li>Barking Home Road-31 New York, USA</li>
+              <a>Bangalore, Karnataka</a>
             </LinkList>
           </Section>
         </FooterLinks>
@@ -74,7 +82,7 @@ const Footer = ({ header }) => {
       <div className="bottom-footer">
         <p>
           © 2025-2026 All rights reserved | Designed and Developed by{" "}
-          <a>Hruthik M</a>
+          <a href="https://hruthik.onrender.com">Hruthik M</a>
         </p>
       </div>
     </Container>
@@ -238,16 +246,12 @@ const ContactItem = styled.div`
   font-size: 2rem;
   display: flex;
   align-items: center;
+  gap: 1rem;
   font-weight: bold;
 
   @media (max-width: 450px) {
     font-size: 1.5rem;
   }
-`;
-
-const Icon = styled.span`
-  margin-right: 10px;
-  font-size: 1.2rem;
 `;
 
 const FooterLinks = styled.div`
@@ -281,6 +285,10 @@ const LinkList = styled.ul`
   padding: 0;
   margin: 0;
 
+  a {
+    font-size: 1.2rem;
+  }
+
   li {
     text-align: left;
     margin: 1rem 0;
@@ -289,6 +297,11 @@ const LinkList = styled.ul`
 
     &:hover {
       text-decoration: underline;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
     }
 
     @media (max-width: 450px) {

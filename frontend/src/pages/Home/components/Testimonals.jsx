@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import ParallaxSwiper from "./Swiper3";
+import ParallaxSwiper from "../../../components/Swiper3";
 
 const data = [
   {

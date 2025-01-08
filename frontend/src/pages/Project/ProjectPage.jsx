@@ -1,11 +1,11 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import Navbar from "../components/Navbar/Navbar";
 import { MdHome, MdMessage } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
 import { IoMdLogIn } from "react-icons/io";
-import ProjectCard from "../components/Project/ProjectCard";
-import Footer from "../components/Footer";
+import ProjectCard from "./components/ProjectCard";
+import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer";
 
 const object = {
   theme: "dark",

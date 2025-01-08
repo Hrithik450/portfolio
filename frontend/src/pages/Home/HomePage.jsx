@@ -1,18 +1,18 @@
 import React from "react";
 import styled from "styled-components";
-import Hero from "../components/Hero";
-import Services from "../components/Services";
-import SelectedProjects from "../components/Projects";
+import Services from "./components/Services";
 import { MdHome } from "react-icons/md";
 import { MdMessage } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
 import { IoMdLogIn } from "react-icons/io";
-import Navbar from "../components/Navbar/Navbar";
-import Process from "../components/Process";
-import Blog from "../components/Blog";
-import Testimonals from "../components/Testimonals";
-import Insights from "../components/Insights";
-import Footer from "../components/Footer";
+import Navbar from "../../components/Navbar/Navbar";
+import Process from "./components/Process";
+import Blog from "./components/Blog";
+import Insights from "./components/Insights";
+import Footer from "../../components/Footer";
+import Hero from "./components/Hero";
+import SelectedProjects from "./components/Projects";
+import Testimonals from "./components/Testimonals";
 
 const object = {
   theme: "dark",

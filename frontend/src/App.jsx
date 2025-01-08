@@ -1,13 +1,14 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Projects from "./pages/Projects";
-import ServicesPage from "./pages/Services";
-import About from "./pages/About";
-import Insights from "./pages/Insights";
-import Contact from "./pages/Contact";
-import ProjectBlog from "./components/Project/ProjectBlog";
-import BlogPage from "./pages/Blogs/BlogPage";
+
+import Home from "./pages/Home/HomePage";
+import ServicesPage from "./pages/Service/ServicePage";
+import Projects from "./pages/Project/ProjectPage";
+import ProjectBlog from "./pages/Project/components/ProjectBlog";
+import About from "./pages/About/AboutPage";
+import Insights from "./pages/Blog/BlogPage";
+import BlogPage from "./pages/Blog/components/BlogPage";
+import Contact from "./pages/Contact/ContactPage";
 
 function App() {
   return (

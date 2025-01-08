@@ -11,8 +11,8 @@ import "swiper/css/parallax";
 
 import styled, { keyframes } from "styled-components";
 import { useNavigate } from "react-router-dom";
-import TestimonialCard from "./Testimonal/Card";
-import ProjectCard from "./Project/ProjectCard";
+import TestimonialCard from "../pages/Home/components/Testimonal/Card";
+import ProjectCard from "../pages/Project/components/ProjectCard";
 
 export default function ParallaxSwiper({ slides, color, type }) {
   return (

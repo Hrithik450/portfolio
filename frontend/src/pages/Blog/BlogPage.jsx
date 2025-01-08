@@ -1,13 +1,13 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import FeaturedBlog from "./Blogs/FeatureCard";
-import BlogCard from "./Blogs/BlogCard";
-import BottomCard from "./Blogs/Card";
-import Footer from "../components/Footer";
 import { MdHome, MdMessage } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
 import { IoMdLogIn } from "react-icons/io";
-import Navbar from "../components/Navbar/Navbar";
+import FeaturedBlog from "./components/FeatureCard";
+import BlogCard from "./components/BlogCard";
+import BottomCard from "./components/Card";
+import Footer from "../../components/Footer";
+import Navbar from "../../components/Navbar/Navbar";
 
 const object = {
   theme: "dark",

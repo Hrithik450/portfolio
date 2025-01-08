@@ -1,12 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-
-import Navbar from "../components/Navbar/Navbar";
-import Footer from "../components/Footer";
-import BlogDuplicate from "./Duplicate/Blog";
+import Navbar from "../../components/Navbar/Navbar";
 import { MdHome, MdMessage } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
 import { IoMdLogIn } from "react-icons/io";
+import Footer from "../../components/Footer";
+import ServicesDuplicate from "./components/Services";
 
 const object = {
   theme: "dark",
@@ -44,18 +43,18 @@ const object = {
   ],
 };
 
-const About = () => {
+const ServicesPage = () => {
   return (
-    <AboutSection>
+    <ServiceSection>
       <Navbar object={object} />
-      <BlogDuplicate />
+      <ServicesDuplicate />
       <Footer header={true} />
-    </AboutSection>
+    </ServiceSection>
   );
 };
 
-export default About;
+export default ServicesPage;
 
-const AboutSection = styled.section`
+const ServiceSection = styled.section`
   background: black;
 `;
