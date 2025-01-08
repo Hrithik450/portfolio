@@ -1,5 +1,5 @@
 import React from "react";
-import { RiExpandDiagonalSFill } from "react-icons/ri";
+import { MdOpenInNew } from "react-icons/md";
 import styled, { keyframes } from "styled-components";
 
 const BottomCard = ({ blog }) => {
@@ -10,10 +10,10 @@ const BottomCard = ({ blog }) => {
       </div>
       <Content>
         <Title className="title">{blog.title}</Title>
-        <div className="card-nav">
+        <a className="card-nav" href={`/blog/${blog.id}`}>
           <Date>{blog.date}</Date>
           <Icon />
-        </div>
+        </a>
         {blog.content && <Excerpt>{blog.content}</Excerpt>}
       </Content>
     </Card>
@@ -95,7 +95,7 @@ const Excerpt = styled.p`
   color: #666;
 `;
 
-const Icon = styled(RiExpandDiagonalSFill)`
+const Icon = styled(MdOpenInNew)`
   width: 30px;
   height: 30px;
   padding: 5px;

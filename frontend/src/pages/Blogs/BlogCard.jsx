@@ -1,5 +1,5 @@
 import React from "react";
-import { RiExpandDiagonalSFill } from "react-icons/ri";
+import { MdOpenInNew } from "react-icons/md";
 import styled, { keyframes } from "styled-components";
 
 const BlogCard = ({ blog, ClassProp }) => {
@@ -8,10 +8,10 @@ const BlogCard = ({ blog, ClassProp }) => {
       <Image src={blog.image} alt={blog.title} />
       <Content className={`${ClassProp}`}>
         <Title className="title">{blog.title}</Title>
-        <div className="card-nav">
+        <a className="card-nav" href={`/blog/${blog.id}`}>
           <Date>{blog.date}</Date>
           <Icon />
-        </div>
+        </a>
       </Content>
     </Card>
   );
@@ -88,7 +88,7 @@ const Title = styled.h3`
   font-size: 1.5rem;
 `;
 
-const Icon = styled(RiExpandDiagonalSFill)`
+const Icon = styled(MdOpenInNew)`
   width: 30px;
   height: 30px;
   padding: 5px;

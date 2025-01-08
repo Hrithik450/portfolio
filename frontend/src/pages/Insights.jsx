@@ -2,7 +2,6 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import FeaturedBlog from "./Blogs/FeatureCard";
 import BlogCard from "./Blogs/BlogCard";
-import { RiExpandDiagonalSFill } from "react-icons/ri";
 import BottomCard from "./Blogs/Card";
 import Footer from "../components/Footer";
 import { MdHome, MdMessage } from "react-icons/md";
@@ -48,6 +47,8 @@ const object = {
 
 const blogs = [
   {
+    id: 1,
+    type: "Main",
     title: "What Your Music Preference Says About You and Your Personality",
     category: "Music",
     author: "John Doe",
@@ -56,6 +57,8 @@ const blogs = [
       "https://cdn.prod.website-files.com/61f77fc62f2d6f5df4a7a073/61f7810ad49a53def93cfd03_Blog%20Thumbnail%201.png",
   },
   {
+    id: 2,
+    type: "Neutral",
     title: "The Pomodoro Technique Really Works",
     category: "Management",
     author: "John Doe",
@@ -64,6 +67,8 @@ const blogs = [
       "https://cdn.prod.website-files.com/61f77fc62f2d6f5df4a7a073/61f7812339f43709384172ad_Blog%20Thumbnail%202.png",
   },
   {
+    id: 3,
+    type: "Neutral",
     title: "Throwback To The Good Old Days",
     category: "Lifestyle",
     author: "John Doe",
@@ -72,6 +77,8 @@ const blogs = [
       "https://cdn.prod.website-files.com/61f77fc62f2d6f5df4a7a073/61f78136ef5754db738c8522_Blog%20Thumbnail%203.png",
   },
   {
+    id: 4,
+    type: "Normal",
     title: "Just a Standard Format Post",
     date: "December 15, 2017",
     content:
@@ -80,6 +87,8 @@ const blogs = [
       "https://cdn.prod.website-files.com/61f77fc62f2d6f5df4a7a073/61f7815540feca7a16b78024_Blog%20Thumbnail%204.png",
   },
   {
+    id: 5,
+    type: "Normal",
     title: "10 Interesting Facts About Caffeine",
     date: "December 15, 2017",
     content:
@@ -88,6 +97,8 @@ const blogs = [
       "https://cdn.prod.website-files.com/61f77fc62f2d6f5df4a7a073/61f7812339f43709384172ad_Blog%20Thumbnail%202.png",
   },
   {
+    id: 6,
+    type: "Normal",
     title: "No Sugar Oatmeal Cookies",
     date: "December 10, 2017",
     content:
@@ -96,6 +107,8 @@ const blogs = [
       "https://cdn.prod.website-files.com/61f77fc62f2d6f5df4a7a073/61f78136ef5754db738c8522_Blog%20Thumbnail%203.png",
   },
   {
+    id: 7,
+    type: "Normal",
     title: "Good Design Is Making Something Memorable",
     date: "December 5, 2017",
     content: "Dieter Rams explains what makes great design.",
@@ -104,6 +117,10 @@ const blogs = [
   },
 ];
 
+const mainBlog = blogs.find((blog) => blog.type === "Main");
+const neutralBlogs = blogs.filter((blog) => blog.type === "Neutral");
+const normalBlogs = blogs.filter((blog) => blog.type === "Normal");
+
 const Insights = () => {
   return (
     <>
@@ -111,21 +128,26 @@ const Insights = () => {
         <Navbar object={object} />
         <Wrapper>
           <FirstSection>
-            <LargeFeatured>
-              <FeaturedBlog blog={blogs[0]} />
-            </LargeFeatured>
+            {mainBlog && (
+              <LargeFeatured>
+                <FeaturedBlog blog={mainBlog} />
+              </LargeFeatured>
+            )}
             <SideBlogs>
-              <BlogCard blog={blogs[1]} />
-              <BlogCard blog={blogs[2]} />
+              {neutralBlogs &&
+                neutralBlogs.map((blog, bidx) => (
+                  <BlogCard blog={blog} key={`blog-${bidx}`} />
+                ))}
             </SideBlogs>
           </FirstSection>
         </Wrapper>
       </BlogSection>
       <Wrapper>
         <SecondSection>
-          {blogs.slice(3).map((blog, index) => (
-            <BottomCard key={index} blog={blog} />
-          ))}
+          {normalBlogs &&
+            normalBlogs.map((blog, bidx) => (
+              <BottomCard key={`blog-${bidx}`} blog={blog} />
+            ))}
         </SecondSection>
       </Wrapper>
       <Footer header={true} />

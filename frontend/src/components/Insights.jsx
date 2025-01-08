@@ -1,8 +1,51 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import { RiExpandDiagonalSFill } from "react-icons/ri";
+import { MdOpenInNew } from "react-icons/md";
 
 const Insights = () => {
+  const blogs = [
+    {
+      id: 1,
+      type: "Main",
+      title: "The Pomodoro Lorem ipsum dolor sit. lorem2",
+      category: "Management",
+      author: "John Doe",
+      date: "December 27, 2017",
+      image:
+        "https://cdn.prod.website-files.com/61f77fc62f2d6f5df4a7a073/61f7810ad49a53def93cfd03_Blog%20Thumbnail%201.png",
+    },
+    {
+      id: 2,
+      type: "Normal",
+      title: "Throwback To The Good Old Days Day",
+      category: "Lifestyle",
+      author: "John Doe",
+      date: "December 21, 2017",
+      image:
+        "https://cdn.prod.website-files.com/61f77fc62f2d6f5df4a7a073/61f7812339f43709384172ad_Blog%20Thumbnail%202.png",
+    },
+    {
+      id: 3,
+      type: "Normal",
+      title: "Just a Standard Format Post Old Days",
+      date: "December 15, 2017",
+      content:
+        "Lorem ipsum Sed eiusmod esse aliqua sed incididunt mollit id et proident.",
+      image:
+        "https://cdn.prod.website-files.com/61f77fc62f2d6f5df4a7a073/61f7815540feca7a16b78024_Blog%20Thumbnail%204.png",
+    },
+    {
+      id: 4,
+      type: "Normal",
+      title: "Just a Standard Format Post",
+      date: "December 15, 2017",
+      content:
+        "Lorem ipsum Sed eiusmod esse aliqua sed incididunt mollit id et proident.",
+      image:
+        "https://cdn.prod.website-files.com/61f77fc62f2d6f5df4a7a073/61f7815540feca7a16b78024_Blog%20Thumbnail%204.png",
+    },
+  ];
+
   return (
     <Container>
       <Title>
@@ -13,76 +56,39 @@ const Insights = () => {
         digital web presence
       </Subtitle>
       <Grid>
-        <MainCard>
-          <CardImage
-            src="https://cdn.prod.website-files.com/61f77fc62f2d6f5df4a7a073/61f7810ad49a53def93cfd03_Blog%20Thumbnail%201.png"
-            alt="Large article"
-          />
-          <CardContent>
-            <div>
-              <CardMeta>· DESIGN · 5 MIN READ</CardMeta>
-              <div className="card-nav">
-                <MainCardTitle>
-                  Empower your users by building cards with best possible
-                </MainCardTitle>
-                <Icon />
+        {blogs.map((blog, bidx) =>
+          blog.type === "Main" ? (
+            <MainCard key={`card-${bidx}`}>
+              <div className="image-wrapper">
+                <CardImage src={blog && blog.image} alt="Large article" />
               </div>
-            </div>
-          </CardContent>
-        </MainCard>
-        <div className="sub-cards">
-          <Card>
-            <CardImage
-              src="https://cdn.prod.website-files.com/61f77fc62f2d6f5df4a7a073/61f7812339f43709384172ad_Blog%20Thumbnail%202.png"
-              alt="Small article 1"
-            />
-            <CardContent>
-              <div>
-                <CardMeta>· DESIGN · 5 MIN READ</CardMeta>
-                <div className="card-nav">
-                  <CardTitle>
-                    How Lance built banking for freelancers?
-                  </CardTitle>
-                  <Icon />
+              <CardContent>
+                <div className="content">
+                  <a className="card-nav" href={`blog/${blog.id}`}>
+                    <MainCardTitle>{blog && blog.title}</MainCardTitle>
+                    <Icon />
+                  </a>
+                  <CardMeta>{blog && blog.date}</CardMeta>
                 </div>
+              </CardContent>
+            </MainCard>
+          ) : (
+            <Card key={`blog-${bidx}`}>
+              <div className="image-wrapper">
+                <CardImage src={blog && blog.image} alt="Small article 1" />
               </div>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardImage
-              src="https://cdn.prod.website-files.com/61f77fc62f2d6f5df4a7a073/61f78136ef5754db738c8522_Blog%20Thumbnail%203.png"
-              alt="Small article 2"
-            />
-            <CardContent>
-              <div>
-                <CardMeta>· DESIGN · 5 MIN READ</CardMeta>
-                <div className="card-nav">
-                  <CardTitle>
-                    Working with Rudra was a breeze... I was impressed.
-                  </CardTitle>
-                  <Icon />
+              <CardContent>
+                <div className="content">
+                  <a className="card-nav" href={`blog/${blog.id}`}>
+                    <CardTitle>{blog && blog.title}</CardTitle>
+                    <Icon />
+                  </a>
+                  <CardMeta>{blog && blog.date}</CardMeta>
                 </div>
-              </div>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardImage
-              src="https://cdn.prod.website-files.com/61f77fc62f2d6f5df4a7a073/61f7815540feca7a16b78024_Blog%20Thumbnail%204.png"
-              alt="Small article 3"
-            />
-            <CardContent>
-              <div>
-                <CardMeta>· DESIGN · 5 MIN READ</CardMeta>
-                <div className="card-nav">
-                  <CardTitle>
-                    Working with Niloy was a breeze... I was impressed.
-                  </CardTitle>
-                  <Icon />
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
+              </CardContent>
+            </Card>
+          )
+        )}
       </Grid>
     </Container>
   );
@@ -147,14 +153,9 @@ const Subtitle = styled.p`
 const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 1.5rem;
   margin-top: 2rem;
-
-  .sub-cards {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -168,6 +169,12 @@ const MainCard = styled.div`
   background: black;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   overflow: hidden;
+  grid-row: span 3;
+
+  .image-wrapper {
+    flex: 1;
+    height: 390px;
+  }
 `;
 
 const Card = styled.div`
@@ -179,28 +186,40 @@ const Card = styled.div`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   overflow: hidden;
 
+  .image-wrapper {
+    flex: 1;
+    height: 160px;
+
+    @media (max-width: 450px) {
+      height: 100%;
+    }
+  }
+
   @media (max-width: 450px) {
     flex-direction: column;
   }
 `;
 
 const CardImage = styled.img`
-  flex: 1;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
 `;
 
 const CardContent = styled.div`
   flex: 3;
   padding: 1rem 2rem;
-
   display: flex;
   align-items: center;
 
-  .card-nav {
-    display: inline-flex;
-    justify-content: space-between;
-    align-items: center;
+  .content {
+    width: 100%;
+
+    .card-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
 
   @media (max-width: 450px) {
@@ -212,7 +231,7 @@ const CardMeta = styled.div`
   text-align: left;
   font-size: 0.9rem;
   color: #999;
-  margin-bottom: 0.5rem;
+  margin-top: 1rem;
 `;
 
 const MainCardTitle = styled.h2`
@@ -239,7 +258,7 @@ const CardTitle = styled.h2`
   }
 `;
 
-const Icon = styled(RiExpandDiagonalSFill)`
+const Icon = styled(MdOpenInNew)`
   width: 30px;
   height: 30px;
   padding: 5px;

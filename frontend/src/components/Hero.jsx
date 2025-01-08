@@ -200,6 +200,7 @@ const BtnCont = styled.div`
   gap: 1rem;
 
   .play-btn {
+    border: 1px solid white;
     background: rgba(255, 255, 255, 0.1);
     animation: ${TextAnimation} 500ms linear;
     animation-fill-mode: forwards;

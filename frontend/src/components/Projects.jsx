@@ -3,9 +3,9 @@ import styled, { keyframes } from "styled-components";
 import ProjectCard from "./Project/ProjectCard";
 import { FaArrowRight } from "react-icons/fa";
 
-const LeftProjects = [
+const projects = [
   {
-    id: "1",
+    id: 1,
     title: "Masterbase Webdesign",
     tags: ["Design", "Branding"],
     industry: "FinTech",
@@ -14,7 +14,7 @@ const LeftProjects = [
       "https://cdn.prod.website-files.com/61f77fc62f2d6f5df4a7a073/62120ad15f6f9cb7d164c6f3_Projects%20Image%206.jpg",
   },
   {
-    id: "2",
+    id: 2,
     title: "Space Webflow Template",
     tags: ["Design", "Development"],
     industry: "FinTech",
@@ -22,11 +22,8 @@ const LeftProjects = [
     image:
       "https://cdn.prod.website-files.com/61f77fc62f2d6f5df4a7a073/62120ac6bd803221a913321d_Projects%20Image%205-p-800.jpeg",
   },
-];
-
-const RightProjects = [
   {
-    id: "3",
+    id: 3,
     title: "Fianceo 3d Assets",
     tags: ["Development", "Branding"],
     industry: "FinTech",
@@ -35,7 +32,7 @@ const RightProjects = [
       "https://cdn.prod.website-files.com/61f77fc62f2d6f5df4a7a073/62120ab5eefeeca19d60e5e9_Projects%20Image%204.jpg",
   },
   {
-    id: "4",
+    id: 4,
     title: "Booster Branding",
     tags: ["Branding", "Development"],
     industry: "FinTech",
@@ -60,16 +57,20 @@ const SelectedProjects = () => {
           </p>
         </Header>
         <Grid>
-          {LeftProjects.map((project, index) => (
-            <ProjectCard key={index} project={project} />
-          ))}
+          {projects
+            .filter((_, idx) => idx % 2 === 0)
+            .map((project, index) => (
+              <ProjectCard key={index} project={project} />
+            ))}
         </Grid>
       </div>
       <div className="right-container">
         <Grid>
-          {RightProjects.map((project, index) => (
-            <ProjectCard key={index} project={project} />
-          ))}
+          {projects
+            .filter((_, idx) => idx % 2 !== 0)
+            .map((project, index) => (
+              <ProjectCard key={index} project={project} />
+            ))}
         </Grid>
         <BtnCont>
           <Button href="/projects">

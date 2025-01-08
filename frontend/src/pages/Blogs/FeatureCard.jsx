@@ -1,5 +1,5 @@
 import React from "react";
-import { RiExpandDiagonalSFill } from "react-icons/ri";
+import { MdOpenInNew } from "react-icons/md";
 import styled from "styled-components";
 
 const FeaturedBlog = ({ blog, ClassProp }) => {
@@ -9,10 +9,10 @@ const FeaturedBlog = ({ blog, ClassProp }) => {
       <Content>
         <Category>{blog.category}</Category>
         <Title>{blog.title}</Title>
-        <div className="card-nav">
+        <a className="card-nav" href={`/blog/${blog.id}`}>
           <Author>• {blog.date}</Author>
           <Icon />
-        </div>
+        </a>
       </Content>
     </Wrapper>
   );
@@ -106,7 +106,7 @@ const Author = styled.span`
   }
 `;
 
-const Icon = styled(RiExpandDiagonalSFill)`
+const Icon = styled(MdOpenInNew)`
   width: 30px;
   height: 30px;
   padding: 5px;

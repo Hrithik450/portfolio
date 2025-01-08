@@ -7,6 +7,7 @@ import About from "./pages/About";
 import Insights from "./pages/Insights";
 import Contact from "./pages/Contact";
 import ProjectBlog from "./components/Project/ProjectBlog";
+import BlogPage from "./pages/Blogs/BlogPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
 
         <Route path="/project/:id" element={<ProjectBlog />} />
+        <Route path="/blog/:id" element={<BlogPage />} />
       </Routes>
     </Router>
   );

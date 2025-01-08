@@ -1,12 +1,10 @@
 import React from "react";
-import { FaArrowRight, FaUser } from "react-icons/fa";
-import styled, { keyframes } from "styled-components";
-import ProjectCard from "./ProjectCard";
-import Footer from "../Footer";
-import Navbar from "../Navbar/Navbar";
+import Navbar from "../../components/Navbar/Navbar";
 import { MdHome, MdMessage } from "react-icons/md";
+import { FaArrowRight, FaUser } from "react-icons/fa";
 import { IoMdLogIn } from "react-icons/io";
-import { FaExternalLinkAlt } from "react-icons/fa";
+import Footer from "../../components/Footer";
+import styled, { keyframes } from "styled-components";
 
 const object = {
   theme: "dark",
@@ -44,8 +42,8 @@ const object = {
   ],
 };
 
-const ProjectBlog = () => {
-  const project = {
+const BlogPage = () => {
+  const Blog = {
     id: 1,
     title: "College Management System",
     tags: ["Design", "Branding"],
@@ -265,27 +263,7 @@ const ProjectBlog = () => {
         },
       ],
     ],
-    Nextproject: 3,
-    NextProjects: [
-      {
-        id: 1,
-        title: "Masterbase Webdesign",
-        tags: ["Design", "Branding"],
-        industry: "FinTech",
-        location: "Los Angeles, USA",
-        image:
-          "https://cdn.prod.website-files.com/61f77fc62f2d6f5df4a7a073/62120ad15f6f9cb7d164c6f3_Projects%20Image%206.jpg",
-      },
-      {
-        id: 2,
-        title: "Space Webflow Template",
-        tags: ["Design", "Development"],
-        industry: "FinTech",
-        location: "Los Angeles, USA",
-        image:
-          "https://cdn.prod.website-files.com/61f77fc62f2d6f5df4a7a073/62120ac6bd803221a913321d_Projects%20Image%205-p-800.jpeg",
-      },
-    ],
+    Nextblog: 3,
   };
 
   return (
@@ -295,41 +273,33 @@ const ProjectBlog = () => {
       <ProjectBlogSection>
         <Container>
           <Header>
-            <div className="header">
-              <div className="header-left">
-                {project.tags &&
-                  project.tags.map((tag, tagidx) => (
-                    <span className="tags" key={`${tag}-${tagidx}`}>
-                      {tag}
-                    </span>
-                  ))}
-              </div>
-              <a className="header-right" href={`/blog/${project.id}`}>
-                <h3>Blog</h3>
-                <FaExternalLinkAlt />
-              </a>
+            <div>
+              {Blog.tags &&
+                Blog.tags.map((tag, tagidx) => (
+                  <span className="tags" key={`${tag}-${tagidx}`}>
+                    {tag}
+                  </span>
+                ))}
             </div>
-            <h1>{project.title && project.title}</h1>
+            <h1>{Blog.title && Blog.title}</h1>
           </Header>
 
           <Content>
             <div className="image-wrapper">
-              <img src={project.src && project.src} alt="Design Example" />
+              <img src={Blog.src && Blog.src} alt="Design Example" />
             </div>
             <div>
               <InfoGrid>
                 <div>
                   Tech Stack
-                  {project.techStack &&
-                    project.techStack.map((stack, stackidx) => (
+                  {Blog.techStack &&
+                    Blog.techStack.map((stack, stackidx) => (
                       <span key={`stack-${stackidx}`}>{stack}</span>
                     ))}
                 </div>
                 <div>
                   Live Demo <br />
-                  <a href={project.liveDemo && project.liveDemo}>
-                    View Website
-                  </a>
+                  <a href={Blog.liveDemo && Blog.liveDemo}>View Website</a>
                 </div>
                 <div>
                   Git Hub <br />
@@ -343,8 +313,8 @@ const ProjectBlog = () => {
 
       <TextSection>
         <div className="text-section">
-          {project.sections &&
-            project.sections.map((section, sidx) => (
+          {Blog.sections &&
+            Blog.sections.map((section, sidx) => (
               <Section key={`sec-${sidx}`}>
                 <h2>{section[0].title}</h2>
                 {section &&
@@ -382,34 +352,20 @@ const ProjectBlog = () => {
             ))}
         </div>
 
-        <Button href={`/project/${project.Nextproject}`}>
+        <Button href={`/blog/${Blog.Nextblog}`}>
           <div className="next-btn">
-            <h2>VIEW NEXT PROJECT</h2>
+            <h2>VIEW NEXT BLOG</h2>
             <FaArrowRight />
           </div>
         </Button>
       </TextSection>
-
-      <MoreSection>
-        <h2>
-          You <span>Might</span> Also Like
-        </h2>
-        <Grid>
-          <div className="sub-grid">
-            {project.NextProjects &&
-              project.NextProjects.map((project, idx) => (
-                <ProjectCard project={project} key={`pjt-${idx}`} />
-              ))}
-          </div>
-        </Grid>
-      </MoreSection>
 
       <Footer header={true} />
     </>
   );
 };
 
-export default ProjectBlog;
+export default BlogPage;
 
 const Animation = keyframes`
   from {
@@ -467,31 +423,6 @@ const Header = styled.header`
       font-size: 1rem;
     }
   }
-
-  .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    .header-right {
-      animation: ${Animation} 1000ms ease-in-out;
-      cursor: pointer;
-      background: linear-gradient(90deg, #ff00ff, #ff7300);
-      padding: 0.2rem 1rem;
-      border-radius: 20px;
-      color: white;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-
-      svg {
-        transition: all 0.3s ease;
-        &:hover {
-          transform: scale(1.2);
-        }
-      }
-    }
-  }
 `;
 
 const Content = styled.div`
@@ -547,6 +478,7 @@ const InfoGrid = styled.div`
 const TextSection = styled.div`
   max-width: 1000px;
   margin: 0 auto;
+  padding: 0 0 5rem 0;
 
   .text-section {
     padding: 2rem;
@@ -555,7 +487,7 @@ const TextSection = styled.div`
   }
 
   @media (max-width: 450px) {
-    padding: 0 1rem;
+    padding: 0 1rem 5rem 1rem;
 
     .text-section {
       padding: 1rem;
@@ -656,50 +588,6 @@ const Button = styled.a`
       &:hover {
         transform: scale(1.1);
       }
-    }
-  }
-`;
-
-const MoreSection = styled.section`
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 6rem 0 2rem 0;
-
-  h2 {
-    animation: ${Animation} linear;
-    animation-timeline: view();
-    animation-range: entry 0% cover 40%;
-    font-size: 4rem;
-    text-align: center;
-
-    span {
-      background: linear-gradient(90deg, #ff00ff, #ff7300);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    @media (max-width: 450px) {
-      text-align: left;
-      font-size: 3rem;
-    }
-  }
-
-  @media (max-width: 450px) {
-    padding: 4rem 1rem 2rem 1rem;
-  }
-`;
-
-const Grid = styled.div`
-  .sub-grid {
-    margin: 2rem 0;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 4rem;
-
-    @media (max-width: 450px) {
-      margin: 2rem 0;
-      gap: 2rem;
     }
   }
 `;

@@ -45,6 +45,7 @@ const object = {
 
 const projects = [
   {
+    id: 1,
     title: "Masterbase Webdesign",
     tags: ["Design", "Branding"],
     industry: "FinTech",
@@ -53,6 +54,7 @@ const projects = [
       "https://cdn.prod.website-files.com/61f77fc62f2d6f5df4a7a073/62120ad15f6f9cb7d164c6f3_Projects%20Image%206.jpg",
   },
   {
+    id: 2,
     title: "Space Webflow Template",
     tags: ["Design", "Development"],
     industry: "FinTech",
@@ -61,6 +63,7 @@ const projects = [
       "https://cdn.prod.website-files.com/61f77fc62f2d6f5df4a7a073/62120ac6bd803221a913321d_Projects%20Image%205-p-800.jpeg",
   },
   {
+    id: 3,
     title: "Fianceo 3d Assets",
     tags: ["Development", "Branding"],
     industry: "FinTech",
@@ -69,22 +72,7 @@ const projects = [
       "https://cdn.prod.website-files.com/61f77fc62f2d6f5df4a7a073/62120ab5eefeeca19d60e5e9_Projects%20Image%204.jpg",
   },
   {
-    title: "Booster Branding",
-    tags: ["Branding", "Development"],
-    industry: "FinTech",
-    location: "Los Angeles, USA",
-    image:
-      "https://cdn.prod.website-files.com/61f77fc62f2d6f5df4a7a073/62120a9f6b4ab8023d3518c1_Projects%20Image%203.jpg",
-  },
-  {
-    title: "Booster Branding",
-    tags: ["Branding", "Development"],
-    industry: "FinTech",
-    location: "Los Angeles, USA",
-    image:
-      "https://cdn.prod.website-files.com/61f77fc62f2d6f5df4a7a073/62120a9f6b4ab8023d3518c1_Projects%20Image%203.jpg",
-  },
-  {
+    id: 4,
     title: "Booster Branding",
     tags: ["Branding", "Development"],
     industry: "FinTech",
