@@ -250,7 +250,7 @@ const ContactItem = styled.div`
   font-weight: bold;
 
   @media (max-width: 450px) {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 `;
 
