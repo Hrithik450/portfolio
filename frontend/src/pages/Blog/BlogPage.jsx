@@ -49,12 +49,12 @@ const blogs = [
   {
     id: 1,
     type: "Main",
-    title: "What Your Music Preference Says About You and Your Personality",
-    category: "Music",
+    title: "Master Responsive Layouts with This Simple Fix!",
+    category: "Coding",
     author: "John Doe",
-    date: "December 29, 2017",
+    date: "January 09, 2025",
     image:
-      "https://cdn.prod.website-files.com/61f77fc62f2d6f5df4a7a073/61f7810ad49a53def93cfd03_Blog%20Thumbnail%201.png",
+      "https://res.cloudinary.com/duozomapm/image/upload/v1736513409/Copy_of_AI_s_Strangest_Creations_11_f8tlql.png",
   },
   {
     id: 2,

@@ -354,7 +354,7 @@ const MainContainer = styled.div`
   }
 
   .hp-button {
-     width: 280px;
+     width: 290px;
      border-top: 2px solid gray;
      animation: ${Animation} 0.3s linear;
      background-color: black;

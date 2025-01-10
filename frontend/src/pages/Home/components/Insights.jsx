@@ -7,12 +7,12 @@ const Insights = () => {
     {
       id: 1,
       type: "Main",
-      title: "The Pomodoro Lorem ipsum dolor sit. lorem2",
+      title: "Master Responsive Layouts with This Simple Fix!",
       category: "Management",
       author: "John Doe",
-      date: "December 27, 2017",
+      date: "January 09, 2025",
       image:
-        "https://cdn.prod.website-files.com/61f77fc62f2d6f5df4a7a073/61f7810ad49a53def93cfd03_Blog%20Thumbnail%201.png",
+        "https://res.cloudinary.com/duozomapm/image/upload/v1736513409/Copy_of_AI_s_Strangest_Creations_11_f8tlql.png",
     },
     {
       id: 2,
@@ -32,7 +32,7 @@ const Insights = () => {
       content:
         "Lorem ipsum Sed eiusmod esse aliqua sed incididunt mollit id et proident.",
       image:
-        "https://cdn.prod.website-files.com/61f77fc62f2d6f5df4a7a073/61f7815540feca7a16b78024_Blog%20Thumbnail%204.png",
+        "https://res.cloudinary.com/duozomapm/image/upload/v1736431989/Copy_of_AI_s_Strangest_Creations_3_bc64u7.png",
     },
     {
       id: 4,
@@ -174,6 +174,7 @@ const MainCard = styled.div`
   .image-wrapper {
     flex: 1;
     height: 390px;
+    overflow: hidden;
   }
 `;
 
@@ -189,6 +190,7 @@ const Card = styled.div`
   .image-wrapper {
     flex: 1;
     height: 160px;
+    overflow: hidden;
 
     @media (max-width: 450px) {
       height: 100%;
@@ -204,6 +206,11 @@ const CardImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 const CardContent = styled.div`
@@ -223,6 +230,7 @@ const CardContent = styled.div`
   }
 
   @media (max-width: 450px) {
+    flex: 0;
     padding: 1rem 1rem;
   }
 `;

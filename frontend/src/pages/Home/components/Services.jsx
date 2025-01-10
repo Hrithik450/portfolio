@@ -112,12 +112,16 @@ const Subtitle = styled.p`
 `;
 
 const CardsContainer = styled.div`
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
 
+  @media (max-width: 991px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
   @media (max-width: 450px) {
-    flex-wrap: wrap;
+    grid-template-columns: 1fr;
   }
 `;
 
@@ -125,13 +129,12 @@ const Card = styled.div`
   animation: ${Animation} linear;
   animation-timeline: view();
   animation-range: entry 0% cover 40%;
-  flex-basis: 100%;
   background-color: #1c1c1c;
   padding: 4rem 2rem;
-  width: 100%;
   text-align: left;
   position: relative;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  flex-basis: 100%;
   overflow: hidden;
 
   &::before {

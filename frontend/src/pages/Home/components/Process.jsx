@@ -92,6 +92,10 @@ const ProcessContainer = styled.div`
   color: white;
   gap: 3rem;
 
+  @media (max-width: 991px) {
+    flex-direction: column;
+  }
+
   @media (max-width: 450px) {
     flex-direction: column;
     padding: 3rem 25px;
@@ -101,6 +105,10 @@ const ProcessContainer = styled.div`
 const TextSection = styled.div`
   max-width: 45%;
   margin: 1rem 0;
+
+  @media (max-width: 991px) {
+    max-width: 70%;
+  }
 
   @media (max-width: 450px) {
     max-width: 100%;
@@ -187,7 +195,12 @@ const StepsContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: 48%;
+  max-width: 48%;
+
+  @media (max-width: 991px) {
+    max-width: 70%;
+    padding: 2rem;
+  }
 
   @media (max-width: 450px) {
     padding: 1rem;

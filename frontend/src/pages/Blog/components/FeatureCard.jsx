@@ -26,7 +26,7 @@ const Wrapper = styled.div`
   gap: 10px;
   overflow: hidden;
   &:hover img {
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
 
   &::before {

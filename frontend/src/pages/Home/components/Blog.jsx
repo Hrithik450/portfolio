@@ -110,6 +110,11 @@ const Header = styled.div`
   max-width: 1200px;
   margin-bottom: 50px;
 
+  @media (max-width: 991px) {
+    flex-direction: column;
+    row-gap: 2rem;
+  }
+
   @media (max-width: 450px) {
     padding: 2rem;
     flex-direction: column;
@@ -193,6 +198,10 @@ const ImagesContainer = styled.div`
   display: flex;
   padding: 4rem 0 0 0;
 
+  @media (max-width: 991px) {
+    flex-direction: column;
+  }
+
   @media (max-width: 450px) {
     flex-direction: column;
     padding: 1rem 0 0 0;
@@ -219,6 +228,12 @@ const ImagesContainer = styled.div`
       left: 10%;
       transform: rotate(-15deg);
 
+      @media (max-width: 991px) {
+        left: 11%;
+        top: 0%;
+        z-index: 2;
+      }
+
       @media (max-width: 450px) {
         left: 0%;
       }
@@ -229,6 +244,11 @@ const ImagesContainer = styled.div`
       left: 1%;
       z-index: 2;
       transform: rotate(15deg);
+
+      @media (max-width: 991px) {
+        top: 1%;
+        right: 0%;
+      }
 
       @media (max-width: 450px) {
         left: 0%;

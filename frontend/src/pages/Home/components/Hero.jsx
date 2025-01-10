@@ -88,6 +88,12 @@ const HeroSection = styled.section`
     color: white;
     overflow: hidden;
 
+    @media (max-width: 991px) {
+      row-gap: 3rem;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
     @media (max-width: 450px) {
       row-gap: 3rem;
       flex-direction: column;
@@ -97,6 +103,11 @@ const HeroSection = styled.section`
 
 const Content = styled.div`
   max-width: 50%;
+
+  @media (max-width: 991px) {
+    max-width: 100%;
+  }
+
   @media (max-width: 450px) {
     max-width: 100%;
   }
@@ -250,6 +261,10 @@ const ImageContainer = styled.div`
   background-size: cover;
   border-radius: 10px;
   overflow: hidden;
+
+  @media (max-width: 991px) {
+    max-width: 100%;
+  }
 
   @media (max-width: 450px) {
     max-width: 100%;
