@@ -73,7 +73,7 @@ const Footer = ({ header }) => {
           </Section>
           <Section>
             <SectionTitle>Visit</SectionTitle>
-            <LinkList>
+            <LinkList className="address">
               <a>Bangalore, Karnataka</a>
             </LinkList>
           </Section>
@@ -118,6 +118,15 @@ const Container = styled.div`
       color: blue;
       &:hover {
         text-decoration: underline;
+      }
+    }
+
+    @media (max-width: 450px) {
+      font-size: 0.9rem;
+
+      p {
+        max-width: 80%;
+        margin: auto;
       }
     }
   }
@@ -257,13 +266,19 @@ const ContactItem = styled.div`
 
 const FooterLinks = styled.div`
   flex: 1;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  @media (max-width: 450px) {
+    grid-template-columns: 1fr 1fr;
+  }
 `;
 
 const Section = styled.div`
   max-width: 200px;
+  .address {
+    text-align: left;
+  }
 `;
 
 const SectionTitle = styled.h3`
@@ -271,6 +286,10 @@ const SectionTitle = styled.h3`
   font-weight: 600;
   margin: 2rem 0;
   text-align: left;
+
+  @media (max-width: 450px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const LinkList = styled.ul`
@@ -278,16 +297,11 @@ const LinkList = styled.ul`
   padding: 0;
   margin: 0;
 
-  a {
-    font-size: 1.2rem;
-  }
-
   li {
     text-align: left;
     margin: 1rem 0;
     font-size: 1.2rem;
     cursor: pointer;
-
     &:hover {
       text-decoration: underline;
     }
@@ -295,6 +309,10 @@ const LinkList = styled.ul`
     a {
       text-decoration: none;
       color: white;
+    }
+
+    @media (max-width: 450px) {
+      font-size: 1rem;
     }
   }
 `;

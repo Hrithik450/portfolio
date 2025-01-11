@@ -203,8 +203,8 @@ const StepsContainer = styled.div`
   }
 
   @media (max-width: 450px) {
+    max-width: 100%;
     padding: 1rem;
-    width: 100%;
   }
 `;
 
