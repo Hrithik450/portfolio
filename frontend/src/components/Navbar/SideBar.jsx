@@ -31,13 +31,13 @@ const SideBar = ({ isOpen, setIsOpen, object }) => {
     hidden: {
       opacity: 0,
       transition: {
-        duration: 0,
+        duration: 0.5,
       },
     },
     show: {
       opacity: 1,
       transition: {
-        duration: 0,
+        duration: 0.5,
       },
     },
   };
@@ -296,10 +296,10 @@ const MainContainer = styled.div`
     display: flex;
     gap: 0.7rem;
     align-items: center;
-    padding: 3.3rem 1rem 2rem 1rem;
+    padding: 2.9rem 1rem 2rem 1rem;
 
     h1 {
-      font-size: 2.6rem;
+      font-size: 2.3rem;
       font-weight: bold;
       width: max-content;
     }

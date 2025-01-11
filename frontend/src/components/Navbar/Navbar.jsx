@@ -131,6 +131,7 @@ const Logo = styled(Standard)`
   }
 
   h1 {
+    font-size: 2.3rem;
     width: max-content;
   }
 `;
