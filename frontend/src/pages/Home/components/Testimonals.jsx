@@ -70,7 +70,7 @@ const Testimonals = () => {
           </SectionTitle>
           <Description>
             Here is some love words from my clients around the world. Hope you
-            will be here next.
+            will here next.
           </Description>
         </div>
 
