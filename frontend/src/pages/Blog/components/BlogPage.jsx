@@ -189,7 +189,7 @@ const BlogPage = () => {
                   ))}
               </div>
               <a className="header-right" href="#">
-                <h3>Youtube</h3>
+                <h4>Youtube</h4>
                 <FaExternalLinkAlt />
               </a>
             </div>
@@ -318,7 +318,7 @@ const Header = styled.header`
     color: white;
 
     @media (max-width: 450px) {
-      font-size: 3rem;
+      font-size: 2.5rem;
       margin: 1rem 0;
     }
   }
@@ -334,7 +334,7 @@ const Header = styled.header`
     font-size: 1.2rem;
 
     @media (max-width: 450px) {
-      font-size: 1rem;
+      font-size: 0.8rem;
     }
   }
 
@@ -456,7 +456,7 @@ const Section = styled.section`
     margin: 3rem 0 1rem 0;
 
     @media (max-width: 450px) {
-      font-size: 2rem;
+      font-size: 1.5rem;
       margin: 2rem 0 1rem 0;
     }
   }
@@ -506,14 +506,14 @@ const Section = styled.section`
     animation: ${Animation} linear;
     animation-timeline: view();
     animation-range: entry 0% cover 40%;
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin: 1rem 0;
     white-space: pre-line;
     padding: 0 2rem;
     line-height: 1.5;
 
     @media (max-width: 450px) {
-      padding: 0 1rem;
+      padding: 0 0 0 1rem;
     }
   }
 `;
