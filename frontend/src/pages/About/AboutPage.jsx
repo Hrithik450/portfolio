@@ -9,7 +9,7 @@ import BlogDuplicate from "./components/About";
 
 const object = {
   theme: "dark",
-  title: "Portfolio",
+  title: "Hruthik M",
   sizing: {
     minWidth: "290px",
   },

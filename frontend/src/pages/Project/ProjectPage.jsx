@@ -9,7 +9,7 @@ import Footer from "../../components/Footer";
 
 const object = {
   theme: "dark",
-  title: "Portfolio",
+  title: "Hruthik M",
   sizing: {
     minWidth: "290px",
   },

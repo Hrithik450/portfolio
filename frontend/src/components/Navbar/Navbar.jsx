@@ -16,7 +16,7 @@ const Navbar = ({ object }) => {
         <NavContainer>
           <Logo>
             <Bars onClick={() => setIsOpen(!isOpen)} />
-            {object.title}
+            <h1>{object.title}</h1>
           </Logo>
 
           <NavItemContainer>
@@ -128,6 +128,10 @@ const Logo = styled(Standard)`
 
   .bars {
     width: 30px;
+  }
+
+  h1 {
+    width: max-content;
   }
 `;
 

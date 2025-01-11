@@ -12,7 +12,7 @@ const Insights = () => {
       author: "John Doe",
       date: "January 09, 2025",
       image:
-        "https://res.cloudinary.com/duozomapm/image/upload/v1736513409/Copy_of_AI_s_Strangest_Creations_11_f8tlql.png",
+        "https://res.cloudinary.com/duozomapm/image/upload/v1736431989/Copy_of_AI_s_Strangest_Creations_3_bc64u7.png",
     },
     {
       id: 2,
