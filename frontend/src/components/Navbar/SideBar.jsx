@@ -29,17 +29,15 @@ const SideBar = ({ isOpen, setIsOpen, object }) => {
 
   const showAnimation = {
     hidden: {
-      width: 0,
       opacity: 0,
       transition: {
-        duration: 0.5,
+        duration: 0,
       },
     },
     show: {
       opacity: 1,
-      width: "auto",
       transition: {
-        duration: 0.5,
+        duration: 0,
       },
     },
   };
@@ -303,6 +301,7 @@ const MainContainer = styled.div`
     h1 {
       font-size: 2.6rem;
       font-weight: bold;
+      width: max-content;
     }
   }
 
