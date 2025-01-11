@@ -452,10 +452,11 @@ const Section = styled.section`
     animation-timeline: view();
     animation-range: entry 0% cover 40%;
     color: black;
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin: 3rem 0 1rem 0;
 
     @media (max-width: 450px) {
+      font-size: 2rem;
       font-size: 1.5rem;
       margin: 2rem 0 1rem 0;
     }
@@ -506,13 +507,14 @@ const Section = styled.section`
     animation: ${Animation} linear;
     animation-timeline: view();
     animation-range: entry 0% cover 40%;
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin: 1rem 0;
     white-space: pre-line;
     padding: 0 2rem;
     line-height: 1.5;
 
     @media (max-width: 450px) {
+      font-size: 1rem;
       padding: 0 0 0 1rem;
     }
   }
