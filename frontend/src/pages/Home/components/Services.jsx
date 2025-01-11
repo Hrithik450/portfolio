@@ -164,13 +164,17 @@ const CardIcon = styled.div`
 const CardTitle = styled.h2`
   font-size: 2rem;
   margin: 1.5rem 0;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+
+  @media (max-width: 450px) {
+    font-size: 1.8rem;
+  }
 `;
 
 const CardDescription = styled.p`
   font-size: 1.2rem;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
   color: #aaa;
-
-  @media (max-width: 991px) {
-    font-size: 1rem;
-  }
 `;
