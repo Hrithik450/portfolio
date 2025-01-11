@@ -271,10 +271,6 @@ const SectionTitle = styled.h3`
   font-weight: 600;
   margin: 2rem 0;
   text-align: left;
-
-  @media (max-width: 450px) {
-    text-align: center;
-  }
 `;
 
 const LinkList = styled.ul`
@@ -299,10 +295,6 @@ const LinkList = styled.ul`
     a {
       text-decoration: none;
       color: white;
-    }
-
-    @media (max-width: 450px) {
-      text-align: center;
     }
   }
 `;
