@@ -116,6 +116,10 @@ const Content = styled.div`
     font-size: 2rem;
     color: white;
     margin: 1rem 0;
+
+    @media (max-width: 450px) {
+      font-size: 1.5rem;
+    }
   }
 `;
 
@@ -130,21 +134,26 @@ const Tags = styled.div`
     font-size: 1rem;
     padding: 0.2rem 1rem;
     border-radius: 20px;
+
+    @media (max-width: 450px) {
+      font-size: 0.8rem;
+    }
   }
 `;
 
 const Details = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 80%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   margin: 2rem 0;
-  font-size: 0.9rem;
   color: white;
 
   p {
     margin: 0.3rem 0;
     font-size: 1.3rem;
+
+    @media (max-width: 450px) {
+      font-size: 1rem;
+    }
   }
 
   strong {
@@ -171,6 +180,10 @@ const ViewProjectButton = styled.a`
 
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
+
+  @media (max-width: 450px) {
+    font-size: 1.1rem;
+  }
 `;
 
 const RightIcon = styled(FaArrowRight)`

@@ -167,6 +167,10 @@ const Header = styled.div`
     font-size: 1.5rem;
     color: #555;
     margin: 2rem 0;
+
+    @media (max-width: 450px) {
+      font-size: 1.2rem;
+    }
   }
 `;
 

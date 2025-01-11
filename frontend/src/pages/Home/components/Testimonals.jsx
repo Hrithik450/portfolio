@@ -120,6 +120,10 @@ const TestimonalSection = styled.section`
 
     @media (max-width: 991px) {
       padding-right: 2rem;
+
+      @media (max-width: 450px) {
+        padding-right: 0;
+      }
     }
 
     @media (max-width: 450px) {

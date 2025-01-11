@@ -284,7 +284,7 @@ const Section = styled.div`
 const SectionTitle = styled.h3`
   font-size: 1.5rem;
   font-weight: 600;
-  margin: 2rem 0;
+  margin: 1.3rem 0;
   text-align: left;
 
   @media (max-width: 450px) {
