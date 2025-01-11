@@ -110,7 +110,7 @@ const NavContainer = styled.nav`
   }
 
   @media (max-width: 450px) {
-    padding: 2rem 1.5rem;
+    padding: 1.5rem;
   }
 `;
 
