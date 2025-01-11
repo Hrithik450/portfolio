@@ -41,7 +41,7 @@ const Wrapper = styled.div`
     z-index: 1;
   }
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     height: 250px;
   }
 `;
@@ -68,7 +68,7 @@ const Content = styled.div`
     align-items: center;
   }
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     padding: 1rem 1.5rem;
   }
 `;
@@ -80,7 +80,7 @@ const Category = styled.span`
   background: linear-gradient(90deg, #ff00ff, #ff7300);
   padding: 0.5rem 2rem;
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     padding: 0.5rem 1rem;
     font-size: 1rem;
   }
@@ -91,7 +91,7 @@ const Title = styled.h2`
   margin: 1rem 0;
   color: white;
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     font-size: 1.5rem;
     margin: 1rem 0;
   }
@@ -101,7 +101,7 @@ const Author = styled.span`
   font-size: 1.2rem;
   color: darkgray;
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     font-size: 1rem;
   }
 `;

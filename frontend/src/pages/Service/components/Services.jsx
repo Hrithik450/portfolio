@@ -72,7 +72,7 @@ const ServicesSection = styled.section`
   padding: 12rem 20px 0 20px;
   text-align: center;
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     padding: 10rem 20px 0 20px;
   }
 `;
@@ -89,7 +89,7 @@ const Title = styled.div`
       -webkit-text-fill-color: transparent;
     }
 
-    @media (max-width: 450px) {
+    @media (max-width: 479px) {
       font-size: 3rem;
       text-align: left;
     }
@@ -102,7 +102,7 @@ const Subtitle = styled.p`
   margin: 1rem 0 4rem 0;
   color: darkgray;
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     text-align: left;
   }
 `;
@@ -112,7 +112,7 @@ const CardsContainer = styled.div`
   justify-content: center;
   gap: 2rem;
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     flex-wrap: wrap;
   }
 `;
@@ -156,7 +156,7 @@ const CardTitle = styled.h2`
   font-size: 2rem;
   margin: 1.5rem 0;
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     font-size: 1.8rem;
   }
 `;

@@ -53,7 +53,7 @@ const Card = styled.div`
     }
   }
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     width: 100%;
   }
 `;

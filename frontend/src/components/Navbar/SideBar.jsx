@@ -252,7 +252,7 @@ const MainContainer = styled.div`
       display: none;
     }
 
-    @media (max-width: 450px) {
+    @media (max-width: 479px) {
       padding: 0 1rem;
     }
   }
@@ -313,7 +313,7 @@ const MainContainer = styled.div`
     border-right: 4px solid transparent;
     transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
 
-      @media (max-width: 450px) {
+      @media (max-width: 479px) {
         padding: 1rem;
         font-size: 1rem;
       }
@@ -338,7 +338,7 @@ const MainContainer = styled.div`
     white-space: nowrap;
     font-size: 1.5rem;
 
-    @media (max-width: 450px) {
+    @media (max-width: 479px) {
       font-size: 1rem;  
     }
   }

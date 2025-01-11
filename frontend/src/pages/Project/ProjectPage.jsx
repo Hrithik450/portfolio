@@ -143,7 +143,7 @@ const Container = styled.div`
   height: auto;
   padding: 12rem 4rem 0 4rem;
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     padding: 4rem 1rem 0 1rem;
   }
 `;
@@ -161,7 +161,7 @@ const Title = styled.h1`
     -webkit-text-fill-color: transparent;
   }
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     font-size: 3rem;
     text-align: left;
     margin: 6rem 0 4rem 0;
@@ -176,7 +176,7 @@ const Grid = styled.div`
     flex-wrap: wrap;
     gap: 4rem;
 
-    @media (max-width: 450px) {
+    @media (max-width: 479px) {
       margin: 2rem 0;
       gap: 2rem;
     }

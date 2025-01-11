@@ -78,10 +78,6 @@ const Animation = keyframes`
 `;
 
 const Wrapper = styled.section`
-  * {
-    font-family: "Times New Roman", Times, serif;
-  }
-
   position: absolute;
   top: 0%;
   max-width: 100%;
@@ -93,6 +89,8 @@ const Wrapper = styled.section`
 `;
 
 const NavContainer = styled.nav`
+  max-width: 1480px;
+  margin: auto;
   padding: 1.5rem 4rem;
   display: flex;
   align-items: center;
@@ -109,7 +107,7 @@ const NavContainer = styled.nav`
     padding: 2.5rem 3rem;
   }
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     padding: 1.5rem;
   }
 `;

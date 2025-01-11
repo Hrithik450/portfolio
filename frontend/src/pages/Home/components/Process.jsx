@@ -85,34 +85,25 @@ const ProcessContainer = styled.div`
   margin: auto;
   height: auto;
 
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   padding: 10rem 50px;
   background-color: black;
   color: white;
   gap: 3rem;
 
   @media (max-width: 991px) {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 
-  @media (max-width: 450px) {
-    flex-direction: column;
+  @media (max-width: 762px) {
     padding: 3rem 25px;
   }
 `;
 
 const TextSection = styled.div`
-  max-width: 45%;
   margin: 1rem 0;
-
-  @media (max-width: 991px) {
-    max-width: 70%;
-  }
-
-  @media (max-width: 450px) {
-    max-width: 100%;
-  }
+  max-width: 550px;
 
   h1 {
     animation: ${Animation} linear;
@@ -130,7 +121,7 @@ const TextSection = styled.div`
       -webkit-text-fill-color: transparent;
     }
 
-    @media (max-width: 450px) {
+    @media (max-width: 479px) {
       font-size: 3rem;
     }
   }
@@ -190,20 +181,14 @@ const RightIcon = styled(FaArrowRight)`
 `;
 
 const StepsContainer = styled.div`
+  max-width: 550px;
   background: linear-gradient(90deg, #ff00ff, #ff7300);
-  padding: 3rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  max-width: 48%;
 
-  @media (max-width: 991px) {
-    max-width: 70%;
-    padding: 2rem;
-  }
-
-  @media (max-width: 450px) {
-    max-width: 100%;
+  @media (max-width: 479px) {
     padding: 1rem;
   }
 `;
@@ -250,7 +235,7 @@ const Step = styled.div`
     }
   }
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     flex-direction: column;
     row-gap: 1rem;
   }

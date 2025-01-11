@@ -31,7 +31,7 @@ const Footer = ({ header }) => {
         <ContactInfo>
           <ContactItem>
             <MdEmail />
-            mhrithik450@gmail.com
+            mhrithik479@gmail.com
           </ContactItem>
           <ContactItem>
             <FaPhoneAlt />
@@ -103,7 +103,9 @@ const Animation = keyframes`
 `;
 
 const Container = styled.div`
-  padding: 2rem 0;
+  max-width: 1480px;
+  margin: auto;
+  padding: 2rem 3rem;
   background-color: #000;
   color: #fff;
   font-family: Arial, sans-serif;
@@ -121,7 +123,7 @@ const Container = styled.div`
       }
     }
 
-    @media (max-width: 450px) {
+    @media (max-width: 479px) {
       font-size: 0.9rem;
 
       p {
@@ -130,13 +132,21 @@ const Container = styled.div`
       }
     }
   }
+
+  @media (max-width: 762px) {
+    padding: 2rem 2rem;
+  }
+
+  @media (max-width: 479px) {
+    padding: 2rem 1rem;
+  }
 `;
 
 const Header = styled.div`
   padding: 8rem 20px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     padding: 4rem 20px;
   }
 `;
@@ -149,9 +159,12 @@ const Title = styled.h1`
   font-weight: 700;
   margin-bottom: 20px;
 
-  @media (max-width: 450px) {
-    font-size: 3rem;
+  @media (max-width: 991px) {
     text-align: left;
+  }
+
+  @media (max-width: 479px) {
+    font-size: 3rem;
   }
 `;
 
@@ -165,12 +178,15 @@ const Subtitle = styled.p`
   animation: ${Animation} linear;
   animation-timeline: view();
   animation-range: entry 0% cover 40%;
+
+  max-width: 550px;
   font-size: 1.1rem;
   font-weight: 300;
-  margin-bottom: 30px;
+  margin: 2rem auto;
 
-  @media (max-width: 450px) {
+  @media (max-width: 991px) {
     text-align: left;
+    margin: 2rem 0;
   }
 `;
 
@@ -181,7 +197,11 @@ const BtnCont = styled.div`
   overflow: hidden;
   margin-top: 1.5rem;
 
-  @media (max-width: 450px) {
+  @media (max-width: 991px) {
+    text-align: left;
+  }
+
+  @media (max-width: 479px) {
     margin-top: 3rem;
   }
 `;
@@ -228,7 +248,6 @@ const FooterComp = styled.div`
   animation-range: entry 0% cover 40%;
   display: flex;
   justify-content: space-between;
-  width: 80%;
   margin: auto;
   padding: 5rem 20px;
 
@@ -237,7 +256,7 @@ const FooterComp = styled.div`
     flex-direction: column;
   }
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     width: 100%;
     flex-wrap: wrap;
     padding: 1rem;
@@ -259,7 +278,7 @@ const ContactItem = styled.div`
   gap: 1rem;
   font-weight: bold;
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     font-size: 1.2rem;
   }
 `;
@@ -269,7 +288,7 @@ const FooterLinks = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     grid-template-columns: 1fr 1fr;
   }
 `;
@@ -287,7 +306,7 @@ const SectionTitle = styled.h3`
   margin: 1.3rem 0;
   text-align: left;
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     font-size: 1.2rem;
   }
 `;
@@ -311,7 +330,7 @@ const LinkList = styled.ul`
       color: white;
     }
 
-    @media (max-width: 450px) {
+    @media (max-width: 479px) {
       font-size: 1rem;
     }
   }

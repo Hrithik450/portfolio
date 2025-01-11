@@ -111,14 +111,14 @@ const Container = styled.div`
   max-width: 1280px;
   margin: auto;
   height: auto;
-  padding: 5rem 0;
+  padding: 5rem 3rem;
   text-align: center;
 
   @media (max-width: 991px) {
-    padding: 5rem 3rem;
+    padding: 5rem 2rem;
   }
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     padding: 3rem 1rem;
   }
 `;
@@ -135,9 +135,12 @@ const Title = styled.h1`
     -webkit-text-fill-color: transparent;
   }
 
-  @media (max-width: 450px) {
-    font-size: 3rem;
+  @media (max-width: 762px) {
     text-align: left;
+  }
+
+  @media (max-width: 479px) {
+    font-size: 3rem;
   }
 `;
 
@@ -149,7 +152,7 @@ const Subtitle = styled.p`
   font-size: 1.2rem;
   color: #666;
 
-  @media (max-width: 450px) {
+  @media (max-width: 762px) {
     text-align: left;
   }
 `;
@@ -186,23 +189,34 @@ const Card = styled.div`
   animation: ${Animation} linear;
   animation-timeline: view();
   animation-range: entry 0% cover 40%;
-  display: flex;
+
+  display: grid;
+  grid-template-columns: max-content 1fr;
   background: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   overflow: hidden;
 
   .image-wrapper {
-    flex: 1;
     height: 160px;
+    width: 160px;
+    object-fit: cover;
     overflow: hidden;
+  }
 
-    @media (max-width: 450px) {
-      height: 100%;
+  @media (max-width: 762px) {
+    grid-template-columns: 0.6fr 1fr;
+
+    .image-wrapper {
+      @media (max-width: 762px) {
+        min-height: 220px;
+        height: 100%;
+        width: 100%;
+      }
     }
   }
 
-  @media (max-width: 450px) {
-    flex-direction: column;
+  @media (max-width: 479px) {
+    grid-template-columns: 1fr;
   }
 `;
 
@@ -237,7 +251,7 @@ const CardContent = styled.div`
     }
   }
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     flex: 0;
     padding: 1rem 1rem;
   }
@@ -257,7 +271,7 @@ const MainCardTitle = styled.h2`
   margin: 0;
   color: white;
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     font-size: 1.3rem;
   }
 `;
@@ -269,7 +283,7 @@ const CardTitle = styled.h2`
   margin: 0;
   color: #333;
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     font-size: 1.3rem;
   }
 `;

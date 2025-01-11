@@ -303,7 +303,7 @@ const Container = styled.div`
   color: #333;
   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     padding: 10rem 1rem 1rem 1rem;
   }
 `;
@@ -317,7 +317,7 @@ const Header = styled.header`
     font-size: 4rem;
     color: white;
 
-    @media (max-width: 450px) {
+    @media (max-width: 479px) {
       font-size: 2.5rem;
       margin: 1rem 0;
     }
@@ -333,7 +333,7 @@ const Header = styled.header`
     margin-right: 0.5rem;
     font-size: 1.2rem;
 
-    @media (max-width: 450px) {
+    @media (max-width: 479px) {
       font-size: 0.8rem;
     }
   }
@@ -371,7 +371,7 @@ const Content = styled.div`
     border: 1px solid white;
     overflow: hidden;
 
-    @media (max-width: 450px) {
+    @media (max-width: 479px) {
       height: auto;
     }
   }
@@ -421,7 +421,7 @@ const InfoGrid = styled.div`
     }
   }
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     flex-direction: column;
   }
 `;
@@ -437,7 +437,7 @@ const TextSection = styled.div`
     box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
   }
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     padding: 0 1rem 5rem 1rem;
 
     .text-section {
@@ -455,7 +455,7 @@ const Section = styled.section`
     font-size: 2.5rem;
     margin: 3rem 0 1rem 0;
 
-    @media (max-width: 450px) {
+    @media (max-width: 479px) {
       font-size: 2rem;
       font-size: 1.5rem;
       margin: 2rem 0 1rem 0;
@@ -481,7 +481,7 @@ const Section = styled.section`
       height: auto;
       width: auto;
 
-      @media (max-width: 450px) {
+      @media (max-width: 479px) {
         width: 100%;
       }
     }
@@ -513,7 +513,7 @@ const Section = styled.section`
     padding: 0 2rem;
     line-height: 1.5;
 
-    @media (max-width: 450px) {
+    @media (max-width: 479px) {
       font-size: 1rem;
       padding: 0 0 0 1rem;
     }
@@ -535,7 +535,7 @@ const Button = styled.a`
 
     h2 {
       color: white;
-      @media (max-width: 450px) {
+      @media (max-width: 479px) {
         font-size: 1.1rem;
       }
     }

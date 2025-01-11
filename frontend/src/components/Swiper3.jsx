@@ -73,7 +73,7 @@ const StyledSwiper = styled(Swiper)`
     width: 500px;
     height: auto;
 
-    @media (max-width: 450px) {
+    @media (max-width: 479px) {
       width: 100%;
     }
   }

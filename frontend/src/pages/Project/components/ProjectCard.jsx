@@ -51,6 +51,7 @@ const Animation = keyframes`
 
 const CardSection = styled.section`
   flex: 1;
+  max-width: 550px;
   transition: all 0.3s ease;
   &:hover {
     transform: translateY(-2%);
@@ -69,7 +70,7 @@ const CardSection = styled.section`
   .Card-2 {
     animation: ${Animation} 1000ms linear;
 
-    @media (max-width: 450px) {
+    @media (max-width: 479px) {
       animation: ${Animation} linear;
       animation-timeline: view();
       animation-range: entry 0% cover 40%;
@@ -87,7 +88,7 @@ const Card = styled.div`
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
   }
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     padding: 1rem;
   }
 `;
@@ -117,7 +118,7 @@ const Content = styled.div`
     color: white;
     margin: 1rem 0;
 
-    @media (max-width: 450px) {
+    @media (max-width: 479px) {
       font-size: 1.5rem;
     }
   }
@@ -135,7 +136,7 @@ const Tags = styled.div`
     padding: 0.2rem 1rem;
     border-radius: 20px;
 
-    @media (max-width: 450px) {
+    @media (max-width: 479px) {
       font-size: 0.8rem;
     }
   }
@@ -151,7 +152,7 @@ const Details = styled.div`
     margin: 0.3rem 0;
     font-size: 1.3rem;
 
-    @media (max-width: 450px) {
+    @media (max-width: 479px) {
       font-size: 1rem;
     }
   }
@@ -162,7 +163,7 @@ const Details = styled.div`
     margin: 0 0 1rem 0;
   }
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     max-width: 100%;
   }
 `;
@@ -181,7 +182,7 @@ const ViewProjectButton = styled.a`
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     font-size: 1.1rem;
   }
 `;

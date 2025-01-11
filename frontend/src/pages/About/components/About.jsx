@@ -98,7 +98,7 @@ const Container = styled.div`
   padding: 15rem 50px 5rem 50px;
   font-family: Arial, sans-serif;
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     padding: 10rem 0 0 0;
   }
 `;
@@ -110,7 +110,7 @@ const Header = styled.div`
   max-width: 1200px;
   margin-bottom: 50px;
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     padding: 2rem;
     flex-direction: column;
   }
@@ -126,7 +126,7 @@ const Title = styled.div`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     margin: 0 0 2rem 0;
   }
 `;
@@ -138,7 +138,7 @@ const TextContent = styled.div`
     display: flex;
     gap: 5rem;
 
-    @media (max-width: 450px) {
+    @media (max-width: 479px) {
       gap: 1rem;
       flex-direction: column;
     }
@@ -160,7 +160,7 @@ const StatsContainer = styled.div`
   width: 80%;
   margin: 60px 0 30px 0;
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     width: 100%;
     flex-wrap: wrap;
     gap: 3rem;
@@ -190,7 +190,7 @@ const ImagesContainer = styled.div`
   display: flex;
   padding: 4rem 0 0 0;
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     flex-direction: column;
     padding: 1rem 0 0 0;
     overflow: hidden;
@@ -202,7 +202,7 @@ const ImagesContainer = styled.div`
     display: flex;
     justify-content: center;
 
-    @media (max-width: 450px) {
+    @media (max-width: 479px) {
       flex-wrap: wrap;
     }
 
@@ -216,7 +216,7 @@ const ImagesContainer = styled.div`
       left: 10%;
       transform: rotate(-15deg);
 
-      @media (max-width: 450px) {
+      @media (max-width: 479px) {
         left: 0%;
       }
     }
@@ -227,7 +227,7 @@ const ImagesContainer = styled.div`
       z-index: 2;
       transform: rotate(15deg);
 
-      @media (max-width: 450px) {
+      @media (max-width: 479px) {
         left: 0%;
       }
     }
@@ -237,7 +237,7 @@ const ImagesContainer = styled.div`
       right: 4%;
       z-index: 1;
 
-      @media (max-width: 450px) {
+      @media (max-width: 479px) {
         right: 0%;
         z-index: 2;
         transform: rotate(-15deg);
@@ -249,7 +249,7 @@ const ImagesContainer = styled.div`
       right: 20%;
       transform: rotate(-15deg);
 
-      @media (max-width: 450px) {
+      @media (max-width: 479px) {
         right: 0%;
         transform: rotate(15deg);
         z-index: 2;

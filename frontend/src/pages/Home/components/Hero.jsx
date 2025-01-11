@@ -33,7 +33,7 @@ const Hero = () => {
             </Button>
             <Button
               className="play-btn"
-              href="https://youtube.com/@mhrithik450?si=B4xlNyPRb1VLUJ-a"
+              href="https://youtube.com/@mhrithik479?si=B4xlNyPRb1VLUJ-a"
             >
               <FaYoutube />
               <h1>Watch Now</h1>
@@ -81,42 +81,33 @@ const HeroSection = styled.section`
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 
   .container {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
     align-items: center;
+    grid-template-columns: 1fr 0.75fr;
+    grid-template-rows: auto;
     padding: 10rem 1.5rem 1.5rem 1.5rem;
     color: white;
     overflow: hidden;
 
     @media (max-width: 991px) {
       row-gap: 3rem;
-      flex-direction: column;
-      align-items: flex-start;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto;
     }
 
-    @media (max-width: 450px) {
+    @media (max-width: 479px) {
       row-gap: 3rem;
       flex-direction: column;
     }
   }
 `;
 
-const Content = styled.div`
-  max-width: 50%;
-
-  @media (max-width: 991px) {
-    max-width: 100%;
-  }
-
-  @media (max-width: 450px) {
-    max-width: 100%;
-  }
-`;
+const Content = styled.div``;
 
 const Heading = styled.h1`
   .overflow-hidden {
     overflow: hidden;
-    font-size: 4rem;
+    font-size: 3.5rem;
     line-height: 1.2;
     font-weight: bold;
     color: white;
@@ -124,7 +115,7 @@ const Heading = styled.h1`
 
   .heading-1 {
     h1 {
-      font-size: 4.5rem;
+      font-size: 4rem;
       background: linear-gradient(90deg, #ff00ff, #ff7300);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -152,7 +143,7 @@ const Heading = styled.h1`
     }
   }
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     .overflow-hidden {
       h1 {
         font-size: 3rem;
@@ -165,11 +156,12 @@ const Subheading = styled.div`
   overflow: hidden;
   margin: 1.5rem 0;
   p {
+    max-width: 470px;
     animation: ${TextAnimation} 500ms linear;
     animation-fill-mode: forwards;
-    animation-delay: 450ms;
+    animation-delay: 479ms;
     opacity: 0;
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     color: darkgray;
   }
 `;
@@ -253,9 +245,9 @@ const RightIcon = styled(FaArrowRight)`
 
 const ImageContainer = styled.div`
   animation: ${Animation} 600ms linear;
-  max-width: 50%;
-  padding: 35px;
+  padding: 25px;
   position: relative;
+  max-width: 470px;
   background: url("https://cdn.prod.website-files.com/61f03747d8d407ed117df27f/61f11c12ccb99e089078fc33_Main%20Image%20BG.png")
     no-repeat center center;
   background-size: cover;
@@ -263,10 +255,10 @@ const ImageContainer = styled.div`
   overflow: hidden;
 
   @media (max-width: 991px) {
-    max-width: 100%;
+    grid-row-start: 2;
   }
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     max-width: 100%;
     padding: 20px;
   }

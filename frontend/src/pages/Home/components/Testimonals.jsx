@@ -100,50 +100,41 @@ const Animation = keyframes`
 `;
 
 const TestimonalSection = styled.section`
-  margin: auto;
-  height: auto;
-  padding: 8rem 0 8rem 8rem;
+  padding: 8rem 0 8rem 2rem;
 
   @media (max-width: 991px) {
     padding: 8rem 0 8rem 3rem;
   }
 
-  @media (max-width: 450px) {
-    padding: 1rem;
+  @media (max-width: 479px) {
+    padding: 1rem 1rem 1rem 1rem;
   }
 
   .testimonal-header {
     max-width: 1280px;
-    display: flex;
-    justify-content: space-between;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 3fr 1fr;
     align-items: center;
 
-    @media (max-width: 991px) {
-      padding-right: 2rem;
-
-      @media (max-width: 450px) {
-        padding-right: 0;
-      }
+    @media (max-width: 762px) {
+      padding: 0 0 3rem 0;
+      grid-template-columns: 1fr;
     }
 
-    @media (max-width: 450px) {
-      max-width: 100%;
-      flex-direction: column;
-      gap: 1rem;
+    @media (max-width: 479px) {
       margin: 1rem 0.5rem 1rem 0;
-    }
-
-    .left-header {
-      max-width: 50%;
-      @media (max-width: 450px) {
-        max-width: 90%;
-      }
+      padding-right: 0;
+      gap: 1rem;
     }
 
     .navigation {
       animation: ${Animation} linear;
       animation-timeline: view();
       animation-range: entry 0% cover 40%;
+
+      justify-self: end;
       button {
         color: white;
         background: rgba(255, 255, 255, 0.1);
@@ -159,10 +150,6 @@ const TestimonalSection = styled.section`
         &:hover {
           transform: scale(1.1);
         }
-      }
-
-      @media (max-width: 450px) {
-        margin-left: auto;
       }
     }
   }
@@ -182,7 +169,7 @@ const SectionTitle = styled.h2`
     -webkit-text-fill-color: transparent;
   }
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     font-size: 3rem;
   }
 `;
@@ -194,9 +181,10 @@ const Description = styled.p`
   text-align: left;
   font-size: 1.2rem;
   color: #777;
+  max-width: 550px;
   margin: 2rem 0 3rem 0;
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     margin-bottom: 0rem;
   }
 `;
@@ -205,10 +193,18 @@ const Grid = styled.div`
   animation: ${Animation} linear;
   animation-timeline: view();
   animation-range: entry 0% cover 40%;
+
+  max-width: 1480px;
+  margin: auto;
+  padding: 0 0 0 6rem;
   display: flex;
   gap: 2rem;
 
-  @media (max-width: 450px) {
+  @media (max-width: 1520px) {
+    padding: 0 0 0 0;
+  }
+
+  @media (max-width: 479px) {
     flex-wrap: wrap;
     gap: 2rem 0rem;
   }

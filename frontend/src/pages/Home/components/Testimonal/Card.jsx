@@ -39,7 +39,7 @@ const Card = styled.div`
     background: linear-gradient(90deg, #ff00ff, #ff7300);
   }
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     padding: 1.5rem;
   }
 `;
@@ -54,7 +54,7 @@ const Heading = styled.h3`
   font-weight: bold;
   margin: 10px 0;
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     font-size: 1.8rem;
   }
 `;
@@ -65,7 +65,7 @@ const Quote = styled.p`
   color: #bdbdbd;
   margin: 2rem 0;
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     font-size: 1.2rem;
   }
 `;
@@ -99,7 +99,7 @@ const Role = styled.span`
   font-size: 1rem;
   color: #bdbdbd;
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     font-size: 1.2rem;
   }
 `;

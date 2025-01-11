@@ -62,7 +62,7 @@ const Contact = () => {
             <div>
               <MdEmail />
               <a href="mailto:theportfolio_pro@gmail.com">
-                mhrithik450@gmail.com
+                mhrithik479@gmail.com
               </a>
             </div>
             <div>
@@ -143,7 +143,7 @@ const Container = styled.div`
   background-color: black;
   color: white;
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     padding: 10rem 1.5rem 1rem 1.5rem;
     flex-direction: column;
     gap: 2rem;
@@ -166,7 +166,7 @@ const LeftSection = styled.div`
       -webkit-text-fill-color: transparent;
     }
 
-    @media (max-width: 450px) {
+    @media (max-width: 479px) {
       font-size: 3rem;
     }
   }
@@ -219,7 +219,7 @@ const RightSection = styled.div`
     color: #cccccc;
   }
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     padding: 1rem;
   }
 `;

@@ -433,7 +433,7 @@ const Container = styled.div`
   color: #333;
   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     padding: 10rem 1rem 1rem 1rem;
   }
 `;
@@ -447,7 +447,7 @@ const Header = styled.header`
     font-size: 4rem;
     color: white;
 
-    @media (max-width: 450px) {
+    @media (max-width: 479px) {
       font-size: 3rem;
       margin: 1rem 0;
     }
@@ -463,7 +463,7 @@ const Header = styled.header`
     margin-right: 0.5rem;
     font-size: 1.2rem;
 
-    @media (max-width: 450px) {
+    @media (max-width: 479px) {
       font-size: 1rem;
     }
   }
@@ -539,7 +539,7 @@ const InfoGrid = styled.div`
     }
   }
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     flex-direction: column;
   }
 `;
@@ -554,7 +554,7 @@ const TextSection = styled.div`
     box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
   }
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     padding: 0 1rem;
 
     .text-section {
@@ -572,7 +572,7 @@ const Section = styled.section`
     font-size: 2.5rem;
     margin: 3rem 0 1rem 0;
 
-    @media (max-width: 450px) {
+    @media (max-width: 479px) {
       font-size: 2rem;
       margin: 2rem 0 1rem 0;
     }
@@ -618,7 +618,7 @@ const Section = styled.section`
     padding: 0 2rem;
     line-height: 1.5;
 
-    @media (max-width: 450px) {
+    @media (max-width: 479px) {
       padding: 0 1rem;
     }
   }
@@ -639,7 +639,7 @@ const Button = styled.a`
 
     h2 {
       color: white;
-      @media (max-width: 450px) {
+      @media (max-width: 479px) {
         font-size: 1.1rem;
       }
     }
@@ -678,13 +678,13 @@ const MoreSection = styled.section`
       -webkit-text-fill-color: transparent;
     }
 
-    @media (max-width: 450px) {
+    @media (max-width: 479px) {
       text-align: left;
       font-size: 3rem;
     }
   }
 
-  @media (max-width: 450px) {
+  @media (max-width: 479px) {
     padding: 4rem 1rem 2rem 1rem;
   }
 `;
@@ -697,7 +697,7 @@ const Grid = styled.div`
     flex-wrap: wrap;
     gap: 4rem;
 
-    @media (max-width: 450px) {
+    @media (max-width: 479px) {
       margin: 2rem 0;
       gap: 2rem;
     }
