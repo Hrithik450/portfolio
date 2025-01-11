@@ -121,8 +121,8 @@ const Container = styled.div`
       }
     }
 
-    @media (max-width: 450px) {
-      font-size: 0.9rem;
+    @media (max-width: 991px) {
+      font-size: 0.7rem;
     }
   }
 `;

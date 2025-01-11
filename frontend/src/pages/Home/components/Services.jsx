@@ -120,7 +120,7 @@ const CardsContainer = styled.div`
     grid-template-columns: 1fr 1fr;
   }
 
-  @media (max-width: 550px) {
+  @media (max-width: 450px) {
     grid-template-columns: 1fr;
   }
 `;
@@ -164,12 +164,13 @@ const CardIcon = styled.div`
 const CardTitle = styled.h2`
   font-size: 2rem;
   margin: 1.5rem 0;
-  @media (max-width: 450px) {
-    font-size: 1.8rem;
-  }
 `;
 
 const CardDescription = styled.p`
   font-size: 1.2rem;
   color: #aaa;
+
+  @media (max-width: 991px) {
+    font-size: 1rem;
+  }
 `;
