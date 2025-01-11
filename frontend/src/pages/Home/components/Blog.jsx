@@ -96,6 +96,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 10rem 3rem;
+  overflow: hidden;
 
   @media (max-width: 450px) {
     padding: 3rem 0px;
@@ -200,7 +201,6 @@ const ImagesContainer = styled.div`
   @media (max-width: 450px) {
     flex-direction: column;
     padding: 1rem 0 0 0;
-    overflow: hidden;
   }
 
   .img-block-2,

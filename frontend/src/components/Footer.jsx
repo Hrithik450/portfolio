@@ -120,10 +120,6 @@ const Container = styled.div`
         text-decoration: underline;
       }
     }
-
-    @media (max-width: 991px) {
-      font-size: 0.7rem;
-    }
   }
 `;
 
@@ -235,7 +231,7 @@ const FooterComp = styled.div`
   @media (max-width: 450px) {
     width: 100%;
     flex-wrap: wrap;
-    padding: 1rem 20px;
+    padding: 1rem;
   }
 `;
 
@@ -247,7 +243,7 @@ const ContactInfo = styled.div`
 `;
 
 const ContactItem = styled.div`
-  margin: 1rem 20px;
+  margin: 1rem 0;
   font-size: 2rem;
   display: flex;
   align-items: center;
@@ -264,14 +260,6 @@ const FooterLinks = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-
-  @media (max-width: 991px) {
-    padding: 0 2rem;
-  }
-
-  @media (max-width: 450px) {
-    justify-content: space-around;
-  }
 `;
 
 const Section = styled.div`

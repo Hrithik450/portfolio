@@ -223,6 +223,10 @@ const CardContent = styled.div`
   display: flex;
   align-items: center;
 
+  a {
+    text-decoration: none;
+  }
+
   .content {
     width: 100%;
 
