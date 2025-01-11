@@ -238,12 +238,12 @@ const GlobalStyles = styled.div`
 `;
 
 const MainContainer = styled.div`
+  box-shadow: 0 0 2px 2px rgba(255, 255, 255, 0.3);
   transition: transform 0.3s ease-in-out;
   display: flex;
   color: black;
 
   .sidebar {
-    box-shadow: 0 0 2px 2px rgba(255, 255, 255, 0.3);
     background: black;
     overflow: hidden;
     padding: 1rem;
