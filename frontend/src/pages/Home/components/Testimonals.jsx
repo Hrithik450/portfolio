@@ -104,6 +104,10 @@ const TestimonalSection = styled.section`
   height: auto;
   padding: 8rem 0 8rem 8rem;
 
+  @media (max-width: 991px) {
+    padding: 8rem 0 8rem 3rem;
+  }
+
   @media (max-width: 450px) {
     padding: 1rem;
   }
@@ -114,6 +118,10 @@ const TestimonalSection = styled.section`
     justify-content: space-between;
     align-items: center;
 
+    @media (max-width: 991px) {
+      padding-right: 2rem;
+    }
+
     @media (max-width: 450px) {
       max-width: 100%;
       flex-direction: column;
@@ -123,7 +131,6 @@ const TestimonalSection = styled.section`
 
     .left-header {
       max-width: 50%;
-
       @media (max-width: 450px) {
         max-width: 90%;
       }

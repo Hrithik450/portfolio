@@ -227,6 +227,11 @@ const FooterComp = styled.div`
   margin: auto;
   padding: 5rem 20px;
 
+  @media (max-width: 991px) {
+    width: 100%;
+    flex-direction: column;
+  }
+
   @media (max-width: 450px) {
     width: 100%;
     flex-wrap: wrap;
@@ -259,6 +264,10 @@ const FooterLinks = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+
+  @media (max-width: 991px) {
+    padding: 0 2rem;
+  }
 
   @media (max-width: 450px) {
     justify-content: space-around;

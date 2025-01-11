@@ -55,194 +55,160 @@ const SideBar = ({ isOpen, setIsOpen, object }) => {
 
   return (
     <>
-      <GlobalStyles>
-        <MainContainer $isOpen={isOpen}>
-          <motion.div
-            animate={
-              isSmallScreen && {
-                width: isOpen ? object.sizing.minWidth : "0px",
-              }
-            }
-            transition={
-              isSmallScreen
-                ? { duration: 0.5, type: "spring", damping: 10 }
-                : undefined
-            }
-            className="sidebar"
-          >
-            <div className="top_section">
-              <div className="bars">
-                <FaXmark onClick={toggle} />
-              </div>
-              <AnimatePresence>
-                {isOpen && (
-                  <motion.h1
-                    variants={showAnimation}
-                    initial="hidden"
-                    animate="show"
-                    exit="hidden"
-                    className="logo"
-                  >
-                    {object.title}
-                  </motion.h1>
-                )}
-              </AnimatePresence>
-            </div>
-
-            <div className="search">
-              <div className="search_icon">
-                <BiSearch />
-              </div>
-              <AnimatePresence>
-                {isOpen && (
-                  <motion.input
-                    initial="hidden"
-                    animate="show"
-                    exit="hidden"
-                    variants={inputAnimation}
-                    type="text"
-                    placeholder="Search"
-                  />
-                )}
-              </AnimatePresence>
-            </div>
-
-            <section className="routes">
-              {NavItems.map((item, index) => {
-                if (item.type === "LastDropdown") {
-                  return (
-                    item.items &&
-                    item.items.map((it, idx) => (
-                      <NavLink key={`${it}-${idx}`} to={it.href}>
-                        <div
-                          className={
-                            window.location.pathname === it.href
-                              ? "link active"
-                              : "link"
-                          }
-                        >
-                          <div className="icon">{it.icon}</div>
-                          <AnimatePresence>
-                            {isOpen && (
-                              <motion.div
-                                variants={showAnimation}
-                                initial="hidden"
-                                animate="show"
-                                exit="hidden"
-                                className="link_text"
-                              >
-                                {it.title}
-                              </motion.div>
-                            )}
-                          </AnimatePresence>
-                        </div>
-                      </NavLink>
-                    ))
-                  );
+      {isOpen && (
+        <GlobalStyles>
+          <MainContainer $isOpen={isOpen}>
+            <motion.div
+              animate={
+                isSmallScreen && {
+                  width: isOpen ? "100%" : "0px",
                 }
+              }
+              transition={
+                isSmallScreen
+                  ? { duration: 0.5, type: "spring", damping: 10 }
+                  : undefined
+              }
+              className="sidebar"
+            >
+              <section className="routes">
+                {NavItems.map((item, index) => {
+                  if (item.type === "LastDropdown") {
+                    return (
+                      item.items &&
+                      item.items.map((it, idx) => (
+                        <NavLink key={`${it}-${idx}`} to={it.href}>
+                          <div
+                            className={
+                              window.location.pathname === it.href
+                                ? "link active"
+                                : "link"
+                            }
+                          >
+                            <div className="icon">{it.icon}</div>
+                            <AnimatePresence>
+                              {isOpen && (
+                                <motion.div
+                                  variants={showAnimation}
+                                  initial="hidden"
+                                  animate="show"
+                                  exit="hidden"
+                                  className="link_text"
+                                >
+                                  {it.title}
+                                </motion.div>
+                              )}
+                            </AnimatePresence>
+                          </div>
+                        </NavLink>
+                      ))
+                    );
+                  }
 
-                if (item.type === "button") {
-                  return (
-                    <NavLink
-                      className="button-parent"
-                      key={`${item}-${index}`}
-                      to={isLoggedIn ? "/profile" : item.href}
-                    >
-                      {isOpen && (
-                        <div
-                          className="link hp-button"
-                          $minWidth={object.sizing.minWidth}
+                  if (item.type === "button") {
+                    return (
+                      <div className="button-parent">
+                        <NavLink
+                          key={`${item}-${index}`}
+                          to={isLoggedIn ? "/profile" : item.href}
                         >
-                          {isLoggedIn ? (
-                            <>
-                              <AuthContent>
-                                <ProfileImage
-                                  src="https://res.cloudinary.com/duozomapm/image/upload/v1736068016/myEditedInage_1.12.1_cnktnz.jpg"
-                                  alt="User Profile"
-                                />
-                                <AnimatePresence>
-                                  {isOpen && (
-                                    <motion.div
-                                      variants={showAnimation}
-                                      initial="hidden"
-                                      animate="show"
-                                      exit="hidden"
-                                      className="link_text"
-                                    >
-                                      U25UV24000942
-                                    </motion.div>
-                                  )}
-                                </AnimatePresence>
-                              </AuthContent>
-                            </>
-                          ) : (
-                            <>
-                              <div className="icon">{item.icon}</div>
-                              <AnimatePresence>
-                                {isOpen && (
-                                  <motion.div
-                                    variants={showAnimation}
-                                    initial="hidden"
-                                    animate="show"
-                                    exit="hidden"
-                                    className="link_text"
-                                  >
-                                    {item.name}
-                                  </motion.div>
-                                )}
-                              </AnimatePresence>
-                            </>
+                          {isOpen && (
+                            <div
+                              className="link hp-button"
+                              $minWidth={object.sizing.minWidth}
+                            >
+                              {isLoggedIn ? (
+                                <>
+                                  <AuthContent>
+                                    <ProfileImage
+                                      src="https://res.cloudinary.com/duozomapm/image/upload/v1736068016/myEditedInage_1.12.1_cnktnz.jpg"
+                                      alt="User Profile"
+                                    />
+                                    <AnimatePresence>
+                                      {isOpen && (
+                                        <motion.div
+                                          variants={showAnimation}
+                                          initial="hidden"
+                                          animate="show"
+                                          exit="hidden"
+                                          className="link_text"
+                                        >
+                                          U25UV24000942
+                                        </motion.div>
+                                      )}
+                                    </AnimatePresence>
+                                  </AuthContent>
+                                </>
+                              ) : (
+                                <>
+                                  <div className="icon">{item.icon}</div>
+                                  <AnimatePresence>
+                                    {isOpen && (
+                                      <motion.div
+                                        variants={showAnimation}
+                                        initial="hidden"
+                                        animate="show"
+                                        exit="hidden"
+                                        className="link_text"
+                                      >
+                                        {item.name}
+                                      </motion.div>
+                                    )}
+                                  </AnimatePresence>
+                                </>
+                              )}
+                            </div>
                           )}
-                        </div>
-                      )}
+                        </NavLink>
+                      </div>
+                    );
+                  }
+
+                  if (item.items && item.type === "dropdown") {
+                    return (
+                      <SidebarMenu
+                        key={`${item}-${index}`}
+                        setIsOpen={setIsOpen}
+                        item={item}
+                        showAnimation={showAnimation}
+                        isOpen={isOpen}
+                        object={object}
+                      />
+                    );
+                  }
+
+                  return (
+                    <NavLink key={`${item}-${index}`} to={item.href}>
+                      <div
+                        className={
+                          window.location.pathname === item.href
+                            ? "link active"
+                            : "link"
+                        }
+                      >
+                        <div className="icon">{item.icon}</div>
+                        <AnimatePresence>
+                          {isOpen && (
+                            <motion.div
+                              variants={showAnimation}
+                              initial="hidden"
+                              animate="show"
+                              exit="hidden"
+                              className="link_text"
+                            >
+                              {item.title}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
                     </NavLink>
                   );
-                }
-
-                if (item.items && item.type === "dropdown") {
-                  return (
-                    <SidebarMenu
-                      key={`${item}-${index}`}
-                      setIsOpen={setIsOpen}
-                      item={item}
-                      showAnimation={showAnimation}
-                      isOpen={isOpen}
-                      object={object}
-                    />
-                  );
-                }
-
-                return (
-                  <NavLink key={`${item}-${index}`} to={item.href}>
-                    <div
-                      className={
-                        window.location.pathname === item.href
-                          ? "link active"
-                          : "link"
-                      }
-                    >
-                      <div className="icon">{item.icon}</div>
-                      <AnimatePresence>
-                        {isOpen && (
-                          <motion.div
-                            variants={showAnimation}
-                            initial="hidden"
-                            animate="show"
-                            exit="hidden"
-                            className="link_text"
-                          >
-                            {item.title}
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                  </NavLink>
-                );
-              })}
-            </section>
-          </motion.div>
-        </MainContainer>
-      </GlobalStyles>
+                })}
+              </section>
+            </motion.div>
+          </MainContainer>
+        </GlobalStyles>
+      )}
     </>
   );
 };
@@ -267,26 +233,27 @@ const GlobalStyles = styled.div`
     box-sizing: border-box;
   }
 
+  width: 100%;
   position: absolute;
 `;
 
 const MainContainer = styled.div`
-  box-shadow: 0px 0px 1px 1px rgba(255, 255, 255, 0.6);
   transition: transform 0.3s ease-in-out;
   display: flex;
-  position: fixed;
-  z-index: 999;
-  background: black;
   color: black;
-  top: 0%;
 
   .sidebar {
-    height: 100vh;
+    box-shadow: 0 0 2px 2px rgba(255, 255, 255, 0.3);
+    background: black;
     overflow: hidden;
-    padding: 7px 0; 
-
+    padding: 1rem;
+    
     @media (min-width: 1280px){
       display: none;
+    }
+
+    @media (max-width: 450px) {
+      padding: 0 1rem;
     }
   }
 
@@ -321,23 +288,6 @@ const MainContainer = styled.div`
     }
   }
 
-  .search {
-    border-block: 1px solid rgba(255, 255, 255, 0.3);
-    color: white;
-    max-height: max-content;
-    display: flex;
-    align-items: center;
-    margin: 1rem 0;
-    height: 50px;
-    padding: 1rem 0.5rem;
-    input {
-      border: 1px solid black;
-      margin-left: 10px;
-      border-radius: 5px;
-      background: rgb(238, 238, 238);
-    }  
-  }
-
   .routes {
     position: relative;
     max-height: max-content;
@@ -346,44 +296,68 @@ const MainContainer = styled.div`
     flex-direction: column;
     gap: 5px;
   
-    .button-parent {
-      position: fixed;
-      bottom: 0%;
-    }
   }
-
-  .hp-button {
-     width: 290px;
-     border-top: 2px solid gray;
-     animation: ${Animation} 0.3s linear;
-     background-color: black;
-    }
-
-  .link {
-    max-height: max-content;
-    display: flex;
-    color: white;
-    gap: 10px;
-    padding: 0.5rem 1rem;
-    border-right: 4px solid transparent;
-    transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
-    }
- }
 
   a {
     text-decoration: none;
   }
 
-  @media (max-width: 450px) {
+  .link {
+    max-height: max-content;
+    display: flex;
+    align-items: center;  
+    font-size: 1.5rem;
+    color: white;
+    gap: 0.5rem;
+    padding: 1.5rem;
+    border-right: 4px solid transparent;
+    transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+
+      @media (max-width: 450px) {
+        padding: 1rem;
+        font-size: 1rem;
+      }
+    }
+ }
+
+
+  @media (max-width: 991px) {
   .active {
     background: rgba(255, 255, 255, 0.1);
    }
   }
 
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .link_text {
     max-height: max-content;
     white-space: nowrap;
-    font-size: 15px;
+    font-size: 1.5rem;
+
+    @media (max-width: 450px) {
+      font-size: 1rem;  
+    }
+  }
+
+  .button-parent {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem 0;
+
+    a {
+      border-radius: 40px;
+    }
+
+    .hp-button {
+      padding: 0.8rem 1.5rem;
+      border-radius: 40px;
+      border: 1px solid gray;
+      animation: ${Animation} 0.3s linear;
+    }
   }
 `;
 

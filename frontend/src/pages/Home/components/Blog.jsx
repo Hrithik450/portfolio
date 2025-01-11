@@ -95,8 +95,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10rem 50px;
-  font-family: Arial, sans-serif;
+  padding: 10rem 3rem;
 
   @media (max-width: 450px) {
     padding: 3rem 0px;
@@ -198,10 +197,6 @@ const ImagesContainer = styled.div`
   display: flex;
   padding: 4rem 0 0 0;
 
-  @media (max-width: 991px) {
-    flex-direction: column;
-  }
-
   @media (max-width: 450px) {
     flex-direction: column;
     padding: 1rem 0 0 0;
@@ -213,6 +208,10 @@ const ImagesContainer = styled.div`
     flex: 1;
     display: flex;
     justify-content: center;
+
+    @media (max-width: 991px) {
+      flex-direction: column;
+    }
 
     @media (max-width: 450px) {
       flex-wrap: wrap;
@@ -246,8 +245,8 @@ const ImagesContainer = styled.div`
       transform: rotate(15deg);
 
       @media (max-width: 991px) {
-        top: 1%;
-        right: 0%;
+        left: 12%;
+        top: -11%;
       }
 
       @media (max-width: 450px) {
@@ -260,6 +259,11 @@ const ImagesContainer = styled.div`
       right: 4%;
       z-index: 1;
 
+      @media (max-width: 991px) {
+        top: 1%;
+        right: 0%;
+      }
+
       @media (max-width: 450px) {
         right: 0%;
         z-index: 2;
@@ -271,6 +275,13 @@ const ImagesContainer = styled.div`
       top: 2%;
       right: 20%;
       transform: rotate(-15deg);
+
+      @media (max-width: 991px) {
+        top: -4%;
+        right: 12%;
+        z-index: 2;
+        transform: rotate(-10deg);
+      }
 
       @media (max-width: 450px) {
         right: 0%;

@@ -118,9 +118,14 @@ const Container = styled.div`
   }
 
   @media (max-width: 991px) {
-    max-width: 70%;
+    max-width: 80%;
     margin: 0;
+    padding: 8rem 3rem;
     flex-direction: column;
+
+    .right-container {
+      padding-top: 0;
+    }
   }
 
   @media (max-width: 450px) {
@@ -178,6 +183,11 @@ const BtnCont = styled.div`
   overflow: hidden;
   margin: 1rem 0;
   text-align: center;
+
+  @media (max-width: 991px) {
+    padding: 2rem 0;
+    text-align: left;
+  }
 `;
 
 const Button = styled.a`

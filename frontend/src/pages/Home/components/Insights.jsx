@@ -114,6 +114,10 @@ const Container = styled.div`
   padding: 5rem 0;
   text-align: center;
 
+  @media (max-width: 991px) {
+    padding: 5rem 3rem;
+  }
+
   @media (max-width: 450px) {
     padding: 3rem 1rem;
   }
@@ -157,7 +161,7 @@ const Grid = styled.div`
   gap: 1.5rem;
   margin-top: 2rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: 991px) {
     grid-template-columns: 1fr;
   }
 `;

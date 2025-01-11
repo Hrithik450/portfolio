@@ -101,12 +101,16 @@ const NavContainer = styled.nav`
   background-color: transparent;
   color: white;
 
-  @media (max-width: 1280px) {
-    padding: 1.5rem 2rem;
+  @media (max-width: 1024px) {
+    padding: 2rem 1.5rem;
+  }
+
+  @media (max-width: 991px) {
+    padding: 2.5rem 3rem;
   }
 
   @media (max-width: 450px) {
-    padding: 2rem 1rem;
+    padding: 2rem 1.5rem;
   }
 `;
 
@@ -134,12 +138,16 @@ const Logo = styled(Standard)`
     font-size: 2.3rem;
     width: max-content;
   }
+
+  @media (max-width: 1280px) {
+    flex-basis: 50%;
+  }
 `;
 
 const Bars = styled(FaBars)`
   font-size: 2rem;
 
-  @media (min-width: 1270px) {
+  @media (min-width: 991px) {
     display: none;
   }
 `;
@@ -156,16 +164,12 @@ const NavItemContainer = styled.div`
     }
   }
 
-  @media (max-width: 1280px) {
-    gap: 1rem;
+  @media (max-width: 991px) {
+    display: none;
   }
 `;
 
 const Category = styled(Standard)`
-  @media (max-width: 1180px) {
-    display: none;
-  }
-
   color: black;
   &:hover {
     color: rgba(0, 0, 0, 1);
@@ -184,10 +188,6 @@ const DropNavItem = styled.div`
   text-align: center;
   width: max-content;
   font-size: 1.3rem;
-
-  @media (max-width: 1180px) {
-    display: none;
-  }
 
   &:hover {
     border-bottom: 3px solid white;
@@ -210,10 +210,6 @@ const NavItem = styled(NavLink)`
   text-align: center;
   width: max-content;
   font-size: 1.3rem;
-
-  @media (max-width: 1180px) {
-    display: none;
-  }
 
   &:hover {
     border-bottom: 3px solid white;
@@ -238,10 +234,6 @@ const Button = styled.button`
 
   &:hover {
     transform: scale(1.1);
-  }
-
-  @media (max-width: 1180px) {
-    display: none;
   }
 `;
 

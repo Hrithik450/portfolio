@@ -14,6 +14,11 @@ import Hero from "./components/Hero";
 import SelectedProjects from "./components/Projects";
 import Testimonals from "./components/Testimonals";
 
+import { IoChatbubblesOutline } from "react-icons/io5";
+import { FaProjectDiagram } from "react-icons/fa";
+import { FaPenNib } from "react-icons/fa";
+import { FaTools } from "react-icons/fa";
+
 const object = {
   theme: "dark",
   title: "Hruthik M",
@@ -22,12 +27,12 @@ const object = {
   },
   NavItems: [
     { title: "Home", type: "normal", href: "/", icon: <MdHome /> },
-    { title: "Services", type: "normal", href: "/services", icon: <MdHome /> },
+    { title: "Services", type: "normal", href: "/services", icon: <FaTools /> },
     {
       title: "Projects",
       type: "normal",
       href: "/projects",
-      icon: <MdMessage />,
+      icon: <FaProjectDiagram />,
     },
     {
       title: "About Me",
@@ -39,13 +44,13 @@ const object = {
       title: "Blog",
       type: "normal",
       href: "/blogs",
-      icon: <FaUser />,
+      icon: <FaPenNib />,
     },
     {
       name: "Contact Me",
       type: "button",
       href: "/contact",
-      icon: <IoMdLogIn />,
+      icon: <IoChatbubblesOutline />,
     },
   ],
 };
