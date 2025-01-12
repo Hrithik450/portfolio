@@ -167,7 +167,6 @@ const Container = styled.div`
 const LeftSection = styled.div`
   flex: 1;
   max-width: 550px;
-  padding-right: 2rem;
 
   h1 {
     animation: ${Animation} 1000ms ease-in-out;
@@ -239,8 +238,6 @@ const RightSection = styled.div`
   }
 
   @media (max-width: 479px) {
-    max-width: 90%;
-    margin: auto;
     padding: 1rem;
   }
 `;
