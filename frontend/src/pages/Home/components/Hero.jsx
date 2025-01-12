@@ -42,7 +42,7 @@ const Hero = () => {
         </Content>
         <ImageContainer>
           <ProfileImage
-            src="https://cdn.prod.website-files.com/61f03747d8d407ed117df27f/61f1181cd102a28fb5ffae6c_Hero%20Image.png"
+            src="https://res.cloudinary.com/duozomapm/image/upload/v1736669260/myimage1.7_n7ltv9.jpg"
             alt="David Louis"
             loading="lazy"
           />
@@ -253,6 +253,11 @@ const ImageContainer = styled.div`
   background-size: cover;
   border-radius: 10px;
   overflow: hidden;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 
   @media (max-width: 991px) {
     grid-row-start: 2;
