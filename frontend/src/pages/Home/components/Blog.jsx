@@ -44,29 +44,25 @@ const Blog = () => {
         <div className="img-block-1">
           <Image
             className="image image-1"
-            src="https://cdn.prod.website-files.com/61f03747d8d407ed117df27f/61f1181cd102a28fb5ffae6c_Hero%20Image.png"
+            src="https://res.cloudinary.com/duozomapm/image/upload/v1736669260/myimage1.7_n7ltv9.jpg"
             alt="Project 1"
-            rotation="-20deg"
           />
           <Image
             className="image image-2"
-            src="https://cdn.prod.website-files.com/61f03747d8d407ed117df27f/61f1181cd102a28fb5ffae6c_Hero%20Image.png"
+            src="https://res.cloudinary.com/duozomapm/image/upload/v1736669260/myimage1.7_n7ltv9.jpg"
             alt="Project 2"
-            rotation="10deg"
           />
         </div>
         <div className="img-block-2">
           <Image
             className="image image-3"
-            src="https://cdn.prod.website-files.com/61f03747d8d407ed117df27f/61f1181cd102a28fb5ffae6c_Hero%20Image.png"
+            src="https://res.cloudinary.com/duozomapm/image/upload/v1736669260/myimage1.7_n7ltv9.jpg"
             alt="Project 3"
-            rotation="5deg"
           />
           <Image
             className="image image-4"
-            src="https://cdn.prod.website-files.com/61f03747d8d407ed117df27f/61f1181cd102a28fb5ffae6c_Hero%20Image.png"
+            src="https://res.cloudinary.com/duozomapm/image/upload/v1736669260/myimage1.7_n7ltv9.jpg"
             alt="Project 4"
-            rotation="-20deg"
           />
         </div>
       </ImagesContainer>
