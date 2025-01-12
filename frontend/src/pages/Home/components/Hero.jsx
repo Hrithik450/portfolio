@@ -109,8 +109,11 @@ const Heading = styled.h1`
     overflow: hidden;
     font-size: 3.5rem;
     line-height: 1.2;
-    font-weight: bold;
     color: white;
+
+    h1 {
+      font-weight: 900;
+    }
   }
 
   .heading-1 {

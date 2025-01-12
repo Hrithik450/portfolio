@@ -228,6 +228,7 @@ const LeftSection = styled.div`
 const RightSection = styled.div`
   animation: ${Animation} 1000ms ease-in-out;
   max-width: 550px;
+  padding: 1rem;
   background-color: #1c1c1c;
   height: max-content;
 
@@ -235,10 +236,6 @@ const RightSection = styled.div`
     font-size: 1.5rem;
     margin-bottom: 1rem;
     color: #cccccc;
-  }
-
-  @media (max-width: 479px) {
-    padding: 1rem;
   }
 `;
 
