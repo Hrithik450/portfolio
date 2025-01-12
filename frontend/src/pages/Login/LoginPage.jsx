@@ -72,6 +72,7 @@ const LoginSection = styled.section`
   }
 
   .container {
+    overflow: hidden;
     max-width: 1280px;
     margin: auto;
   }
