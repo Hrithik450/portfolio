@@ -141,7 +141,11 @@ const Container = styled.div`
   max-width: 1280px;
   margin: auto;
   height: auto;
-  padding: 12rem 4rem 0 4rem;
+  padding: 12rem 3rem 0 3rem;
+
+  @media (max-width: 762px) {
+    padding: 4rem 2rem 0 2rem;
+  }
 
   @media (max-width: 479px) {
     padding: 4rem 1rem 0 1rem;
@@ -161,24 +165,26 @@ const Title = styled.h1`
     -webkit-text-fill-color: transparent;
   }
 
+  @media (max-width: 991px) {
+    margin: 6rem 0 4rem 0;
+    text-align: left;
+  }
+
   @media (max-width: 479px) {
     font-size: 3rem;
-    text-align: left;
-    margin: 6rem 0 4rem 0;
   }
 `;
 
 const Grid = styled.div`
   .sub-grid {
     margin: 4rem 0;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
 
-    @media (max-width: 479px) {
+    @media (max-width: 991px) {
+      grid-template-columns: 1fr;
       margin: 2rem 0;
-      gap: 2rem;
     }
   }
 `;

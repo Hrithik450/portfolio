@@ -3,7 +3,6 @@ import styled, { keyframes } from "styled-components";
 import { MdHome, MdMessage } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
 import { IoMdLogIn } from "react-icons/io";
-import FeaturedBlog from "./components/FeatureCard";
 import BlogCard from "./components/BlogCard";
 import BottomCard from "./components/Card";
 import Footer from "../../components/Footer";
@@ -48,7 +47,7 @@ const object = {
 const blogs = [
   {
     id: 1,
-    type: "Main",
+    type: "Neutral",
     title: "Master Responsive Layouts with This Simple Fix!",
     category: "Coding",
     author: "John Doe",
@@ -117,7 +116,6 @@ const blogs = [
   },
 ];
 
-const mainBlog = blogs.find((blog) => blog.type === "Main");
 const neutralBlogs = blogs.filter((blog) => blog.type === "Neutral");
 const normalBlogs = blogs.filter((blog) => blog.type === "Normal");
 
@@ -128,17 +126,10 @@ const Insights = () => {
         <Navbar object={object} />
         <Wrapper>
           <FirstSection>
-            {mainBlog && (
-              <LargeFeatured>
-                <FeaturedBlog blog={mainBlog} />
-              </LargeFeatured>
-            )}
-            <SideBlogs>
-              {neutralBlogs &&
-                neutralBlogs.map((blog, bidx) => (
-                  <BlogCard blog={blog} key={`blog-${bidx}`} />
-                ))}
-            </SideBlogs>
+            {neutralBlogs &&
+              neutralBlogs.map((blog, bidx) => (
+                <BlogCard blog={blog} key={`blog-${bidx}`} />
+              ))}
           </FirstSection>
         </Wrapper>
       </BlogSection>
@@ -179,41 +170,66 @@ const Wrapper = styled.div`
 `;
 
 const FirstSection = styled.div`
-  padding: 10rem 0 8rem 0;
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 20px;
+  max-width: 1160px;
+  margin: auto;
+  padding: 10rem 0 2rem 0;
   margin-bottom: 40px;
 
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    padding: 10rem 0 2rem 0;
+  .blog-1 {
+    grid-row: span 2;
+    max-height: 520px;
   }
-`;
 
-const LargeFeatured = styled.div`
-  border: 1px solid white;
-  animation: ${Animation} 1000ms ease-in-out;
-  overflow: hidden;
-  grid-column: span 1;
-  box-shadow: 0px 6px 6px rgba(255, 255, 255, 0.3);
-`;
+  .blog-2,
+  .blog-3 {
+    max-height: 250px;
+  }
 
-const SideBlogs = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  @media (max-width: 991px) {
+    grid-template-columns: 1fr 1fr;
+
+    .blog-1 {
+      max-height: 100%;
+      grid-row: span 1;
+      grid-column: span 2;
+    }
+
+    .blog-2,
+    .blog-3 {
+      max-height: 100%;
+    }
+
+    .blog-3 {
+      grid-column-start: 2;
+    }
+  }
+
+  @media (max-width: 479px) {
+    .blog-2,
+    .blog-3 {
+      grid-column: span 2;
+    }
+
+    .blog-3 {
+      grid-row-start: 3;
+    }
+  }
 `;
 
 const SecondSection = styled.div`
   padding: 3rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 1.5rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: 991px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 762px) {
     grid-template-columns: 1fr;
   }
 `;

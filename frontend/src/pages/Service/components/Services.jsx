@@ -108,12 +108,16 @@ const Subtitle = styled.p`
 `;
 
 const CardsContainer = styled.div`
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
 
-  @media (max-width: 479px) {
-    flex-wrap: wrap;
+  @media (max-width: 991px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 762px) {
+    grid-template-columns: 1fr;
   }
 `;
 

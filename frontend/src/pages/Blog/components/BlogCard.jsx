@@ -2,11 +2,11 @@ import React from "react";
 import { MdOpenInNew } from "react-icons/md";
 import styled, { keyframes } from "styled-components";
 
-const BlogCard = ({ blog, ClassProp }) => {
+const BlogCard = ({ blog }) => {
   return (
-    <Card>
+    <Card className={`blog-${blog.id}`}>
       <Image src={blog.image} alt={blog.title} />
-      <Content className={`${ClassProp}`}>
+      <Content>
         <Title className="title">{blog.title}</Title>
         <a className="card-nav" href={`/blog/${blog.id}`}>
           <Date>{blog.date}</Date>
@@ -31,7 +31,6 @@ const Animation = keyframes`
 const Card = styled.div`
   border: 1px solid white;
   animation: ${Animation} 1000ms ease-in-out;
-  height: 250px;
   position: relative;
   box-shadow: 0px 3px 3px rgba(255, 255, 255, 0.3);
   overflow: hidden;
@@ -75,6 +74,14 @@ const Content = styled.div`
     justify-content: space-between;
     align-items: center;
   }
+
+  a {
+    text-decoration: none;
+  }
+
+  @media (max-width: 762px) {
+    padding: 1rem 1rem;
+  }
 `;
 
 const Date = styled.span`
@@ -86,6 +93,10 @@ const Title = styled.h3`
   margin: 5px 0;
   color: white;
   font-size: 1.5rem;
+
+  @media (max-width: 479px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const Icon = styled(MdOpenInNew)`

@@ -127,7 +127,7 @@ const Container = styled.div`
       font-size: 0.9rem;
 
       p {
-        max-width: 80%;
+        max-width: 90%;
         margin: auto;
       }
     }
