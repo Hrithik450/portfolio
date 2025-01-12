@@ -17,7 +17,7 @@ import Testimonals from "./components/Testimonals";
 import { IoChatbubblesOutline } from "react-icons/io5";
 import { FaProjectDiagram } from "react-icons/fa";
 import { FaPenNib } from "react-icons/fa";
-import { FaTools } from "react-icons/fa";
+import { GrLogin } from "react-icons/gr";
 
 const object = {
   theme: "dark",
@@ -27,7 +27,6 @@ const object = {
   },
   NavItems: [
     { title: "Home", type: "normal", href: "/", icon: <MdHome /> },
-    { title: "Services", type: "normal", href: "/services", icon: <FaTools /> },
     {
       title: "Projects",
       type: "normal",
@@ -47,10 +46,16 @@ const object = {
       icon: <FaPenNib />,
     },
     {
-      name: "Contact Me",
-      type: "button",
+      title: "Contact Me",
+      type: "normal",
       href: "/contact",
       icon: <IoChatbubblesOutline />,
+    },
+    {
+      name: "Login",
+      type: "button",
+      href: "/login",
+      icon: <GrLogin />,
     },
   ],
 };

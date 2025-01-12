@@ -9,6 +9,7 @@ import About from "./pages/About/AboutPage";
 import Insights from "./pages/Blog/BlogPage";
 import BlogPage from "./pages/Blog/components/BlogPage";
 import Contact from "./pages/Contact/ContactPage";
+import LoginPage from "./pages/Login/LoginPage";
 
 function App() {
   return (
@@ -23,6 +24,8 @@ function App() {
 
         <Route path="/project/:id" element={<ProjectBlog />} />
         <Route path="/blog/:id" element={<BlogPage />} />
+
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
     </Router>
   );

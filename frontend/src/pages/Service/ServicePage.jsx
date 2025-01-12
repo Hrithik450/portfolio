@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import Navbar from "../../components/Navbar/Navbar";
-import { MdHome, MdMessage } from "react-icons/md";
-import { FaUser } from "react-icons/fa";
-import { IoMdLogIn } from "react-icons/io";
+import { MdHome } from "react-icons/md";
+import { FaPenNib, FaProjectDiagram, FaUser } from "react-icons/fa";
 import Footer from "../../components/Footer";
 import ServicesDuplicate from "./components/Services";
+import { GrLogin } from "react-icons/gr";
+import { IoChatbubblesOutline } from "react-icons/io5";
 
 const object = {
   theme: "dark",
@@ -15,12 +16,11 @@ const object = {
   },
   NavItems: [
     { title: "Home", type: "normal", href: "/", icon: <MdHome /> },
-    { title: "Services", type: "normal", href: "/services", icon: <MdHome /> },
     {
       title: "Projects",
       type: "normal",
       href: "/projects",
-      icon: <MdMessage />,
+      icon: <FaProjectDiagram />,
     },
     {
       title: "About Me",
@@ -32,13 +32,19 @@ const object = {
       title: "Blog",
       type: "normal",
       href: "/blogs",
-      icon: <FaUser />,
+      icon: <FaPenNib />,
     },
     {
-      name: "Contact Me",
-      type: "button",
+      title: "Contact Me",
+      type: "normal",
       href: "/contact",
-      icon: <IoMdLogIn />,
+      icon: <IoChatbubblesOutline />,
+    },
+    {
+      name: "Login",
+      type: "button",
+      href: "/login",
+      icon: <GrLogin />,
     },
   ],
 };
