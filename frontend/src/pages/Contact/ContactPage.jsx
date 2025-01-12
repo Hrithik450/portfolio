@@ -161,9 +161,6 @@ const Container = styled.div`
 
   @media (max-width: 479px) {
     padding: 10rem 1.5rem 1rem 1.5rem;
-    flex-direction: column;
-    row-gap: 2rem;
-    column-gap: 0;
   }
 `;
 
@@ -231,10 +228,8 @@ const LeftSection = styled.div`
 
 const RightSection = styled.div`
   animation: ${Animation} 1000ms ease-in-out;
-  flex: 1;
   max-width: 550px;
   background-color: #1c1c1c;
-  padding: 2rem;
   height: max-content;
 
   h3 {
@@ -244,13 +239,14 @@ const RightSection = styled.div`
   }
 
   @media (max-width: 479px) {
+    width: 100%;
     padding: 1rem;
   }
 `;
 
 const Form = styled.form`
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
 
   .input-group {
     margin-bottom: 1.3rem;
@@ -284,7 +280,7 @@ const Form = styled.form`
 
 const BtnCont = styled.div`
   overflow: hidden;
-  margin-top: 1.5rem;
+  margin-top: 0.5rem;
   text-align: center;
 `;
 
