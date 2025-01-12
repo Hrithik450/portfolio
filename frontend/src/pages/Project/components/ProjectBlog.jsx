@@ -433,6 +433,10 @@ const Container = styled.div`
   color: #333;
   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
 
+  @media (max-width: 991px) {
+    padding: 10rem 2rem 1rem 2rem;
+  }
+
   @media (max-width: 479px) {
     padding: 10rem 1rem 1rem 1rem;
   }
@@ -507,8 +511,8 @@ const Content = styled.div`
 `;
 
 const InfoGrid = styled.div`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
   margin-top: 1rem;
 
@@ -539,8 +543,12 @@ const InfoGrid = styled.div`
     }
   }
 
+  @media (max-width: 762px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
   @media (max-width: 479px) {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 `;
 
@@ -549,17 +557,21 @@ const TextSection = styled.div`
   margin: 0 auto;
 
   .text-section {
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
     padding: 2rem;
     color: #333;
-    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
+
+    @media (max-width: 762px) {
+      padding: 1rem;
+    }
+  }
+
+  @media (max-width: 991px) {
+    padding: 0 2rem;
   }
 
   @media (max-width: 479px) {
     padding: 0 1rem;
-
-    .text-section {
-      padding: 1rem;
-    }
   }
 `;
 
@@ -626,13 +638,13 @@ const Section = styled.section`
 
 const Button = styled.a`
   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
 
   .next-btn {
     background: linear-gradient(90deg, #ff00ff, #ff7300);
     display: flex;
     align-items: center;
     justify-content: center;
-    text-decoration: none;
     padding: 1rem 0;
     cursor: pointer;
     gap: 1rem;
@@ -663,7 +675,7 @@ const Button = styled.a`
 const MoreSection = styled.section`
   max-width: 1100px;
   margin: 0 auto;
-  padding: 6rem 0 2rem 0;
+  padding: 6rem 2rem 2rem 2rem;
 
   h2 {
     animation: ${Animation} linear;
@@ -678,8 +690,11 @@ const MoreSection = styled.section`
       -webkit-text-fill-color: transparent;
     }
 
-    @media (max-width: 479px) {
+    @media (max-width: 991px) {
       text-align: left;
+    }
+
+    @media (max-width: 479px) {
       font-size: 3rem;
     }
   }
@@ -692,14 +707,16 @@ const MoreSection = styled.section`
 const Grid = styled.div`
   .sub-grid {
     margin: 2rem 0;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+
+    @media (max-width: 991px) {
+      grid-template-columns: 1fr;
+    }
 
     @media (max-width: 479px) {
       margin: 2rem 0;
-      gap: 2rem;
     }
   }
 `;

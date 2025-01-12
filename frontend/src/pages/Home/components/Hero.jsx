@@ -174,13 +174,14 @@ const Button = styled.a`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem 0.5rem;
+
   background: linear-gradient(90deg, #ff00ff, #ff7300);
   color: white;
+  padding: 0 0.5rem;
   font-weight: bold;
   border-radius: 50px;
   text-decoration: none;
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   white-space: nowrap;
   gap: 0.5rem;
 
@@ -189,8 +190,8 @@ const Button = styled.a`
   }
 
   span {
-    font-size: 1.5rem;
-    padding: 1rem 1rem;
+    font-size: 1.2rem;
+    padding: 1rem 0.5rem;
   }
 `;
 
@@ -203,6 +204,7 @@ const BtnCont = styled.div`
   gap: 1rem;
 
   .play-btn {
+    flex: 1;
     border: 1px solid white;
     background: rgba(255, 255, 255, 0.1);
     animation: ${TextAnimation} 500ms linear;
@@ -212,7 +214,7 @@ const BtnCont = styled.div`
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0.5rem 1rem;
+    padding: 0 0.5rem;
     border-radius: 50px;
     gap: 0.5rem;
 
@@ -221,12 +223,13 @@ const BtnCont = styled.div`
       &:hover {
         transform: scale(1.1);
       }
-      font-size: 3rem;
+      font-size: 2.5rem;
       color: red;
     }
 
     h1 {
-      font-size: 2rem;
+      font-size: 1.5rem;
+      padding: 0.7rem 0.5rem;
     }
   }
 `;
@@ -235,7 +238,7 @@ const RightIcon = styled(FaArrowRight)`
   color: black;
   border-radius: 50%;
   background: white;
-  padding: 1rem;
+  padding: 0.7rem;
   transition: all 0.3s ease;
 
   &:hover {

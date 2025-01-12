@@ -303,6 +303,10 @@ const Container = styled.div`
   color: #333;
   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
 
+  @media (max-width: 991px) {
+    padding: 10rem 2rem 1rem 2rem;
+  }
+
   @media (max-width: 479px) {
     padding: 10rem 1rem 1rem 1rem;
   }
@@ -389,8 +393,8 @@ const Content = styled.div`
 `;
 
 const InfoGrid = styled.div`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
   margin-top: 1rem;
 
@@ -421,8 +425,12 @@ const InfoGrid = styled.div`
     }
   }
 
+  @media (max-width: 762px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
   @media (max-width: 479px) {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 `;
 
@@ -435,14 +443,18 @@ const TextSection = styled.div`
     padding: 2rem;
     color: #333;
     box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
+
+    @media (max-width: 762px) {
+      padding: 1rem;
+    }
+  }
+
+  @media (max-width: 991px) {
+    padding: 0 2rem 5rem 2rem;
   }
 
   @media (max-width: 479px) {
     padding: 0 1rem 5rem 1rem;
-
-    .text-section {
-      padding: 1rem;
-    }
   }
 `;
 
@@ -521,6 +533,7 @@ const Section = styled.section`
 `;
 
 const Button = styled.a`
+  text-decoration: none;
   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
 
   .next-btn {
@@ -528,7 +541,6 @@ const Button = styled.a`
     display: flex;
     align-items: center;
     justify-content: center;
-    text-decoration: none;
     padding: 1rem 0;
     cursor: pointer;
     gap: 1rem;

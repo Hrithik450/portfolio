@@ -184,6 +184,8 @@ const BtnCont = styled.div`
   animation: ${Animation} linear;
   animation-timeline: view();
   animation-range: entry 0% cover 40%;
+
+  max-width: 550px;
   overflow: hidden;
   margin: 1rem 0;
   text-align: center;
@@ -198,13 +200,14 @@ const Button = styled.a`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem 0.5rem;
+
   background: linear-gradient(90deg, #ff00ff, #ff7300);
   color: white;
+  padding: 0 0.5rem;
   font-weight: bold;
   border-radius: 50px;
   text-decoration: none;
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   white-space: nowrap;
   gap: 0.5rem;
 
@@ -213,8 +216,8 @@ const Button = styled.a`
   }
 
   span {
-    font-size: 1.5rem;
-    padding: 1rem 1rem;
+    font-size: 1.2rem;
+    padding: 1rem 0.5rem;
   }
 `;
 
@@ -222,7 +225,7 @@ const RightIcon = styled(FaArrowRight)`
   color: black;
   border-radius: 50%;
   background: white;
-  padding: 1rem;
+  padding: 0.7rem;
   transition: all 0.3s ease;
 
   &:hover {

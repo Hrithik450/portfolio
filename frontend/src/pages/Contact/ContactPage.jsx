@@ -62,7 +62,7 @@ const Contact = () => {
             <div>
               <MdEmail />
               <a href="mailto:theportfolio_pro@gmail.com">
-                mhrithik479@gmail.com
+                mhrithik450@gmail.com
               </a>
             </div>
             <div>
@@ -137,11 +137,15 @@ const Container = styled.div`
   margin: 0 auto;
   padding: 12rem 2rem 2rem 2rem;
 
-  display: flex;
-  justify-content: space-between;
-  gap: 10rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
   background-color: black;
   color: white;
+
+  @media (max-width: 991px) {
+    grid-template-columns: 1fr;
+  }
 
   @media (max-width: 479px) {
     padding: 10rem 1.5rem 1rem 1.5rem;
@@ -152,6 +156,7 @@ const Container = styled.div`
 
 const LeftSection = styled.div`
   flex: 1;
+  max-width: 550px;
   padding-right: 2rem;
 
   h1 {
@@ -172,11 +177,16 @@ const LeftSection = styled.div`
   }
 
   p {
-    animation: ${Animation} 1000ms ease-in-out;
+    animation: ${Animation} 1000ms ease-in-out;\
+    max-width: 80%;
     margin: 1.5rem 0;
     font-size: 1.3rem;
     color: #cccccc;
     line-height: 1.5;
+
+    @media (max-width: 991px) {
+        max-width: 100%;
+    }
   }
 
   .contact-info {
@@ -209,6 +219,7 @@ const LeftSection = styled.div`
 const RightSection = styled.div`
   animation: ${Animation} 1000ms ease-in-out;
   flex: 1;
+  max-width: 550px;
   background-color: #1c1c1c;
   padding: 2rem;
   height: max-content;
@@ -261,19 +272,21 @@ const Form = styled.form`
 const BtnCont = styled.div`
   overflow: hidden;
   margin-top: 1.5rem;
+  text-align: center;
 `;
 
 const Button = styled.a`
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0.5rem 0.5rem;
+  justify-content: center;
+
   background: linear-gradient(90deg, #ff00ff, #ff7300);
   color: white;
+  padding: 0 0.5rem;
   font-weight: bold;
   border-radius: 50px;
   text-decoration: none;
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   white-space: nowrap;
   gap: 0.5rem;
 
@@ -283,12 +296,11 @@ const Button = styled.a`
 
   .text-wrapper {
     display: flex;
-    justify-content: center;
     align-items: center;
-    width: 100%;
+    justify-content: center;
     span {
-      font-size: 1.5rem;
-      padding: 1rem 1rem;
+      font-size: 1.2rem;
+      padding: 1rem 0.5rem;
     }
   }
 `;
@@ -297,7 +309,7 @@ const RightIcon = styled(FaArrowRight)`
   color: black;
   border-radius: 50%;
   background: white;
-  padding: 1rem;
+  padding: 0.7rem;
   transition: all 0.3s ease;
 
   &:hover {
