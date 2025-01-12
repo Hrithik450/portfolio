@@ -239,7 +239,8 @@ const RightSection = styled.div`
   }
 
   @media (max-width: 479px) {
-    width: 100%;
+    max-width: 90%;
+    margin: auto;
     padding: 1rem;
   }
 `;
