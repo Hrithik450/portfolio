@@ -4,7 +4,7 @@ import SignUpPage from "./SignUpPage";
 import styled from "styled-components";
 
 const AuthPage = () => {
-  const [login, setlogin] = useState(false);
+  const [login, setlogin] = useState(true);
   const handleAuth = (boolean) => {
     setlogin(boolean);
   };
@@ -75,7 +75,7 @@ const Body = styled.div`
     padding: 4rem 0;
 
     @media (max-width: 479px) {
-      padding: 4rem 1.5rem;
+      padding: 4rem 1rem;
     }
   }
 `;

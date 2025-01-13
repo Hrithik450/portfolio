@@ -89,7 +89,7 @@ const SignUpSection = styled.div`
     box-shadow: 0 0 2px 2px rgba(255, 255, 255, 0.1);
 
     @media (max-width: 479px) {
-      padding: 2rem 1rem;
+      padding: 2rem 1.5rem;
     }
 
     h2 {
