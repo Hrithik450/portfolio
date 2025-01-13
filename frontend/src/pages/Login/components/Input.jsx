@@ -68,6 +68,10 @@ const InputContainer = styled.div`
       &:focus {
         border-color: #5f41e4;
       }
+
+      @media (max-width: 479px) {
+        font-size: 1rem;
+      }
     }
 
     .password {

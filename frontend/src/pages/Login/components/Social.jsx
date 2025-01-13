@@ -43,12 +43,13 @@ const SocialContainer = styled.div`
         border-color: #5f41e4;
       }
 
-      svg {
-        font-size: 1.3rem;
-      }
-
+      svg,
       span {
         font-size: 1.3rem;
+
+        @media (max-width: 479px) {
+          font-size: 1rem;
+        }
       }
     }
   }

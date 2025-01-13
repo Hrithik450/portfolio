@@ -114,8 +114,8 @@ const Body = styled.div`
     width: 100%;
     padding: 3rem;
     border: 1px solid white;
-    background: rgba(0, 0, 0, 0.4);
-    box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.3);
+    background: black;
+    box-shadow: 0 0 2px 2px rgba(255, 255, 255, 0.1);
 
     @media (max-width: 479px) {
       padding: 2rem 1rem;
@@ -127,6 +127,10 @@ const Body = styled.div`
       color: white;
       padding-bottom: 2rem;
       font-weight: 800;
+
+      @media (max-width: 479px) {
+        font-size: 1.7rem;
+      }
     }
 
     form {
@@ -144,6 +148,10 @@ const Body = styled.div`
         &:hover {
           text-decoration: underline;
         }
+
+        @media (max-width: 479px) {
+          font-size: 1rem;
+        }
       }
 
       .login-btn {
@@ -159,6 +167,11 @@ const Body = styled.div`
 
         &:hover {
           background: #4320df;
+        }
+
+        @media (max-width: 479px) {
+          padding: 0.7rem 0;
+          font-size: 1rem;
         }
       }
 
@@ -176,6 +189,10 @@ const Body = styled.div`
           &:hover {
             text-decoration: underline;
           }
+        }
+
+        @media (max-width: 479px) {
+          font-size: 1rem;
         }
       }
     }
@@ -204,6 +221,10 @@ const Body = styled.div`
         z-index: 1;
         font-weight: 600;
         font-size: 1.1rem;
+
+        @media (max-width: 479px) {
+          font-size: 1rem;
+        }
       }
     }
   }
