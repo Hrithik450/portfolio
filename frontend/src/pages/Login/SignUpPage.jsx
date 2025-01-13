@@ -81,11 +81,24 @@ const fadeIn = keyframes`
 `;
 
 const SignUpSection = styled.div`
+  position: relative;
+
   .signup-container {
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 5px;
+      width: 100%;
+      background: linear-gradient(90deg, #ff00ff, #ff7300);
+    }
+
     width: 100%;
     padding: 3rem;
     border: 1px solid white;
-    background: black;
+    background-color: #2b4162;
+    background-image: linear-gradient(315deg, #2b4162 0%, #12100e 74%);
     box-shadow: 0 0 2px 2px rgba(255, 255, 255, 0.1);
 
     @media (max-width: 479px) {

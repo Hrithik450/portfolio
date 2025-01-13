@@ -33,7 +33,7 @@ export default AuthPage;
 
 const AuthSection = styled.section`
   height: 100%;
-  background-image: url("https://res.cloudinary.com/duozomapm/image/upload/v1736694564/Leonardo_Phoenix_10_Create_a_highly_detailed_ultrahighdefiniti_3_hiihpz.jpg");
+  background-image: url("https://res.cloudinary.com/duozomapm/image/upload/v1736756104/Untitled_design_19_grryoq.png");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -72,7 +72,7 @@ const Body = styled.div`
     max-width: 450px;
     width: 100%;
     margin: auto;
-    padding: 4rem 0;
+    padding: 3rem 0;
 
     @media (max-width: 479px) {
       padding: 4rem 1rem;
