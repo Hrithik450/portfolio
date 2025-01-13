@@ -88,6 +88,9 @@ const Container = styled.div`
   margin: auto;
   height: auto;
 
+  animation: ${Animation} linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -190,11 +193,11 @@ const Stat = styled.div`
 `;
 
 const ImagesContainer = styled.div`
-  max-width: 1160px;
-  width: 100%;
   animation: ${Animation} linear;
   animation-timeline: view();
   animation-range: entry 0% cover 40%;
+  max-width: 1160px;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
