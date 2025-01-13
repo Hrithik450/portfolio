@@ -91,7 +91,7 @@ export default Testimonals;
 const Animation = keyframes`
   from {
     opacity: 0;
-    transform: scale(0.5);
+    transform: scale(0.2);
   }
   to {
     opacity: 1;

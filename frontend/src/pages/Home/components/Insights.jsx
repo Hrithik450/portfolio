@@ -98,7 +98,7 @@ export default Insights;
 
 const Animation = keyframes`
   from {
-    transform: scale(0.7);
+    transform: scale(0.2);
     opacity: 0;
   }
   to {
