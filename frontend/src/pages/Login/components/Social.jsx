@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { FaApple } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 
@@ -20,6 +20,17 @@ const SocialLogin = () => {
 };
 export default SocialLogin;
 
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+`;
+
 const SocialContainer = styled.div`
   .social-container {
     display: grid;
@@ -27,6 +38,7 @@ const SocialContainer = styled.div`
     gap: 1rem;
 
     .social-link {
+      animation: ${fadeIn} 1000ms ease-in-out;
       display: flex;
       justify-content: center;
       align-items: center;

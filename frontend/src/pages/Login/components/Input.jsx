@@ -1,9 +1,10 @@
 import { useState } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { FaEye } from "react-icons/fa6";
 import { FaEyeSlash } from "react-icons/fa6";
 
-const InputField = ({ type, placeholder, icon }) => {
+const InputField = ({ type, placeholder, icon, name, value, onChange }) => {
+  const isPasswordType = type === "password";
   const [isPasswordShown, setIsPasswordShown] = useState(false);
   const handlePassword = () => {
     setIsPasswordShown(!isPasswordShown);
@@ -12,23 +13,23 @@ const InputField = ({ type, placeholder, icon }) => {
   return (
     <InputContainer>
       <div className="input-wrapper">
-        <div className="icon">{icon}</div>
-        {type === "password" ? (
-          <div className="password">
-            {isPasswordShown ? (
+        {icon && <div className="icon">{icon}</div>}
+        <div className={isPasswordType ? "password" : ""}>
+          {isPasswordType &&
+            (isPasswordShown ? (
               <FaEyeSlash onClick={handlePassword} />
             ) : (
               <FaEye onClick={handlePassword} />
-            )}
-            <input
-              type={isPasswordShown ? "text" : type}
-              placeholder={placeholder}
-              required
-            />
-          </div>
-        ) : (
-          <input type={type} placeholder={placeholder} required />
-        )}
+            ))}
+          <input
+            type={isPasswordType && isPasswordShown ? "text" : type}
+            placeholder={placeholder}
+            name={name}
+            value={value}
+            onChange={onChange}
+            required
+          />
+        </div>
       </div>
     </InputContainer>
   );
@@ -36,17 +37,32 @@ const InputField = ({ type, placeholder, icon }) => {
 
 export default InputField;
 
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+`;
+
 const InputContainer = styled.div`
+  animation: ${fadeIn} 1000ms ease-in-out;
   .input-wrapper {
     width: 100%;
     position: relative;
     margin: 1rem 0;
 
     .icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       position: absolute;
       top: 50%;
       left: 1rem;
-      transform: translateY(-45%);
+      transform: translateY(-50%);
       color: #bfb3f2;
       font-size: 1.1rem;
     }

@@ -4,9 +4,12 @@ import SocialLogin from "./components/Social";
 import InputField from "./components/Input";
 import { FaLock } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
+import { FaUserAlt } from "react-icons/fa";
+import StrengthMeter from "./components/Strength";
 
-const LoginPage = ({ handleAuth }) => {
+const SignUpPage = ({ handleAuth }) => {
   const [AuthData, setAuthData] = useState({
+    username: "",
     email: "",
     password: "",
   });
@@ -18,14 +21,22 @@ const LoginPage = ({ handleAuth }) => {
     });
 
   return (
-    <LoginSection>
-      <div className="login-container">
-        <h2>Welcome Back</h2>
+    <SignUpSection>
+      <div className="signup-container">
+        <h2>Create Account</h2>
         <SocialLogin />
         <p className="separator">
           <span>or</span>
         </p>
         <form>
+          <InputField
+            type={"text"}
+            placeholder={"Username"}
+            icon={<FaUserAlt />}
+            name={"username"}
+            value={AuthData.username}
+            onChange={handleChange}
+          />
           <InputField
             type={"email"}
             placeholder={"Email Address"}
@@ -36,25 +47,27 @@ const LoginPage = ({ handleAuth }) => {
           />
           <InputField
             type={"password"}
-            placeholder={"Password"}
+            placeholder={"Create Password"}
             icon={<FaLock />}
             name={"password"}
             value={AuthData.password}
             onChange={handleChange}
           />
-          <a className="forget-password">Forget Password?</a>
-          <button className="login-btn">Login</button>
-          <span className="sign-up">
-            Dont't have a account?{" "}
-            <a onClick={() => handleAuth(false)}>Sign up</a>
+
+          <StrengthMeter password={AuthData.password} />
+
+          <button className="signup-btn">Sign Up</button>
+          <span className="login">
+            Already have a account?{" "}
+            <a onClick={() => handleAuth(true)}>Login</a>
           </span>
         </form>
       </div>
-    </LoginSection>
+    </SignUpSection>
   );
 };
 
-export default LoginPage;
+export default SignUpPage;
 
 const fadeIn = keyframes`
   from {
@@ -67,8 +80,8 @@ const fadeIn = keyframes`
   }
 `;
 
-const LoginSection = styled.div`
-  .login-container {
+const SignUpSection = styled.div`
+  .signup-container {
     width: 100%;
     padding: 3rem;
     border: 1px solid white;
@@ -114,7 +127,7 @@ const LoginSection = styled.div`
         }
       }
 
-      .login-btn {
+      .signup-btn {
         animation: ${fadeIn} 1000ms ease-in-out;
         width: 100%;
         padding: 1rem 0;
@@ -136,7 +149,7 @@ const LoginSection = styled.div`
         }
       }
 
-      .sign-up {
+      .login {
         animation: ${fadeIn} 1000ms ease-in-out;
         display: block;
         color: white;
