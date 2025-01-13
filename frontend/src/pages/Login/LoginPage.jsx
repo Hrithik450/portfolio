@@ -107,6 +107,7 @@ const Body = styled.div`
   width: 100%;
 
   @media (max-width: 479px) {
+    transform: translate(-50%, -50%);
     padding: 2rem 1rem 0 1rem;
   }
 
