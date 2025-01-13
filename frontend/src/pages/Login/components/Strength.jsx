@@ -119,7 +119,7 @@ const PasswordStrengthMeter = styled.div`
 
     .index {
       animation: ${fadeIn} 1000ms ease-in-out;
-      height: 5px;
+      height: 8px;
       width: 100%;
       border: 1px solid white;
     }
