@@ -1,19 +1,34 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { FaEye } from "react-icons/fa6";
+import { FaEyeSlash } from "react-icons/fa6";
 
 const InputField = ({ type, placeholder, icon }) => {
   const [isPasswordShown, setIsPasswordShown] = useState(false);
+  const handlePassword = () => {
+    setIsPasswordShown(!isPasswordShown);
+  };
 
   return (
     <InputContainer>
       <div className="input-wrapper">
-        <input
-          type={isPasswordShown ? "text" : type}
-          placeholder={placeholder}
-          className="input-field"
-          required
-        />
-        <i className="material-symbols-rounded">{icon}</i>
+        <div className="icon">{icon}</div>
+        {type === "password" ? (
+          <div className="password">
+            {isPasswordShown ? (
+              <FaEyeSlash onClick={handlePassword} />
+            ) : (
+              <FaEye onClick={handlePassword} />
+            )}
+            <input
+              type={isPasswordShown ? "text" : type}
+              placeholder={placeholder}
+              required
+            />
+          </div>
+        ) : (
+          <input type={type} placeholder={placeholder} required />
+        )}
       </div>
     </InputContainer>
   );
@@ -23,42 +38,50 @@ export default InputField;
 
 const InputContainer = styled.div`
   .input-wrapper {
-    height: 54px;
     width: 100%;
     position: relative;
-    margin-bottom: 1.5rem;
+    margin: 1rem 0;
 
-    .input-field {
+    .icon {
+      position: absolute;
+      top: 50%;
+      left: 1rem;
+      transform: translateY(-45%);
+      color: #bfb3f2;
+      font-size: 1.1rem;
+    }
+
+    input {
       width: 100%;
-      height: 100%;
-      outline: none;
-      font-size: 1.06rem;
-      border-radius: 0.31rem;
+      cursor: pointer;
+      padding: 1rem 2.5rem;
       background: rgba(0, 0, 0, 0.1);
-      border: 1px solid #bfb3f2;
-      padding: 0px 1.25rem 0 3.12rem;
-      transition: 0.2s ease;
+      outline: none;
       color: white;
-
-      &:focus {
-        border-color: #5f41e4;
-      }
+      border: 1px solid #bfb3f2;
+      font-size: 1.1rem;
 
       &::placeholder {
         color: white;
       }
+
+      &:focus {
+        border-color: #5f41e4;
+      }
     }
 
-    i {
-      position: absolute;
-      top: 50%;
-      left: 1.5rem;
-      height: 100%;
-      display: flex;
-      color: white;
-      align-items: center;
-      transform: translateY(-50%);
-      transition: 0.2s ease;
+    .password {
+      position: relative;
+
+      svg {
+        position: absolute;
+        top: 50%;
+        right: 1rem;
+        transform: translateY(-50%);
+        color: #bfb3f2;
+        font-size: 1.3rem;
+        cursor: pointer;
+      }
     }
   }
 `;

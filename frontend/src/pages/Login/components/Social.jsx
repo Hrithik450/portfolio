@@ -5,14 +5,14 @@ import { FcGoogle } from "react-icons/fc";
 const SocialLogin = () => {
   return (
     <SocialContainer>
-      <div className="social-login">
-        <button className="social-button">
+      <div className="social-container">
+        <button className="social-link">
           <FcGoogle />
-          Google
+          <span>Google</span>
         </button>
-        <button className="social-button">
+        <button className="social-link">
           <FaApple />
-          Apple
+          <span>Apple</span>
         </button>
       </div>
     </SocialContainer>
@@ -21,33 +21,34 @@ const SocialLogin = () => {
 export default SocialLogin;
 
 const SocialContainer = styled.div`
-  .social-login {
-    display: flex;
-    gap: 1.31rem;
+  .social-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
 
-    .social-button {
+    .social-link {
       display: flex;
-      gap: 0.5rem;
-      width: 100%;
-      font-size: 1.2rem;
-      font-weight: 500;
-      cursor: pointer;
-      padding: 0.75rem 0;
-      border-radius: 0.31rem;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0;
+      cursor: pointer;
+      background: transparent;
       color: white;
-      background: rgba(0, 0, 0, 0.1);
-      border: 1px solid #d5cbff;
-      transition: 0.3s ease;
+      outline: none;
+      border: 1px solid #bfb3f2;
 
       &:hover {
+        background: black;
         border-color: #5f41e4;
-        background: rgba(0, 0, 0, 1);
       }
 
       svg {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
+      }
+
+      span {
+        font-size: 1.3rem;
       }
     }
   }
