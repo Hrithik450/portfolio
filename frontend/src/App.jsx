@@ -10,6 +10,7 @@ import Insights from "./pages/Blog/BlogPage";
 import BlogPage from "./pages/Blog/components/BlogPage";
 import Contact from "./pages/Contact/ContactPage";
 import AuthPage from "./pages/Login/AuthPage";
+import Welcome from "./components/templates/Welcome";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/blog/:id" element={<BlogPage />} />
 
         <Route path="/login" element={<AuthPage />} />
+        <Route path="/welcome" element={<Welcome userName={"Hruthik M"} />} />
       </Routes>
     </Router>
   );

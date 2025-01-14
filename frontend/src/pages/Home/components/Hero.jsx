@@ -43,7 +43,7 @@ const Hero = () => {
         <ImageContainer>
           <ProfileImage
             src="https://res.cloudinary.com/duozomapm/image/upload/v1736669260/myimage1.7_n7ltv9.jpg"
-            alt="David Louis"
+            alt="Hruthik M"
             loading="lazy"
           />
         </ImageContainer>

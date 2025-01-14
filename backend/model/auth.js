@@ -1,17 +1,24 @@
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, Timestamp } from "firebase/firestore";
 import db from "../database/firebase.js";
 
-async function addData() {
-  try {
-    const DocRef = await addDoc(collection(db, "users"), {
-      name: "Hruthik M",
-      email: "mhrithik450@gmail.com",
-      age: 18,
-    });
-    console.log("Document written with ID:", DocRef.id);
-  } catch (error) {
-    console.error("Error adding document:", error);
-  }
+async function createUser(userData) {
+  const UsersCollectionRef = collection(db, "users");
+
+  const docRef = await addDoc(UsersCollectionRef, {
+    email: userData.email,
+    password: userData.password,
+    username: userData.username,
+    lastLogin: userData.lastLogin || Timestamp.now(),
+    isVerified: userData.isVerified || false,
+    resetPasswordToken: userData.resetPasswordToken || "",
+    resetPasswordExpiresAt: userData.resetPasswordExpiresAt || null,
+    verificationToken: userData.verificationToken || "",
+    verificationTokenExpiresAt: userData.verificationTokenExpiresAt || null,
+    createdAt: Timestamp.now(),
+    updatedAt: Timestamp.now(),
+  });
+
+  return docRef.id;
 }
 
-export default addData;
+export default createUser;
