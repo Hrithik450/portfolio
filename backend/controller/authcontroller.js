@@ -14,6 +14,7 @@ import {
   updateDoc,
   getDoc,
   setDoc,
+  Timestamp,
 } from "firebase/firestore";
 import { generateTokenandSetcookie } from "../utils/generateToken.js";
 import SendMail from "../utils/emails.js";
@@ -375,14 +376,20 @@ export const googleAuth = (req, res, next) => {
           if (!userDoc.exists()) {
             const newUser = {
               userID: GoogleID,
-              name: profile.displayName,
+              username: profile.displayName,
               email: profile.emails[0].value,
               image: profile.photos[0].value,
+              createdAt: Timestamp.now(),
+              lastLogin: Timestamp.now(),
+              isVerified: true,
             };
 
             await setDoc(userDocRef, newUser);
             return done(null, newUser);
           } else {
+            await updateDoc(userDocRef, {
+              lastLogin: Timestamp.now(),
+            });
             return done(null, userDoc.data());
           }
         } catch (error) {
