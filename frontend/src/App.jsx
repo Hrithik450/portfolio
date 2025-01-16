@@ -11,6 +11,7 @@ import BlogPage from "./pages/Blog/components/BlogPage";
 import Contact from "./pages/Contact/ContactPage";
 import AuthPage from "./pages/Login/AuthPage";
 import Welcome from "./components/templates/Welcome";
+import VerifyEmail from "./components/templates/VerifyEmail";
 
 function App() {
   return (
@@ -28,6 +29,10 @@ function App() {
 
         <Route path="/login" element={<AuthPage />} />
         <Route path="/welcome" element={<Welcome userName={"Hruthik M"} />} />
+        <Route
+          path="/verify"
+          element={<VerifyEmail verificationToken={"765843"} />}
+        />
       </Routes>
     </Router>
   );

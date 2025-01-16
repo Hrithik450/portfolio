@@ -5,6 +5,7 @@ async function createUser(userData) {
   const UsersCollectionRef = collection(db, "users");
 
   const docRef = await addDoc(UsersCollectionRef, {
+    userID: null,
     email: userData.email,
     password: userData.password,
     username: userData.username,
