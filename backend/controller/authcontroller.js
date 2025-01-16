@@ -19,6 +19,7 @@ import { generateTokenandSetcookie } from "../utils/generateToken.js";
 import SendMail from "../utils/emails.js";
 import ejs from "ejs";
 import path from "path";
+import { profile } from "console";
 
 const usersRef = collection(db, "users");
 const projects = [
@@ -341,4 +342,53 @@ export const resetPassword = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
+};
+
+export const googleAuth = (req, res, next) => {
+  passport.serializeUser((user, done) => {
+    done(null, user.userID);
+  });
+
+  passport.deserializeUser(async (userID, done) => {
+    const UserDoc = await getDoc(doc(db, "users", userID));
+    if (UserDoc.exists()) {
+      done(null, UserDoc.data());
+    } else {
+      done(new ErrorHandler("user not found!", 404), null);
+    }
+  });
+
+  passport.use(
+    new GoogleStrategy(
+      {
+        clientID: process.env.GOOGLE_CLIENT_ID,
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+        callbackURL: `${process.env.BACKEND_URL}/oauth/google/callback`,
+      },
+      async (accessToken, refreshToken, profile, done) => {
+        try {
+          const GoogleID = profile.id;
+
+          const userDocRef = doc(usersRef, GoogleID);
+          const userDoc = await getDoc(userDocRef);
+
+          if (!userDoc.exists()) {
+            const newUser = {
+              userID: GoogleID,
+              name: profile.displayName,
+              email: profile.emails[0].value,
+              image: profile.photos[0].value,
+            };
+
+            await setDoc(userDocRef, newUser);
+            return done(null, newUser);
+          } else {
+            return done(null, userDoc.data());
+          }
+        } catch (error) {
+          next(error);
+        }
+      }
+    )
+  );
 };
