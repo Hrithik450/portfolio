@@ -19,4 +19,11 @@ router.get(
   }
 );
 
+router.get("/logout", (req, res, next) => {
+  req.logout((err) => {
+    if (err) next(err);
+    res.redirect("https://hruthik.onrender.com");
+  });
+});
+
 export default router;
