@@ -442,7 +442,7 @@ export const facebookAuth = (req, res, next) => {
       {
         clientID: process.env.FACEBOOK_CLIENT_ID,
         clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-        callbackURL: `${process.env.BACKEND_URL}/welcome/oauth/facebook/callback`,
+        callbackURL: `${process.env.BACKEND_URL}/oauth/facebook/callback`,
         profileFields: ["id", "emails", "name", "picture.type(large)"],
       },
       async (accessToken, refreshToken, profile, done) => {
