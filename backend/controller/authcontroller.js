@@ -327,7 +327,7 @@ export const googleAuth = (req, res, next) => {
       {
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL: `${process.env.BACKEND_URL}/auth/google/callback`,
+        callbackURL: `${process.env.BACKEND_URL}/oauth/google/callback`,
       },
       async (accessToken, refreshToken, profile, done) => {
         try {
@@ -346,6 +346,17 @@ export const googleAuth = (req, res, next) => {
               lastLogin: Timestamp.now(),
               isVerified: true,
             };
+
+            const userExists = await checkUserByEmail(newUser.email);
+            if (userExists) {
+              const existingUserDocRef = doc(db, "users", userExists.userID);
+              await updateDoc(existingUserDocRef, {
+                lastLogin: Timestamp.now(),
+              });
+
+              return done(null, userExists);
+            }
+
             await setDoc(userDocRef, newUser);
             return done(null, newUser);
           } else {

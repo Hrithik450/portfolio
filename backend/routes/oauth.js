@@ -13,7 +13,10 @@ router.get(
   passport.authenticate("google", {
     failureRedirect: "/login",
     session: true,
-  })
+  }),
+  (req, res) => {
+    res.redirect("https://hruthik.onrender.com");
+  }
 );
 
 router.get(
