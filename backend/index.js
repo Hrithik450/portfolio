@@ -24,7 +24,7 @@ app.set("view engine", "ejs");
 app.set("views", path.resolve("./views"));
 
 // middlewares
-app.use(cors({ origin: "https://hruthik.onrender.com", credentials: "true" }));
+app.use(cors({ origin: "https://hruthik.onrender.com", credentials: true }));
 app.use(express.json());
 app.use(cookieParser());
 app.use("/docs", express.static(path.resolve(__dirname, "public/docs")));
