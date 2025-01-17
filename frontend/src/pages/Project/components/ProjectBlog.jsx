@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   FaArrowRight,
   FaPenNib,
@@ -14,6 +14,8 @@ import Navbar from "../../../components/Navbar/Navbar";
 import Footer from "../../../components/Footer";
 import { GrLogin } from "react-icons/gr";
 import { IoChatbubblesOutline } from "react-icons/io5";
+import ReactMarkdown from "react-markdown";
+import Blog1 from "./Blogs/Blog1";
 
 const object = {
   theme: "dark",
@@ -56,250 +58,248 @@ const object = {
   ],
 };
 
-const ProjectBlog = () => {
-  const project = {
-    id: 1,
-    title: "College Management System",
-    tags: ["Design", "Branding"],
-    src: "https://cdn.prod.website-files.com/61f77fc62f2d6f5df4a7a073/62120ad15f6f9cb7d164c6f3_Projects%20Image%206.jpg",
-    techStack: ["MERN", "Framer Motion"],
-    liveDemo: "https://superflow.co",
-    github: "https://superflow.co",
-    sections: [
-      [
-        { title: "Overview:" },
-        {
-          p: "Managing college operations can often be challenging due to the vast amount of data and processes involved. To address these challenges, I developed a College Management System website using the MERN Stack.",
-        },
-        {
-          p: "This system allows colleges to manage placement data efficiently through features like:",
-        },
-        {
-          ul: [
-            "Login Authentication",
-            "Role-Based Access Control",
-            "Admin Panel for Placement Data",
-            "Interactive Dashboards",
-            "Responsive Design",
-          ],
-        },
-        {
-          p: "The project is designed to streamline college operations while providing a user-friendly experience for both students and administrators.",
-        },
-      ],
-      [
-        { title: "Key Features:" },
-        {
-          ol: [
-            {
-              strong: "Login Authentication:",
-              ul: [
-                "Secure login for students, faculty, and administrators.",
-                "Protected routes to ensure data security.",
-              ],
-            },
-            {
-              strong: "Role-Based Access Control (RBAC):",
-              ul: [
-                "Different user roles (Admin, Student, Faculty) with access restricted based on roles.",
-                "Admins manage placement data, while students view relevant placement opportunities.",
-              ],
-            },
-            {
-              strong: "Admin Panel for Placement Data:",
-              ul: [
-                "Admins can easily add, update, and delete placement-related data (e.g., companies, job descriptions, deadlines).",
-                "Manage records of students placed in various companies.",
-              ],
-            },
-            {
-              strong: "Interactive Dashboards:",
-              ul: [
-                "Students: View personalized placement stats and eligible companies.",
-                "Admins: Monitor overall placement statistics, student participation, and job trends.",
-              ],
-            },
-          ],
-        },
-        {
-          p: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos totam ex excepturi velit cumque quasi corrupti autem similique sapiente pariatur?",
-        },
-        {
-          ul: [
-            "Secure login for students, faculty, and administrators.",
-            "Protected routes to ensure data security.",
-          ],
-        },
-      ],
-      [
-        { title: "Technical Stack:" },
-        {
-          p: "This project is built using the MERN Stack, leveraging its flexibility and scalability:",
-        },
-        {
-          ol: [
-            {
-              strong: "Frontend:",
-              ul: [
-                "React.js: Used for its component-based architecture and dynamic UI updates.",
-                "React Router: For seamless navigation between pages.",
-                "Axios: For API requests.",
-              ],
-            },
-            {
-              strong: "Backend:",
-              ul: [
-                "Node.js & Express.js: Created secure RESTful APIs for handling authentication, role-based access, and placement data operations.",
-              ],
-            },
-            {
-              strong: "Database:",
-              ul: [
-                "MongoDB: Used as a NoSQL database to store user data, placement records, and admin details.",
-                "Mongoose: For schema modeling and database interaction.",
-              ],
-            },
-            {
-              strong: "Other Tools:",
-              ul: [
-                "JWT (JSON Web Tokens): For secure authentication.",
-                "BCrypt.js: For hashing user passwords.",
-                "Cloudinary: To store images (e.g., student resumes or company logos).",
-              ],
-            },
-          ],
-        },
-      ],
-      [
-        {
-          title: "Architecture and Workflow:",
-        },
-        {
-          src: "https://res.cloudinary.com/duozomapm/image/upload/v1736274839/Workflow_wxhske.png",
-        },
-        {
-          ol: [
-            {
-              strong: "Login:",
-              ul: [
-                "Users log in via their credentials.",
-                "Authentication is handled using JWTs.",
-              ],
-            },
-            {
-              strong: "Role-Based Routing:",
-              ul: [
-                "Admins can access placement management panels.",
-                "Students can view eligible placements via their dashboard.",
-              ],
-            },
-            {
-              strong: "Placement Management:",
-              ul: ["Admins can add/edit placement opportunities in real time."],
-            },
-            {
-              strong: "Data Visualization:",
-              ul: [
-                "Dashboards display statistics like total placements, companies visited, and student participation rates.",
-              ],
-            },
-          ],
-        },
-      ],
-      [
-        {
-          title: "Challenges Solved:",
-        },
-        {
-          ol: [
-            {
-              strong: "Building Grid Layout",
-              ul: [
-                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate magnam quidem sapiente, deserunt esse doloremque eligendi autem nam! Dignissimos, repellendus.",
-              ],
-            },
-            {
-              strong: "Responsive-ness for all devices",
-              ul: [
-                "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam, enim! Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, dolor?",
-              ],
-            },
-          ],
-        },
-      ],
-      [
-        { title: "Architecture and Workflow:" },
-        { p: "Authentication Middleware:" },
-        {
-          src: "https://res.cloudinary.com/duozomapm/image/upload/v1736275746/Screenshot_2025-01-08_002812_okep88.png",
-        },
-        { p: "Placement Data Schema:" },
-        {
-          src: "https://res.cloudinary.com/duozomapm/image/upload/v1736275887/Screenshot_2025-01-08_003055_lmifsf.png",
-        },
-      ],
-      [
-        { title: "Future Scope:" },
-        {
-          ol: [
-            {
-              strong: "Add Notifications:",
-              ul: [
-                "Email notifications for students about new placement opportunities.",
-              ],
-            },
-            {
-              strong: "Integrate Chat Functionality:",
-              ul: [
-                "A direct communication channel between students and admins.",
-              ],
-            },
-            {
-              strong: "Analytics Dashboard:",
-              ul: [
-                "More advanced analytics to predict placement trends and success rates.",
-              ],
-            },
-          ],
-        },
-      ],
-      [
-        { title: "Conclusion:" },
-        {
-          p: "The College Management System showcases my ability to build scalable, user-friendly applications using the MERN Stack. It solves a real-world problem and demonstrates skills in authentication, database management, and responsive design.",
-        },
-        {
-          ul: [
-            "GitHub Repository: View Code",
-            "Live Demo: Try It Here",
-            "Contact Me: +91-7483229386",
-          ],
-        },
-      ],
-    ],
-    Nextproject: 3,
-    NextProjects: [
+const project = {
+  id: 1,
+  title: "College Management System",
+  tags: ["Design", "Branding"],
+  src: "https://cdn.prod.website-files.com/61f77fc62f2d6f5df4a7a073/62120ad15f6f9cb7d164c6f3_Projects%20Image%206.jpg",
+  techStack: ["MERN", "Framer Motion"],
+  liveDemo: "https://superflow.co",
+  github: "https://superflow.co",
+  sections: [
+    [
+      { title: "Overview:" },
       {
-        id: 1,
-        title: "Masterbase Webdesign",
-        tags: ["Design", "Branding"],
-        industry: "FinTech",
-        location: "Los Angeles, USA",
-        image:
-          "https://cdn.prod.website-files.com/61f77fc62f2d6f5df4a7a073/62120ad15f6f9cb7d164c6f3_Projects%20Image%206.jpg",
+        p: "Managing college operations can often be challenging due to the vast amount of data and processes involved. To address these challenges, I developed a College Management System website using the MERN Stack.",
       },
       {
-        id: 2,
-        title: "Space Webflow Template",
-        tags: ["Design", "Development"],
-        industry: "FinTech",
-        location: "Los Angeles, USA",
-        image:
-          "https://cdn.prod.website-files.com/61f77fc62f2d6f5df4a7a073/62120ac6bd803221a913321d_Projects%20Image%205-p-800.jpeg",
+        p: "This system allows colleges to manage placement data efficiently through features like:",
+      },
+      {
+        ul: [
+          "Login Authentication",
+          "Role-Based Access Control",
+          "Admin Panel for Placement Data",
+          "Interactive Dashboards",
+          "Responsive Design",
+        ],
+      },
+      {
+        p: "The project is designed to streamline college operations while providing a user-friendly experience for both students and administrators.",
       },
     ],
-  };
+    [
+      { title: "Key Features:" },
+      {
+        ol: [
+          {
+            strong: "Login Authentication:",
+            ul: [
+              "Secure login for students, faculty, and administrators.",
+              "Protected routes to ensure data security.",
+            ],
+          },
+          {
+            strong: "Role-Based Access Control (RBAC):",
+            ul: [
+              "Different user roles (Admin, Student, Faculty) with access restricted based on roles.",
+              "Admins manage placement data, while students view relevant placement opportunities.",
+            ],
+          },
+          {
+            strong: "Admin Panel for Placement Data:",
+            ul: [
+              "Admins can easily add, update, and delete placement-related data (e.g., companies, job descriptions, deadlines).",
+              "Manage records of students placed in various companies.",
+            ],
+          },
+          {
+            strong: "Interactive Dashboards:",
+            ul: [
+              "Students: View personalized placement stats and eligible companies.",
+              "Admins: Monitor overall placement statistics, student participation, and job trends.",
+            ],
+          },
+        ],
+      },
+      {
+        p: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos totam ex excepturi velit cumque quasi corrupti autem similique sapiente pariatur?",
+      },
+      {
+        ul: [
+          "Secure login for students, faculty, and administrators.",
+          "Protected routes to ensure data security.",
+        ],
+      },
+    ],
+    [
+      { title: "Technical Stack:" },
+      {
+        p: "This project is built using the MERN Stack, leveraging its flexibility and scalability:",
+      },
+      {
+        ol: [
+          {
+            strong: "Frontend:",
+            ul: [
+              "React.js: Used for its component-based architecture and dynamic UI updates.",
+              "React Router: For seamless navigation between pages.",
+              "Axios: For API requests.",
+            ],
+          },
+          {
+            strong: "Backend:",
+            ul: [
+              "Node.js & Express.js: Created secure RESTful APIs for handling authentication, role-based access, and placement data operations.",
+            ],
+          },
+          {
+            strong: "Database:",
+            ul: [
+              "MongoDB: Used as a NoSQL database to store user data, placement records, and admin details.",
+              "Mongoose: For schema modeling and database interaction.",
+            ],
+          },
+          {
+            strong: "Other Tools:",
+            ul: [
+              "JWT (JSON Web Tokens): For secure authentication.",
+              "BCrypt.js: For hashing user passwords.",
+              "Cloudinary: To store images (e.g., student resumes or company logos).",
+            ],
+          },
+        ],
+      },
+    ],
+    [
+      {
+        title: "Architecture and Workflow:",
+      },
+      {
+        src: "https://res.cloudinary.com/duozomapm/image/upload/v1736274839/Workflow_wxhske.png",
+      },
+      {
+        ol: [
+          {
+            strong: "Login:",
+            ul: [
+              "Users log in via their credentials.",
+              "Authentication is handled using JWTs.",
+            ],
+          },
+          {
+            strong: "Role-Based Routing:",
+            ul: [
+              "Admins can access placement management panels.",
+              "Students can view eligible placements via their dashboard.",
+            ],
+          },
+          {
+            strong: "Placement Management:",
+            ul: ["Admins can add/edit placement opportunities in real time."],
+          },
+          {
+            strong: "Data Visualization:",
+            ul: [
+              "Dashboards display statistics like total placements, companies visited, and student participation rates.",
+            ],
+          },
+        ],
+      },
+    ],
+    [
+      {
+        title: "Challenges Solved:",
+      },
+      {
+        ol: [
+          {
+            strong: "Building Grid Layout",
+            ul: [
+              "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate magnam quidem sapiente, deserunt esse doloremque eligendi autem nam! Dignissimos, repellendus.",
+            ],
+          },
+          {
+            strong: "Responsive-ness for all devices",
+            ul: [
+              "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam, enim! Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, dolor?",
+            ],
+          },
+        ],
+      },
+    ],
+    [
+      { title: "Architecture and Workflow:" },
+      { p: "Authentication Middleware:" },
+      {
+        src: "https://res.cloudinary.com/duozomapm/image/upload/v1736275746/Screenshot_2025-01-08_002812_okep88.png",
+      },
+      { p: "Placement Data Schema:" },
+      {
+        src: "https://res.cloudinary.com/duozomapm/image/upload/v1736275887/Screenshot_2025-01-08_003055_lmifsf.png",
+      },
+    ],
+    [
+      { title: "Future Scope:" },
+      {
+        ol: [
+          {
+            strong: "Add Notifications:",
+            ul: [
+              "Email notifications for students about new placement opportunities.",
+            ],
+          },
+          {
+            strong: "Integrate Chat Functionality:",
+            ul: ["A direct communication channel between students and admins."],
+          },
+          {
+            strong: "Analytics Dashboard:",
+            ul: [
+              "More advanced analytics to predict placement trends and success rates.",
+            ],
+          },
+        ],
+      },
+    ],
+    [
+      { title: "Conclusion:" },
+      {
+        p: "The College Management System showcases my ability to build scalable, user-friendly applications using the MERN Stack. It solves a real-world problem and demonstrates skills in authentication, database management, and responsive design.",
+      },
+      {
+        ul: [
+          "GitHub Repository: View Code",
+          "Live Demo: Try It Here",
+          "Contact Me: +91-7483229386",
+        ],
+      },
+    ],
+  ],
+  Nextproject: 3,
+  NextProjects: [
+    {
+      id: 1,
+      title: "Masterbase Webdesign",
+      tags: ["Design", "Branding"],
+      industry: "FinTech",
+      location: "Los Angeles, USA",
+      image:
+        "https://cdn.prod.website-files.com/61f77fc62f2d6f5df4a7a073/62120ad15f6f9cb7d164c6f3_Projects%20Image%206.jpg",
+    },
+    {
+      id: 2,
+      title: "Space Webflow Template",
+      tags: ["Design", "Development"],
+      industry: "FinTech",
+      location: "Los Angeles, USA",
+      image:
+        "https://cdn.prod.website-files.com/61f77fc62f2d6f5df4a7a073/62120ac6bd803221a913321d_Projects%20Image%205-p-800.jpeg",
+    },
+  ],
+};
 
+const ProjectBlog = () => {
   return (
     <>
       <Navbar object={object} />
@@ -354,52 +354,7 @@ const ProjectBlog = () => {
       </ProjectBlogSection>
 
       <TextSection>
-        <div className="text-section">
-          {project.sections &&
-            project.sections.map((section, sidx) => (
-              <Section key={`sec-${sidx}`}>
-                <h2>{section[0].title}</h2>
-                {section &&
-                  section.map((para, pidx) =>
-                    para.ol ? (
-                      <ol key={`ol-${pidx}`}>
-                        {para.ol.map((olItem, olIndex) => (
-                          <li key={`li-${olIndex}`}>
-                            <strong>{olItem.strong}</strong>
-                            {olItem.ul && (
-                              <ul>
-                                {olItem.ul.map((ulItem, ulIndex) => (
-                                  <li key={`ul-${ulIndex}`}>{ulItem}</li>
-                                ))}
-                              </ul>
-                            )}
-                          </li>
-                        ))}
-                      </ol>
-                    ) : para.ul ? (
-                      <ul key={`ul-${pidx}`}>
-                        {para.ul.map((ulItem, ulIndex) => (
-                          <li key={`ul-item-${ulIndex}`}>{ulItem}</li>
-                        ))}
-                      </ul>
-                    ) : para.src ? (
-                      <div className="image-wrapper" key={`ul-${pidx}`}>
-                        <img src={para.src && para.src} />
-                      </div>
-                    ) : (
-                      <p key={`ul-${pidx}`}>{para.p && para.p}</p>
-                    )
-                  )}
-              </Section>
-            ))}
-        </div>
-
-        <Button href={`/project/${project.Nextproject}`}>
-          <div className="next-btn">
-            <h2>VIEW NEXT PROJECT</h2>
-            <FaArrowRight />
-          </div>
-        </Button>
+        <Blog1 />
       </TextSection>
 
       <MoreSection>

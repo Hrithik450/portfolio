@@ -407,6 +407,17 @@ export const googleAuth = (req, res, next) => {
               isVerified: true,
             };
 
+            const userExists = await checkUserByEmail(newUser.email);
+
+            if (userExists) {
+              const existingUserDocRef = doc(db, "users", userExists.userID);
+              await updateDoc(existingUserDocRef, {
+                lastLogin: Timestamp.now(),
+              });
+
+              return done(null, userExists);
+            }
+
             await setDoc(userDocRef, newUser);
             return done(null, newUser);
           } else {
@@ -478,7 +489,6 @@ export const facebookAuth = (req, res, next) => {
             if (userExists) {
               const existingUserDocRef = doc(db, "users", userExists.userID);
               await updateDoc(existingUserDocRef, {
-                userID: FacebookID,
                 lastLogin: Timestamp.now(),
               });
 

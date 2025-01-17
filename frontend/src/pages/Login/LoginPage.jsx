@@ -4,12 +4,32 @@ import SocialLogin from "./components/Social";
 import InputField from "./components/Input";
 import { FaLock } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
+import { useDispatch, useSelector } from "react-redux";
+import DotSpinner from "../../components/Spinner_1";
+import { login } from "../../store/slices/AuthSlice";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = ({ handleAuth }) => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { isLoading, error } = useSelector((state) => state.auth);
+
   const [AuthData, setAuthData] = useState({
     email: "",
     password: "",
   });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const result = await dispatch(login(AuthData));
+      if (result.type === "auth/login/fulfilled") {
+        navigate("/");
+      }
+    } catch (error) {
+      console.error("Login failed!", error);
+    }
+  };
 
   const handleChange = (e) =>
     setAuthData({
@@ -25,7 +45,7 @@ const LoginPage = ({ handleAuth }) => {
         <p className="separator">
           <span>or</span>
         </p>
-        <form>
+        <form onSubmit={handleSubmit}>
           <InputField
             type={"email"}
             placeholder={"Email Address"}
@@ -43,7 +63,10 @@ const LoginPage = ({ handleAuth }) => {
             onChange={handleChange}
           />
           <a className="forget-password">Forget Password?</a>
-          <button className="login-btn">Login</button>
+          <button className="login-btn">
+            {isLoading ? <DotSpinner /> : "Login"}
+          </button>
+          {error && <p>{error}</p>}
           <span className="sign-up">
             Dont't have a account?{" "}
             <a onClick={() => handleAuth(false)}>Sign up</a>

@@ -6,8 +6,15 @@ import { FaLock } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { FaUserAlt } from "react-icons/fa";
 import StrengthMeter from "./components/Strength";
+import { useDispatch, useSelector } from "react-redux";
+import DotSpinner from "../../components/Spinner_1";
+import { signup } from "../../store/slices/AuthSlice";
+import { useNavigate } from "react-router-dom";
 
 const SignUpPage = ({ handleAuth }) => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { isLoading, error } = useSelector((state) => state.auth);
   const [AuthData, setAuthData] = useState({
     username: "",
     email: "",
@@ -20,6 +27,18 @@ const SignUpPage = ({ handleAuth }) => {
       [e.target.name]: e.target.value,
     });
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const result = await dispatch(signup(AuthData));
+      if (result.type === "auth/signup/fulfilled") {
+        navigate("/");
+      }
+    } catch (error) {
+      console.error("SignUp Failed", error);
+    }
+  };
+
   return (
     <SignUpSection>
       <div className="signup-container">
@@ -28,7 +47,7 @@ const SignUpPage = ({ handleAuth }) => {
         <p className="separator">
           <span>or</span>
         </p>
-        <form>
+        <form onSubmit={handleSubmit}>
           <InputField
             type={"text"}
             placeholder={"Username"}
@@ -56,7 +75,10 @@ const SignUpPage = ({ handleAuth }) => {
 
           <StrengthMeter password={AuthData.password} />
 
-          <button className="signup-btn">Sign Up</button>
+          <button className="signup-btn">
+            {isLoading ? <DotSpinner /> : "Sign Up"}
+          </button>
+          {error && <p>{error}</p>}
           <span className="login">
             Already have a account?{" "}
             <a onClick={() => handleAuth(true)}>Login</a>
