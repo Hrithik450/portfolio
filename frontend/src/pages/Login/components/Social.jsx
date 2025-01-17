@@ -1,9 +1,8 @@
 import styled, { keyframes } from "styled-components";
-import { FaApple } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { useDispatch } from "react-redux";
-import { googleAuth, facebookAuth } from "../../../store/slices/AuthSlice";
 import { useNavigate } from "react-router-dom";
+import { FaFacebook } from "react-icons/fa";
 
 const SocialLogin = ({ showAlert }) => {
   const navigate = useNavigate();
@@ -21,9 +20,18 @@ const SocialLogin = ({ showAlert }) => {
           <FcGoogle />
           <span>Google</span>
         </a>
-        <a className="social-link">
-          <FaApple />
-          <span>Apple</span>
+        <a
+          href="https://hruthik-backend.onrender.com/oauth/facebook"
+          className="social-link"
+        >
+          <FaFacebook
+            style={{
+              color: "#1877F2",
+              backgroundColor: "white",
+              borderRadius: "50%",
+            }}
+          />
+          <span>Facebook</span>
         </a>
       </div>
     </SocialContainer>
