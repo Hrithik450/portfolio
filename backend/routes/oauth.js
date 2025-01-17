@@ -19,6 +19,22 @@ router.get(
   }
 );
 
+router.get(
+  "/facebook",
+  passport.authenticate("facebook", { scope: ["email"] })
+);
+
+router.get(
+  "/facebook/callback",
+  passport.authenticate("facebook", {
+    failureRedirect: "/login",
+    session: true,
+  }),
+  (req, res) => {
+    res.redirect("https://hruthik.onrender.com");
+  }
+);
+
 router.get("/logout", (req, res, next) => {
   req.logout((err) => {
     if (err) next(err);

@@ -1,5 +1,6 @@
 import passport from "passport";
 import { Strategy as GoogleStrategy } from "passport-google-oauth20";
+import { Strategy as FacebookStrategy } from "passport-facebook";
 import bcryptjs from "bcryptjs";
 import crypto from "crypto";
 import ErrorHandler from "../utils/errorhandler.js";
@@ -391,6 +392,62 @@ export const googleAuth = (req, res, next) => {
               lastLogin: Timestamp.now(),
             });
             return done(null, userDoc.data());
+          }
+        } catch (error) {
+          next(error);
+        }
+      }
+    )
+  );
+};
+
+export const facebookAuth = (req, res, next) => {
+  passport.serializeUser((user, done) => {
+    done(null, user.userID);
+  });
+
+  passport.deserializeUser(async (userID, done) => {
+    const UserDoc = await getDoc(doc(db, "users", userID));
+    if (UserDoc.exists) {
+      done(null, UserDoc.data());
+    } else {
+      done(new ErrorHandler("user not found!!", 404), null);
+    }
+  });
+
+  passport.use(
+    new FacebookStrategy(
+      {
+        clientID: process.env.FACEBOOK_CLIENT_ID,
+        clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+        callbackURL: `${process.env.BACKEND_URL}/oauth/facebook/callback`,
+        profileFields: ["id", "emails", "name", "picture.type(large)"],
+      },
+      async (accessToken, refreshToken, profile, done) => {
+        try {
+          const FacebookID = profile.id;
+
+          const userDocRef = doc(usersRef, FacebookID);
+          const UserDoc = await getDoc(userDocRef);
+
+          if (!UserDoc.exists()) {
+            const newUser = {
+              userID: FacebookID,
+              username: `${profile.name.givenName} ${profile.name.familyName}`,
+              email: profile.emails ? profile.emails[0].value : null,
+              image: profile.photos ? profile.photos[0].value : null,
+              createdAt: Timestamp.now(),
+              lastLogin: Timestamp.now(),
+              isVerified: email === null ? false : true,
+            };
+
+            await setDoc(userDocRef, newUser);
+            return done(null, newUser);
+          } else {
+            await updateDoc(userDocRef, {
+              lastLogin: Timestamp.now(),
+            });
+            done(null, UserDoc.data());
           }
         } catch (error) {
           next(error);

@@ -7,7 +7,7 @@ import cookieParser from "cookie-parser";
 import authRoutes from "./routes/auth.js";
 import docRoutes from "./routes/docs.js";
 import session from "express-session";
-import { googleAuth } from "./controller/authcontroller.js";
+import { facebookAuth, googleAuth } from "./controller/authcontroller.js";
 import errorMiddleware from "./middleware/error.js";
 import oauthRoutes from "./routes/oauth.js";
 import passport from "passport";
@@ -41,6 +41,7 @@ app.use(
   })
 );
 googleAuth();
+facebookAuth();
 app.use(passport.initialize());
 app.use(passport.session());
 
