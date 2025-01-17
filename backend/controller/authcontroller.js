@@ -438,7 +438,7 @@ export const facebookAuth = (req, res, next) => {
               image: profile.photos ? profile.photos[0].value : null,
               createdAt: Timestamp.now(),
               lastLogin: Timestamp.now(),
-              isVerified: email === null ? false : true,
+              isVerified: profile.emails ? true : false,
             };
 
             await setDoc(userDocRef, newUser);
