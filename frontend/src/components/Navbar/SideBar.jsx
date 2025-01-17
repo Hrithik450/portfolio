@@ -75,39 +75,41 @@ const SideBar = ({ isOpen, setIsOpen, object }) => {
                 {NavItems.map((item, index) => {
                   if (item.type === "LastDropdown") {
                     return (
-                      item.items &&
-                      item.items.map((it, idx) => (
-                        <NavLink key={`${it}-${idx}`} to={it.href}>
-                          <div
-                            className={
-                              window.location.pathname === it.href
-                                ? "link active"
-                                : "link"
-                            }
-                          >
-                            <div className="icon">{it.icon}</div>
-                            <AnimatePresence>
-                              {isOpen && (
-                                <motion.div
-                                  variants={showAnimation}
-                                  initial="hidden"
-                                  animate="show"
-                                  exit="hidden"
-                                  className="link_text"
-                                >
-                                  {it.title}
-                                </motion.div>
-                              )}
-                            </AnimatePresence>
-                          </div>
-                        </NavLink>
-                      ))
+                      <div key={`drop-${index}`}>
+                        {item.items &&
+                          item.items.map((it, idx) => (
+                            <NavLink key={`${it}-${idx}`} to={it.href}>
+                              <div
+                                className={
+                                  window.location.pathname === it.href
+                                    ? "link active"
+                                    : "link"
+                                }
+                              >
+                                <div className="icon">{it.icon}</div>
+                                <AnimatePresence>
+                                  {isOpen && (
+                                    <motion.div
+                                      variants={showAnimation}
+                                      initial="hidden"
+                                      animate="show"
+                                      exit="hidden"
+                                      className="link_text"
+                                    >
+                                      {it.title}
+                                    </motion.div>
+                                  )}
+                                </AnimatePresence>
+                              </div>
+                            </NavLink>
+                          ))}
+                      </div>
                     );
                   }
 
                   if (item.type === "button") {
                     return (
-                      <div className="button-parent">
+                      <div className="button-parent" key={`btn-${index}`}>
                         <NavLink
                           key={`${item}-${index}`}
                           to={isLoggedIn ? "/profile" : item.href}

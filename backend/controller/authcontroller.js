@@ -61,9 +61,7 @@ export const signup = async (req, res, next) => {
     );
 
     if (!UserAlreadyExists.empty) {
-      return next(
-        new ErrorHandler(`User Already Exists with this ${email}`, 400)
-      );
+      return next(new ErrorHandler(`User Already Exists!`, 400));
     }
 
     const hashedPassword = await bcryptjs.hash(password, 10);

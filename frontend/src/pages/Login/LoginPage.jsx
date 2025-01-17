@@ -8,7 +8,6 @@ import { useDispatch, useSelector } from "react-redux";
 import DotSpinner from "../../components/Spinner_1";
 import { login } from "../../store/slices/AuthSlice";
 import { useNavigate } from "react-router-dom";
-import { unwrapResult } from "@reduxjs/toolkit";
 
 const LoginPage = ({ handleAuth }) => {
   const [alert, setalert] = useState([]);
@@ -36,16 +35,15 @@ const LoginPage = ({ handleAuth }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const result = await dispatch(login(AuthData));
-      const data = unwrapResult(result);
-      if (result.type === "auth/login/fulfilled") {
-        showAlert({ type: "success", msg: data.message });
-        navigate("/");
-      }
-    } catch (error) {
-      showAlert({ type: "danger", msg: data.message });
-      console.error("Login failed!", error);
+
+    const result = await dispatch(login(AuthData));
+    if (result.type === "auth/login/fulfilled") {
+      showAlert({ type: "success", msg: "Successfully Logged In!" });
+      navigate("/");
+    }
+
+    if (result.type === "auth/login/rejected") {
+      showAlert({ type: "danger", msg: result && result.payload.message });
     }
   };
 
@@ -85,7 +83,7 @@ const LoginPage = ({ handleAuth }) => {
             {isLoading ? <DotSpinner /> : "Login"}
           </button>
 
-          {alert.length > 0 && (
+          {alert.length > 0 && alert[0].msg && (
             <div
               className={`alert alert-${alert[0].type}`}
               role="alert"

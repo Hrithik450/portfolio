@@ -10,7 +10,6 @@ import { useDispatch, useSelector } from "react-redux";
 import DotSpinner from "../../components/Spinner_1";
 import { signup } from "../../store/slices/AuthSlice";
 import { useNavigate } from "react-router-dom";
-import { unwrapResult } from "@reduxjs/toolkit";
 
 const SignUpPage = ({ handleAuth }) => {
   const [alert, setalert] = useState([]);
@@ -44,16 +43,15 @@ const SignUpPage = ({ handleAuth }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const result = await dispatch(signup(AuthData));
-      const data = unwrapResult(result);
-      if (result.type === "auth/signup/fulfilled") {
-        showAlert({ type: "success", msg: data.message });
-        navigate("/");
-      }
-    } catch (error) {
-      showAlert({ type: "danger", msg: data.message });
-      console.error("SignUp Failed", error);
+
+    const result = await dispatch(signup(AuthData));
+    if (result.type === "auth/signup/fulfilled") {
+      showAlert({ type: "success", msg: "Registered Successfully!" });
+      navigate("/");
+    }
+
+    if (result.type === "auth/signup/rejected") {
+      showAlert({ type: "danger", msg: result && result.payload.message });
     }
   };
 
@@ -106,7 +104,6 @@ const SignUpPage = ({ handleAuth }) => {
               {alert[0].msg}
             </div>
           )}
-
           <span className="login">
             Already have a account?{" "}
             <a onClick={() => handleAuth(true)}>Login</a>

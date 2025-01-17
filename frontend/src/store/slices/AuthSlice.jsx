@@ -29,7 +29,6 @@ export const signup = createAsyncThunk(
         userData,
         { withCredentials: true }
       );
-
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
