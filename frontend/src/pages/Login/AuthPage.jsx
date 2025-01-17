@@ -35,11 +35,6 @@ const AuthSection = styled.section`
   min-height: 100vh;
   overflow: hidden;
 
-  background-image: url("https://res.cloudinary.com/duozomapm/image/upload/v1736756104/Untitled_design_19_grryoq.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-
   .container {
     max-width: 1280px;
     margin: auto;

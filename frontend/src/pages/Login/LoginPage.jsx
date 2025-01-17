@@ -8,6 +8,8 @@ import { useDispatch, useSelector } from "react-redux";
 import DotSpinner from "../../components/Spinner_1";
 import { login } from "../../store/slices/AuthSlice";
 import { useNavigate } from "react-router-dom";
+import AlertBox from "../../components/AlertBox";
+import { color } from "framer-motion";
 
 const LoginPage = ({ handleAuth }) => {
   const [alert, setalert] = useState([]);
@@ -38,12 +40,20 @@ const LoginPage = ({ handleAuth }) => {
 
     const result = await dispatch(login(AuthData));
     if (result.type === "auth/login/fulfilled") {
-      showAlert({ type: "success", msg: "Successfully Logged In!" });
+      showAlert({
+        msg: "Successfully Logged In!",
+        color: "#155724",
+        bgcolor: "#d4edda",
+      });
       navigate("/");
     }
 
     if (result.type === "auth/login/rejected") {
-      showAlert({ type: "danger", msg: result && result.payload.message });
+      showAlert({
+        msg: result && result.payload.message,
+        color: "#5a2323",
+        bgcolor: "#ffcccc",
+      });
     }
   };
 
@@ -84,14 +94,13 @@ const LoginPage = ({ handleAuth }) => {
           </button>
 
           {alert.length > 0 && alert[0].msg && (
-            <div
-              className={`alert alert-${alert[0].type}`}
-              role="alert"
-              style={{ margin: "1rem 0", padding: "10px 20px" }}
-            >
-              {alert[0].msg}
-            </div>
+            <AlertBox
+              msg={alert[0].msg}
+              color={alert[0].color}
+              bgcolor={alert[0].bgcolor}
+            />
           )}
+
           <span className="sign-up">
             Dont't have a account?{" "}
             <a onClick={() => handleAuth(false)}>Sign up</a>
