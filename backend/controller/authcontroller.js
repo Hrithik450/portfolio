@@ -314,11 +314,11 @@ export const googleAuth = (req, res, next) => {
   });
 
   passport.deserializeUser(async (userID, done) => {
-    const UserDoc = await getDoc(doc(db, "users", userID));
-    if (UserDoc.exists()) {
-      done(null, UserDoc.data());
+    const userDoc = await getDoc(doc(usersRef, userID));
+    if (userDoc.exists()) {
+      done(null, userDoc.data());
     } else {
-      done(new ErrorHandler("user not found!", 404), null);
+      done(new ErrorHandler("User not found", 404), null);
     }
   });
 
@@ -327,9 +327,9 @@ export const googleAuth = (req, res, next) => {
       {
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL: `${process.env.BACKEND_URL}/oauth/google/callback`,
+        callbackURL: `${process.env.BACKEND_URL}/auth/google/callback`,
       },
-      async (accessToken, refreshToken, profile, done, next) => {
+      async (accessToken, refreshToken, profile, done) => {
         try {
           const GoogleID = profile.id;
 
@@ -337,14 +337,6 @@ export const googleAuth = (req, res, next) => {
           const userDoc = await getDoc(userDocRef);
 
           if (!userDoc.exists()) {
-            const Email = profile.emails[0].value;
-            const emailQuery = query(usersRef, where("email", "==", Email));
-            const emailSnapshot = await getDocs(emailQuery);
-
-            if (!emailSnapshot.empty) {
-              return next(new ErrorHandler("user already exists", 401));
-            }
-
             const newUser = {
               userID: GoogleID,
               username: profile.displayName,
@@ -354,18 +346,6 @@ export const googleAuth = (req, res, next) => {
               lastLogin: Timestamp.now(),
               isVerified: true,
             };
-
-            const userExists = await checkUserByEmail(newUser.email);
-
-            if (userExists) {
-              const existingUserDocRef = doc(db, "users", userExists.userID);
-              await updateDoc(existingUserDocRef, {
-                lastLogin: Timestamp.now(),
-              });
-
-              return done(null, userExists);
-            }
-
             await setDoc(userDocRef, newUser);
             return done(null, newUser);
           } else {
@@ -375,7 +355,7 @@ export const googleAuth = (req, res, next) => {
             return done(null, userDoc.data());
           }
         } catch (error) {
-          return next(error);
+          done(error, null);
         }
       }
     )

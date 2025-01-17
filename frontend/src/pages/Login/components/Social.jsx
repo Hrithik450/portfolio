@@ -9,37 +9,22 @@ const SocialLogin = ({ showAlert }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const handleOAuth = ({ platform }) => {
-    const result = dispatch(googleAuth());
-    if (result.type === `auth/${platform}/fulfilled`) {
-      showAlert({
-        msg: "Authentication Successfull!",
-        color: "#155724",
-        bgcolor: "#d4edda",
-      });
-      navigate("/");
-    }
-
-    if (result.type === `auth/${platform}/rejected`) {
-      showAlert({
-        msg: result && result.payload.message,
-        color: "#5a2323",
-        bgcolor: "#ffcccc",
-      });
-    }
-  };
+  const handleOAuth = () => {};
 
   return (
     <SocialContainer>
-      <div className="social-container" onClick={() => handleOAuth("google")}>
-        <button className="social-link">
+      <div className="social-container">
+        <a
+          href="https://hruthik-backend.onrender.com/oauth/google"
+          className="social-link"
+        >
           <FcGoogle />
           <span>Google</span>
-        </button>
-        <button className="social-link" onClick={() => handleOAuth("facebook")}>
+        </a>
+        <a className="social-link">
           <FaApple />
           <span>Apple</span>
-        </button>
+        </a>
       </div>
     </SocialContainer>
   );
@@ -75,6 +60,7 @@ const SocialContainer = styled.div`
       color: white;
       outline: none;
       border: 1px solid #bfb3f2;
+      text-decoration: none;
 
       &:hover {
         background: black;
