@@ -91,11 +91,11 @@ export const signup = async (req, res, next) => {
       verificationToken,
     });
 
-    // await SendMail({
-    //   to: email,
-    //   subject: "Your Email Verification Code for Hruthik M",
-    //   html: htmlContent,
-    // });
+    await SendMail({
+      to: email,
+      subject: "Your Email Verification Code for Hruthik M",
+      html: htmlContent,
+    });
 
     res.status(201).json({
       success: true,
