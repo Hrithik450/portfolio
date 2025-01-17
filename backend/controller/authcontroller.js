@@ -18,10 +18,6 @@ import {
   Timestamp,
 } from "firebase/firestore";
 import { generateTokenandSetcookie } from "../utils/generateToken.js";
-import SendMail from "../utils/emails.js";
-import ejs from "ejs";
-import path from "path";
-import { profile } from "console";
 
 const usersRef = collection(db, "users");
 const projects = [
@@ -86,17 +82,6 @@ export const signup = async (req, res, next) => {
 
     generateTokenandSetcookie(res, userID);
 
-    const templatePath = path.resolve("views", "verifyEmail.ejs");
-    const htmlContent = await ejs.renderFile(templatePath, {
-      verificationToken,
-    });
-
-    await SendMail({
-      to: email,
-      subject: "Your Email Verification Code for Hruthik M",
-      html: htmlContent,
-    });
-
     res.status(201).json({
       success: true,
       message: "Successfully Registered",
@@ -133,18 +118,6 @@ export const verifyemail = async (req, res, next) => {
       verificationTokenExpiresAt: null,
     });
 
-    const templatePath = path.resolve("views", "welcome.ejs");
-    const htmlContent = await ejs.renderFile(templatePath, {
-      username: user.username,
-      projects: projects,
-    });
-
-    await SendMail({
-      to: user.email,
-      subject: "Welcome to Hruthik M - Where Creativity Meets Innovation!",
-      html: htmlContent,
-    });
-
     res.status(200).json({
       success: true,
       message: "Email verified successfully",
@@ -177,17 +150,6 @@ export const resendEmail = async (req, res, next) => {
     await updateDoc(UserDocRef, {
       verificationToken: newVerificationToken,
       verificationTokenExpiresAt: Date.now() + 10 * 60 * 1000,
-    });
-
-    const templatePath = path.resolve("views", "verifyEmail.ejs");
-    const htmlContent = await ejs.renderFile(templatePath, {
-      verificationToken: newVerificationToken,
-    });
-
-    await SendMail({
-      to: user.email,
-      subject: "Your Email Verification Code for Hruthik M",
-      html: htmlContent,
     });
 
     res.status(200).json({
@@ -282,18 +244,6 @@ export const forgetPassword = async (req, res, next) => {
       resetPasswordToken: resetTokenhash,
       resetPasswordExpiresAt: resetTokenExpiresAt,
     });
-
-    const resetURL = `${process.env.FRONTEND_URL}/reset-password/${resetToken}`;
-    const templatePath = path.resolve("views", "PassresetEmail.ejs");
-    const htmlContent = await ejs.renderFile(templatePath, {
-      resetlink: resetURL,
-    });
-
-    // await SendMail({
-    //   to: email,
-    //   subject: "Password reset link for Hrutihk M",
-    //   html: htmlContent,
-    // });
 
     res.status(200).json({
       success: true,
