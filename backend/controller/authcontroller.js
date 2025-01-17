@@ -86,7 +86,7 @@ export const signup = async (req, res, next) => {
       userID: userID,
     });
 
-    generateTokenandSetcookie(res, userID);
+    console.log(generateTokenandSetcookie(res, userID));
 
     const templatePath = path.resolve("views", "verifyEmail.ejs");
     const htmlContent = await ejs.renderFile(templatePath, {

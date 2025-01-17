@@ -99,7 +99,6 @@ export const authSlice = createSlice({
       })
       .addCase(signup.fulfilled, (state, action) => {
         state.isLoading = false;
-        console.log(action.payload);
         state.user = action.payload;
       })
       .addCase(signup.rejected, (state, action) => {
