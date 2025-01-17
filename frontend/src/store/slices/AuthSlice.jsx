@@ -43,8 +43,9 @@ export const googleAuth = createAsyncThunk(
       const response = await axios.get(`${API_URL}/oauth/google`, {
         withCredentials: true,
       });
-      response.data;
+      return response.data;
     } catch (error) {
+      console.error(error);
       return thunkAPI.rejectWithValue(error.response.data);
     }
   }
@@ -105,9 +106,11 @@ export const authSlice = createSlice({
         state.error = action.payload;
       })
       .addCase(googleAuth.fulfilled, (state, action) => {
+        state.isLoading = false;
         state.user = action.payload;
       })
       .addCase(googleAuth.rejected, (state, action) => {
+        state.isLoading = false;
         state.error = action.payload;
       });
   },
