@@ -367,7 +367,7 @@ export const googleAuth = (req, res, next) => {
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
         callbackURL: `${process.env.BACKEND_URL}/oauth/google/callback`,
       },
-      async (accessToken, refreshToken, profile, done) => {
+      async (accessToken, refreshToken, profile, done, next) => {
         try {
           const GoogleID = profile.id;
 
@@ -431,7 +431,7 @@ export const facebookAuth = (req, res, next) => {
         callbackURL: `${process.env.BACKEND_URL}/oauth/facebook/callback`,
         profileFields: ["id", "emails", "name", "picture.type(large)"],
       },
-      async (accessToken, refreshToken, profile, done) => {
+      async (accessToken, refreshToken, profile, done, next) => {
         try {
           const FacebookID = profile.id;
 
