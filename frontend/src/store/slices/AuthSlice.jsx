@@ -103,6 +103,12 @@ export const authSlice = createSlice({
       .addCase(signup.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
+      })
+      .addCase(googleAuth.fulfilled, (state, action) => {
+        state.user = action.payload;
+      })
+      .addCase(googleAuth.rejected, (state, action) => {
+        state.error = action.payload;
       });
   },
 });

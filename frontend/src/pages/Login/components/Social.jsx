@@ -1,16 +1,42 @@
 import styled, { keyframes } from "styled-components";
 import { FaApple } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+import { useDispatch } from "react-redux";
+import { googleAuth, facebookAuth } from "../../../store/slices/AuthSlice";
+import { useNavigate } from "react-router-dom";
 
-const SocialLogin = () => {
+const SocialLogin = ({ showAlert }) => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleOAuth = ({ platform }) => {
+    const result = dispatch(googleAuth());
+    if (result.type === `auth/${platform}/fulfilled`) {
+      showAlert({
+        msg: "Authentication Successfull!",
+        color: "#155724",
+        bgcolor: "#d4edda",
+      });
+      navigate("/");
+    }
+
+    if (result.type === `auth/${platform}/rejected`) {
+      showAlert({
+        msg: result && result.payload.message,
+        color: "#5a2323",
+        bgcolor: "#ffcccc",
+      });
+    }
+  };
+
   return (
     <SocialContainer>
-      <div className="social-container">
+      <div className="social-container" onClick={() => handleOAuth("google")}>
         <button className="social-link">
           <FcGoogle />
           <span>Google</span>
         </button>
-        <button className="social-link">
+        <button className="social-link" onClick={() => handleOAuth("facebook")}>
           <FaApple />
           <span>Apple</span>
         </button>

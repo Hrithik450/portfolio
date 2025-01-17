@@ -68,7 +68,7 @@ const SignUpPage = ({ handleAuth }) => {
     <SignUpSection>
       <div className="signup-container">
         <h2>Create Account</h2>
-        <SocialLogin />
+        <SocialLogin showAlert={showAlert} />
         <p className="separator">
           <span>or</span>
         </p>
