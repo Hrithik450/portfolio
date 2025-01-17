@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import SocialLogin from "./components/Social";
 import InputField from "./components/Input";
@@ -10,8 +10,23 @@ import { useDispatch, useSelector } from "react-redux";
 import DotSpinner from "../../components/Spinner_1";
 import { signup } from "../../store/slices/AuthSlice";
 import { useNavigate } from "react-router-dom";
+import { unwrapResult } from "@reduxjs/toolkit";
 
 const SignUpPage = ({ handleAuth }) => {
+  const [alert, setalert] = useState([]);
+  useEffect(() => {
+    if (alert.length > 0) {
+      const timer = setTimeout(() => {
+        setalert((prev) => prev.slice(1));
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [alert]);
+
+  const showAlert = (alert) => {
+    setalert((prev) => [...prev, alert]);
+  };
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { isLoading, error } = useSelector((state) => state.auth);
@@ -31,10 +46,13 @@ const SignUpPage = ({ handleAuth }) => {
     e.preventDefault();
     try {
       const result = await dispatch(signup(AuthData));
+      const data = unwrapResult(result);
       if (result.type === "auth/signup/fulfilled") {
+        showAlert({ type: "success", msg: data.message });
         navigate("/");
       }
     } catch (error) {
+      showAlert({ type: "danger", msg: data.message });
       console.error("SignUp Failed", error);
     }
   };
@@ -78,7 +96,17 @@ const SignUpPage = ({ handleAuth }) => {
           <button className="signup-btn">
             {isLoading ? <DotSpinner /> : "Sign Up"}
           </button>
-          {error && <p>{error}</p>}
+
+          {alert.length > 0 && (
+            <div
+              className={`alert alert-${alert[0].type}`}
+              role="alert"
+              style={{ margin: "1rem 0", padding: "10px 20px" }}
+            >
+              {alert[0].msg}
+            </div>
+          )}
+
           <span className="login">
             Already have a account?{" "}
             <a onClick={() => handleAuth(true)}>Login</a>

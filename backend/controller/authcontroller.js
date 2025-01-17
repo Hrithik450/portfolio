@@ -101,7 +101,7 @@ export const signup = async (req, res, next) => {
 
     res.status(201).json({
       success: true,
-      message: "User Successfully Created, An email verification code is sent.",
+      message: "Successfully Registered",
       user: { ...user },
     });
   } catch (error) {
@@ -231,7 +231,7 @@ export const login = async (req, res, next) => {
 
     res.status(200).json({
       success: true,
-      message: "Login successful!",
+      message: "Successfully Logged In!",
       user: {
         userID: user.userID,
         email: user.email,
