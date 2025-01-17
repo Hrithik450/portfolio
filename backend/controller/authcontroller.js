@@ -375,6 +375,14 @@ export const googleAuth = (req, res, next) => {
           const userDoc = await getDoc(userDocRef);
 
           if (!userDoc.exists()) {
+            const Email = profile.emails[0].value;
+            const emailQuery = query(usersRef, where("email", "==", Email));
+            const emailSnapshot = await getDocs(emailQuery);
+
+            if (!emailSnapshot.empty) {
+              return next(new ErrorHandler("user already exists", 401));
+            }
+
             const newUser = {
               userID: GoogleID,
               username: profile.displayName,
@@ -431,6 +439,17 @@ export const facebookAuth = (req, res, next) => {
           const UserDoc = await getDoc(userDocRef);
 
           if (!UserDoc.exists()) {
+            const Email = profile.emails ? profile.emails[0].value : null;
+
+            if (Email) {
+              const emailQuery = query(usersRef, where("email", "==", Email));
+              const emailSnapshot = await getDocs(emailQuery);
+
+              if (!emailSnapshot.empty) {
+                return next(new ErrorHandler("User already exists", 401));
+              }
+            }
+
             const newUser = {
               userID: FacebookID,
               username: `${profile.name.givenName} ${profile.name.familyName}`,
@@ -447,10 +466,11 @@ export const facebookAuth = (req, res, next) => {
             await updateDoc(userDocRef, {
               lastLogin: Timestamp.now(),
             });
-            done(null, UserDoc.data());
+
+            return done(null, UserDoc.data());
           }
         } catch (error) {
-          done(error, null);
+          return done(error, null);
         }
       }
     )
