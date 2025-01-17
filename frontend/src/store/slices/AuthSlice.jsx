@@ -29,6 +29,7 @@ export const signup = createAsyncThunk(
         userData,
         { withCredentials: true }
       );
+
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
@@ -90,7 +91,6 @@ export const authSlice = createSlice({
       })
       .addCase(login.rejected, (state, action) => {
         state.isLoading = false;
-        console.log(action.payload);
         state.error = action.payload;
       })
       .addCase(signup.pending, (state) => {
