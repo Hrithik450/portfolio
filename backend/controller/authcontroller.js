@@ -346,6 +346,20 @@ export const resetPassword = async (req, res, next) => {
   }
 };
 
+export const checkUserByEmail = async (email) => {
+  try {
+    const q = query(usersRef, where("email", "==", email));
+    const emailSnapshot = await getDocs(q);
+
+    if (!emailSnapshot.empty) {
+      return emailSnapshot.docs[0].data();
+    }
+    return null;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export const googleAuth = (req, res, next) => {
   passport.serializeUser((user, done) => {
     done(null, user.userID);
@@ -428,10 +442,10 @@ export const facebookAuth = (req, res, next) => {
       {
         clientID: process.env.FACEBOOK_CLIENT_ID,
         clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-        callbackURL: `${process.env.BACKEND_URL}/oauth/facebook/callback`,
+        callbackURL: `http://localhost:7000/welcome/oauth/facebook/callback`,
         profileFields: ["id", "emails", "name", "picture.type(large)"],
       },
-      async (accessToken, refreshToken, profile, done, next) => {
+      async (accessToken, refreshToken, profile, done) => {
         try {
           const FacebookID = profile.id;
 
@@ -439,17 +453,6 @@ export const facebookAuth = (req, res, next) => {
           const UserDoc = await getDoc(userDocRef);
 
           if (!UserDoc.exists()) {
-            const Email = profile.emails ? profile.emails[0].value : null;
-
-            if (Email) {
-              const emailQuery = query(usersRef, where("email", "==", Email));
-              const emailSnapshot = await getDocs(emailQuery);
-
-              if (!emailSnapshot.empty) {
-                return next(new ErrorHandler("User already exists", 401));
-              }
-            }
-
             const newUser = {
               userID: FacebookID,
               username: `${profile.name.givenName} ${profile.name.familyName}`,
@@ -459,6 +462,28 @@ export const facebookAuth = (req, res, next) => {
               lastLogin: Timestamp.now(),
               isVerified: profile.emails ? true : false,
             };
+
+            if (!newUser.email) {
+              return done(
+                new ErrorHandler(
+                  "Your Facebook account does not provide an email",
+                  401
+                ),
+                null
+              );
+            }
+
+            const userExists = await checkUserByEmail(newUser.email);
+
+            if (userExists) {
+              const existingUserDocRef = doc(db, "users", userExists.userID);
+              await updateDoc(existingUserDocRef, {
+                userID: FacebookID,
+                lastLogin: Timestamp.now(),
+              });
+
+              return done(null, userExists);
+            }
 
             await setDoc(userDocRef, newUser);
             return done(null, newUser);
