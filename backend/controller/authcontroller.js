@@ -394,7 +394,7 @@ export const googleAuth = (req, res, next) => {
             return done(null, userDoc.data());
           }
         } catch (error) {
-          next(error);
+          done(error, null);
         }
       }
     )
@@ -450,7 +450,7 @@ export const facebookAuth = (req, res, next) => {
             done(null, UserDoc.data());
           }
         } catch (error) {
-          next(error);
+          done(error, null);
         }
       }
     )
