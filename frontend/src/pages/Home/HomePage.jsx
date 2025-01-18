@@ -77,8 +77,11 @@ const Home = () => {
       if (tempToken) {
         const result = dispatch(Oauth(tempToken));
         if (result.type === "oauth/cookie/fulfilled") {
-          window.history.replaceState({}, document.title, "/");
-          navigate("/", { replace: true });
+          window.history.replaceState(
+            {},
+            document.title,
+            window.location.pathname
+          );
         }
         if (result.type === "oauth/cookie/rejected") {
           navigate("/login");
