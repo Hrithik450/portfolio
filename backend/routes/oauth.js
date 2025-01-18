@@ -18,9 +18,7 @@ router.get(
   (req, res) => {
     const user = req.user;
     console.log(user);
-    res.redirect(
-      `https://hruthik.onrender.com/oauth-success?tempToken=${user.userID}`
-    );
+    res.redirect(`https://hruthik.onrender.com/?tempToken=${user.userID}`);
   }
 );
 

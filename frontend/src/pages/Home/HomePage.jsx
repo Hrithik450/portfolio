@@ -18,6 +18,9 @@ import { IoChatbubblesOutline } from "react-icons/io5";
 import { FaProjectDiagram } from "react-icons/fa";
 import { FaPenNib } from "react-icons/fa";
 import { GrLogin } from "react-icons/gr";
+import { Oauth } from "../../store/slices/AuthSlice";
+import { useDispatch, useSelector } from "react-redux";
+import DotSpinner from "../../components/Spinner_1";
 
 const object = {
   theme: "dark",
@@ -61,25 +64,54 @@ const object = {
 };
 
 const Home = () => {
+  const dispatch = useDispatch();
+  const { error, isLoading } = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    const handleOAuthSuccess = async () => {
+      const queryParams = new URLSearchParams(window.location.search);
+      const tempToken = queryParams.get("tempToken");
+
+      if (tempToken) {
+        const result = dispatch(Oauth(tempToken));
+        if (result.type === "oauth/cookie/fulfilled") {
+          window.history.replaceState({}, document.title, "/");
+        }
+        if (result.type === "oauth/cookie/rejected") {
+          navigate("/login");
+        }
+      }
+    };
+    handleOAuthSuccess();
+  }, []);
+
   return (
     <>
-      <HomeSection>
-        <Navbar object={object} />
-        <Hero />
-        <Services />
-      </HomeSection>
-      <SelectedProjects />
-      <HomeSection>
-        <Process />
-      </HomeSection>
-      <Blog />
-      <HomeSection>
-        <Testimonals />
-      </HomeSection>
-      <Insights />
-      <HomeSection>
-        <Footer header={true} />
-      </HomeSection>
+      {isLoading ? (
+        <Loading>
+          <DotSpinner />
+        </Loading>
+      ) : (
+        <>
+          <HomeSection>
+            <Navbar object={object} />
+            <Hero />
+            <Services />
+          </HomeSection>
+          <SelectedProjects />
+          <HomeSection>
+            <Process />
+          </HomeSection>
+          <Blog />
+          <HomeSection>
+            <Testimonals />
+          </HomeSection>
+          <Insights />
+          <HomeSection>
+            <Footer header={true} />
+          </HomeSection>
+        </>
+      )}
     </>
   );
 };
@@ -89,4 +121,14 @@ export default Home;
 const HomeSection = styled.section`
   position: relative;
   background: black;
+`;
+
+const Loading = styled.div`
+  background-color: #2b4162;
+  background-image: linear-gradient(315deg, #2b4162 0%, #12100e 74%);
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
