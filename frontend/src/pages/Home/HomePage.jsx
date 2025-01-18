@@ -2,9 +2,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import Services from "./components/Services";
 import { MdHome } from "react-icons/md";
-import { MdMessage } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
-import { IoMdLogIn } from "react-icons/io";
 import Navbar from "../../components/Navbar/Navbar";
 import Process from "./components/Process";
 import Blog from "./components/Blog";
@@ -75,8 +73,8 @@ const Home = () => {
       const tempToken = queryParams.get("tempToken");
 
       if (tempToken) {
-        const result = dispatch(Oauth(tempToken));
-        if (result.type === "oauth/cookie/fulfilled") {
+        const result = await dispatch(Oauth(tempToken));
+        if (result) {
           window.history.replaceState(
             {},
             document.title,
