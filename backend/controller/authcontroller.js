@@ -17,6 +17,9 @@ import {
   setDoc,
   Timestamp,
 } from "firebase/firestore";
+import axios from "axios";
+import path from "path";
+import ejs from "ejs";
 import { generateTokenandSetcookie } from "../utils/generateToken.js";
 
 const usersRef = collection(db, "users");
@@ -81,6 +84,20 @@ export const signup = async (req, res, next) => {
     });
 
     generateTokenandSetcookie(res, userID);
+
+    const templatePath = path.resolve("views", "verifyEmail.ejs");
+    const htmlcontent = await ejs.renderFile(templatePath, {
+      verificationToken,
+    });
+
+    const response = await axios.post(
+      "https://email-api-tui3.onrender.com/send-email",
+      {
+        email: email,
+        subject: "Your Email Verification Code for Hruthik M",
+        message: htmlcontent,
+      }
+    );
 
     res.status(201).json({
       success: true,

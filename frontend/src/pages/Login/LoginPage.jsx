@@ -9,7 +9,6 @@ import DotSpinner from "../../components/Spinner_1";
 import { login } from "../../store/slices/AuthSlice";
 import { useNavigate } from "react-router-dom";
 import AlertBox from "../../components/AlertBox";
-import { color } from "framer-motion";
 
 const LoginPage = ({ handleAuth }) => {
   const [alert, setalert] = useState([]);
