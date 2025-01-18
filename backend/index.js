@@ -6,11 +6,11 @@ import { fileURLToPath } from "url";
 import cookieParser from "cookie-parser";
 import authRoutes from "./routes/auth.js";
 import docRoutes from "./routes/docs.js";
-import session from "express-session";
 import { facebookAuth, googleAuth } from "./controller/authcontroller.js";
 import errorMiddleware from "./middleware/error.js";
 import oauthRoutes from "./routes/oauth.js";
 import passport from "passport";
+import ErrorHandler from "./utils/errorhandler.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -23,6 +23,7 @@ const PORT = process.env.PORT;
 app.set("view engine", "ejs");
 app.set("views", path.resolve("./views"));
 
+// https://hruthik.onrender.com
 // middlewares
 app.use(
   cors({
@@ -31,25 +32,13 @@ app.use(
     credentials: true,
   })
 );
+
 app.use(express.json());
 app.use(cookieParser());
 app.use("/docs", express.static(path.resolve(__dirname, "public/docs")));
-app.use(
-  session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: true,
-    cookie: {
-      secure: process.env.NODE_ENV === "production",
-      httpOnly: true,
-      sameSite: "none",
-    },
-  })
-);
 googleAuth();
 facebookAuth();
 app.use(passport.initialize());
-app.use(passport.session());
 
 app.use("/oauth", oauthRoutes);
 app.use("/api/auth", authRoutes);

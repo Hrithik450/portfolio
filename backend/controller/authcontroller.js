@@ -309,19 +309,6 @@ export const checkUserByEmail = async (email) => {
 };
 
 export const googleAuth = (req, res, next) => {
-  passport.serializeUser((user, done) => {
-    done(null, user.userID);
-  });
-
-  passport.deserializeUser(async (userID, done) => {
-    const userDoc = await getDoc(doc(usersRef, userID));
-    if (userDoc.exists()) {
-      done(null, userDoc.data());
-    } else {
-      done(new ErrorHandler("User not found", 404), null);
-    }
-  });
-
   passport.use(
     new GoogleStrategy(
       {
@@ -354,16 +341,16 @@ export const googleAuth = (req, res, next) => {
                 lastLogin: Timestamp.now(),
               });
 
-              return done(null, userExists);
+              return done(null, { userID: userExists.userID });
             }
 
             await setDoc(userDocRef, newUser);
-            return done(null, newUser);
+            return done(null, { userID: newUser.userID });
           } else {
             await updateDoc(userDocRef, {
               lastLogin: Timestamp.now(),
             });
-            return done(null, userDoc.data());
+            return done(null, { userID: GoogleID });
           }
         } catch (error) {
           done(error, null);
@@ -449,4 +436,31 @@ export const facebookAuth = (req, res, next) => {
       }
     )
   );
+};
+
+export const setCookie = async (req, res, next) => {
+  try {
+    const { userID } = req.body;
+
+    if (!userID) {
+      return next(new ErrorHandler("userID is required!!!", 400));
+    }
+
+    const UserDocRef = doc(db, "users", userID);
+    const userDoc = await getDoc(UserDocRef);
+
+    if (!userDoc.exists()) {
+      return next(new ErrorHandler("Invalid userID", 404));
+    }
+
+    generateTokenandSetcookie(res, userID);
+
+    res.status(200).json({
+      success: true,
+      user: userDoc.data(),
+      message: "Token setted successfully",
+    });
+  } catch (error) {
+    next(error);
+  }
 };

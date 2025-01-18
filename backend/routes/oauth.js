@@ -1,5 +1,6 @@
 import express from "express";
 import passport from "passport";
+import { setCookie } from "../controller/authcontroller.js";
 
 const router = express.Router();
 
@@ -12,10 +13,14 @@ router.get(
   "/google/callback",
   passport.authenticate("google", {
     failureRedirect: "/login",
-    session: true,
+    session: false,
   }),
   (req, res) => {
-    res.redirect("https://hruthik.onrender.com");
+    const user = req.user;
+    console.log(user);
+    res.redirect(
+      `https://hruthik.onrender.com/oauth-success?tempToken=${user.userID}`
+    );
   }
 );
 
@@ -41,5 +46,7 @@ router.get("/logout", (req, res, next) => {
     res.redirect("https://hruthik.onrender.com");
   });
 });
+
+router.post("/api/set-cookie", setCookie);
 
 export default router;

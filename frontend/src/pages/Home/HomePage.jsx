@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import Services from "./components/Services";
 import { MdHome } from "react-icons/md";
@@ -61,6 +61,18 @@ const object = {
 };
 
 const Home = () => {
+  useEffect(() => {
+    const handleOAuthSuccess = async () => {
+      const queryParams = new URLSearchParams(window.location.search);
+      const tempToken = queryParams.get("tempToken");
+
+      if (tempToken) {
+        console.log(tempToken);
+      }
+    };
+    handleOAuthSuccess();
+  }, []);
+
   return (
     <>
       <HomeSection>
