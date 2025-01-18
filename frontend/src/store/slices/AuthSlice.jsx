@@ -36,13 +36,15 @@ export const signup = createAsyncThunk(
   }
 );
 
-export const googleAuth = createAsyncThunk(
-  "oauth/google",
-  async (_, thunkAPI) => {
+export const Oauth = createAsyncThunk(
+  "oauth/cookie",
+  async (userID, thunkAPI) => {
     try {
-      const response = await axios.get(``, {
-        withCredentials: true,
-      });
+      const response = await axios.post(
+        `${API_URL}/oauth/api/set-cookie`,
+        { userID },
+        { withCredentials: true }
+      );
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
@@ -85,11 +87,15 @@ export const authSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       })
-      .addCase(googleAuth.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.user = action.payload;
+      .addCase(Oauth.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
       })
-      .addCase(googleAuth.rejected, (state, action) => {
+      .addCase(Oauth.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.user = action.payload.user;
+      })
+      .addCase(Oauth.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       });

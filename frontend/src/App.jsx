@@ -12,6 +12,7 @@ import Contact from "./pages/Contact/ContactPage";
 import AuthPage from "./pages/Login/AuthPage";
 import Welcome from "./components/templates/Welcome";
 import VerifyEmail from "./components/templates/VerifyEmail";
+import OAuth from "./pages/oauth/Oauth";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           path="/verify"
           element={<VerifyEmail verificationToken={"765843"} />}
         />
+        <Route path="/oauth-success" element={<OAuth />} />
       </Routes>
     </Router>
   );

@@ -1,22 +1,8 @@
 import styled, { keyframes } from "styled-components";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
-import { useDispatch } from "react-redux";
-import { googleAuth } from "../../../store/slices/AuthSlice";
 
 const SocialLogin = () => {
-  const dispatch = useDispatch();
-
-  const handleOAuth = async () => {
-    const result = await dispatch(googleAuth());
-    if (result.type === "oauth/google/fulfilled") {
-      console.log("Success");
-    }
-    if (result.type === "oauth/auth/rejected") {
-      console.log(result && result.payload.message);
-    }
-  };
-
   return (
     <SocialContainer>
       <div className="social-container">
