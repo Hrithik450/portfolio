@@ -20,7 +20,7 @@ const OAuth = () => {
           navigate("/");
         }
         if (result.type === "oauth/cookie/rejected") {
-          console.error(result.payload.message);
+          console.log(result.payload.message);
           navigate("/login");
         }
       }
