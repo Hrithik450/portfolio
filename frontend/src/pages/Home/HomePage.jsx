@@ -21,6 +21,7 @@ import { GrLogin } from "react-icons/gr";
 import { Oauth } from "../../store/slices/AuthSlice";
 import { useDispatch, useSelector } from "react-redux";
 import DotSpinner from "../../components/Spinner_1";
+import { useNavigate } from "react-router-dom";
 
 const object = {
   theme: "dark",
@@ -65,6 +66,7 @@ const object = {
 
 const Home = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { error, isLoading } = useSelector((state) => state.auth);
 
   useEffect(() => {
@@ -76,6 +78,7 @@ const Home = () => {
         const result = dispatch(Oauth(tempToken));
         if (result.type === "oauth/cookie/fulfilled") {
           window.history.replaceState({}, document.title, "/");
+          navigate("/", { replace: true });
         }
         if (result.type === "oauth/cookie/rejected") {
           navigate("/login");
