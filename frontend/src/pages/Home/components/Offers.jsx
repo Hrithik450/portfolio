@@ -90,7 +90,7 @@ const Offers = () => {
               <p>Up to 50% off</p>
               <h2>
                 ₹3499
-                <span>/mon </span>
+                <span>/mo</span>
               </h2>
             </div>
           </div>
@@ -398,6 +398,7 @@ const Grid3 = styled.div`
 
     @media (max-width: 450px) {
       font-size: 1rem;
+      margin-left: 0;
     }
   }
 
