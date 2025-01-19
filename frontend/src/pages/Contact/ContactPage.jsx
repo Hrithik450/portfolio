@@ -6,10 +6,8 @@ import {
   FaUser,
 } from "react-icons/fa";
 import styled, { keyframes } from "styled-components";
-import { MdEmail, MdHome, MdMessage } from "react-icons/md";
+import { MdDesignServices, MdEmail, MdHome, MdMessage } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
-
-import { IoMdLogIn } from "react-icons/io";
 import Navbar from "../../components/Navbar/Navbar";
 import Testimonals from "../Home/components/Testimonals";
 import Footer from "../../components/Footer";
@@ -24,6 +22,12 @@ const object = {
   },
   NavItems: [
     { title: "Home", type: "normal", href: "/", icon: <MdHome /> },
+    {
+      title: "Services",
+      type: "normal",
+      href: "/services",
+      icon: <MdDesignServices />,
+    },
     {
       title: "Projects",
       type: "normal",
@@ -43,16 +47,10 @@ const object = {
       icon: <FaPenNib />,
     },
     {
-      title: "Contact Me",
-      type: "normal",
+      name: "Contact Me",
+      type: "button",
       href: "/contact",
       icon: <IoChatbubblesOutline />,
-    },
-    {
-      name: "Login",
-      type: "button",
-      href: "/login",
-      icon: <GrLogin />,
     },
   ],
 };

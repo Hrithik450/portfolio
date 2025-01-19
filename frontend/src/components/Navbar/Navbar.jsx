@@ -211,6 +211,7 @@ const NavItem = styled(NavLink)`
 
   &:hover {
     border-bottom: 3px solid white;
+    text-decoration: none;
   }
 
   @media (max-width: 1280px) {

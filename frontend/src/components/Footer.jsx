@@ -107,7 +107,6 @@ const Container = styled.div`
   margin: auto;
   padding: 2rem 3rem;
   color: #fff;
-  font-family: Arial, sans-serif;
   text-align: center;
 
   .bottom-footer {

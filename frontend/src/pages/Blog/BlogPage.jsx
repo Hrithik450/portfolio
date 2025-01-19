@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import { MdHome } from "react-icons/md";
+import { MdDesignServices, MdHome } from "react-icons/md";
 import { FaPenNib, FaProjectDiagram, FaUser } from "react-icons/fa";
 import BlogCard from "./components/BlogCard";
 import BottomCard from "./components/Card";
@@ -17,6 +17,12 @@ const object = {
   },
   NavItems: [
     { title: "Home", type: "normal", href: "/", icon: <MdHome /> },
+    {
+      title: "Services",
+      type: "normal",
+      href: "/services",
+      icon: <MdDesignServices />,
+    },
     {
       title: "Projects",
       type: "normal",
@@ -36,16 +42,10 @@ const object = {
       icon: <FaPenNib />,
     },
     {
-      title: "Contact Me",
-      type: "normal",
+      name: "Contact Me",
+      type: "button",
       href: "/contact",
       icon: <IoChatbubblesOutline />,
-    },
-    {
-      name: "Login",
-      type: "button",
-      href: "/login",
-      icon: <GrLogin />,
     },
   ],
 };

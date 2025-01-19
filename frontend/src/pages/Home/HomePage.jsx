@@ -15,11 +15,12 @@ import Testimonals from "./components/Testimonals";
 import { IoChatbubblesOutline } from "react-icons/io5";
 import { FaProjectDiagram } from "react-icons/fa";
 import { FaPenNib } from "react-icons/fa";
-import { GrLogin } from "react-icons/gr";
+import { MdDesignServices } from "react-icons/md";
 import { fetchprofile, Oauth } from "../../store/slices/AuthSlice";
 import { useDispatch, useSelector } from "react-redux";
 import DotSpinner from "../../components/Spinner_1";
 import { useNavigate } from "react-router-dom";
+import Offers from "./components/Offers";
 
 const object = {
   theme: "dark",
@@ -29,6 +30,12 @@ const object = {
   },
   NavItems: [
     { title: "Home", type: "normal", href: "/", icon: <MdHome /> },
+    {
+      title: "Services",
+      type: "normal",
+      href: "/services",
+      icon: <MdDesignServices />,
+    },
     {
       title: "Projects",
       type: "normal",
@@ -48,16 +55,10 @@ const object = {
       icon: <FaPenNib />,
     },
     {
-      title: "Contact Me",
-      type: "normal",
+      name: "Contact Me",
+      type: "button",
       href: "/contact",
       icon: <IoChatbubblesOutline />,
-    },
-    {
-      name: "Login",
-      type: "button",
-      href: "/login",
-      icon: <GrLogin />,
     },
   ],
 };
@@ -110,7 +111,7 @@ const Home = () => {
           <HomeSection>
             <Navbar object={object} />
             <Hero />
-            <Services />
+            <Offers />
           </HomeSection>
           <SelectedProjects />
           <HomeSection>

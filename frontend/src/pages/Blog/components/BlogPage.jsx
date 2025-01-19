@@ -1,5 +1,5 @@
 import React from "react";
-import { MdHome, MdMessage } from "react-icons/md";
+import { MdDesignServices, MdHome, MdMessage } from "react-icons/md";
 import {
   FaArrowRight,
   FaExternalLinkAlt,
@@ -7,11 +7,9 @@ import {
   FaProjectDiagram,
   FaUser,
 } from "react-icons/fa";
-import { IoMdLogIn } from "react-icons/io";
 import styled, { keyframes } from "styled-components";
 import Navbar from "../../../components/Navbar/Navbar";
 import Footer from "../../../components/Footer";
-import { GrLogin } from "react-icons/gr";
 import { IoChatbubblesOutline } from "react-icons/io5";
 
 const object = {
@@ -22,6 +20,12 @@ const object = {
   },
   NavItems: [
     { title: "Home", type: "normal", href: "/", icon: <MdHome /> },
+    {
+      title: "Services",
+      type: "normal",
+      href: "/services",
+      icon: <MdDesignServices />,
+    },
     {
       title: "Projects",
       type: "normal",
@@ -41,16 +45,10 @@ const object = {
       icon: <FaPenNib />,
     },
     {
-      title: "Contact Me",
-      type: "normal",
+      name: "Contact Me",
+      type: "button",
       href: "/contact",
       icon: <IoChatbubblesOutline />,
-    },
-    {
-      name: "Login",
-      type: "button",
-      href: "/login",
-      icon: <GrLogin />,
     },
   ],
 };

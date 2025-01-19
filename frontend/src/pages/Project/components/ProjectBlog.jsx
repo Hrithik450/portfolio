@@ -6,7 +6,7 @@ import {
   FaUser,
 } from "react-icons/fa";
 import styled, { keyframes } from "styled-components";
-import { MdHome, MdMessage } from "react-icons/md";
+import { MdDesignServices, MdHome, MdMessage } from "react-icons/md";
 import { IoMdLogIn } from "react-icons/io";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import ProjectCard from "./ProjectCard";
@@ -16,6 +16,7 @@ import { GrLogin } from "react-icons/gr";
 import { IoChatbubblesOutline } from "react-icons/io5";
 import ReactMarkdown from "react-markdown";
 import Blog1 from "./Blogs/Blog1";
+import Timer from "../../../components/Timer";
 
 const object = {
   theme: "dark",
@@ -25,6 +26,12 @@ const object = {
   },
   NavItems: [
     { title: "Home", type: "normal", href: "/", icon: <MdHome /> },
+    {
+      title: "Services",
+      type: "normal",
+      href: "/services",
+      icon: <MdDesignServices />,
+    },
     {
       title: "Projects",
       type: "normal",
@@ -44,16 +51,10 @@ const object = {
       icon: <FaPenNib />,
     },
     {
-      title: "Contact Me",
-      type: "normal",
+      name: "Contact Me",
+      type: "button",
       href: "/contact",
       icon: <IoChatbubblesOutline />,
-    },
-    {
-      name: "Login",
-      type: "button",
-      href: "/login",
-      icon: <GrLogin />,
     },
   ],
 };
@@ -330,23 +331,77 @@ const ProjectBlog = () => {
             </div>
             <div>
               <InfoGrid>
-                <div>
-                  Tech Stack
-                  {project.techStack &&
-                    project.techStack.map((stack, stackidx) => (
-                      <span key={`stack-${stackidx}`}>{stack}</span>
-                    ))}
-                </div>
-                <div>
-                  Live Demo <br />
-                  <a href={project.liveDemo && project.liveDemo}>
-                    View Website
-                  </a>
-                </div>
-                <div>
-                  Git Hub <br />
-                  <a href="https://superflow.co">www.superflow.co</a>
-                </div>
+                <Grid1 className="info-grid">
+                  <h3>
+                    Get the complete <span>source code</span> of the project
+                  </h3>
+                  <div className="sub-grid-1">
+                    <div className="image">
+                      <img
+                        src="https://res.cloudinary.com/duozomapm/image/upload/v1737303272/Screenshot_2025-01-19_215349-removebg-preview_ceqk7i.png"
+                        alt="special offer"
+                      />
+                    </div>
+                    <div className="price">
+                      <p>Up to 30% off</p>
+                      <h2>
+                        ₹699
+                        <span>₹999</span>
+                      </h2>
+                    </div>
+                  </div>
+                  <div className="navigations">
+                    <a className="button btn-1">Claim Offer</a>
+                    <a className="button">
+                      <Timer
+                        localStorageKey={"day"}
+                        duration={24 * 60 * 60 * 1000}
+                      />
+                    </a>
+                  </div>
+                </Grid1>
+
+                <Grid2 className="info-grid">
+                  <h3>
+                    Get 4 personalized <span>1:1</span> weekly project
+                    explanation calls
+                  </h3>
+                  <div className="sub-grid-2">
+                    <div className="image">
+                      <img
+                        src="https://res.cloudinary.com/duozomapm/image/upload/v1737301098/Screenshot_2025-01-19_202637-removebg-preview_rw33qg.png"
+                        alt="special offer"
+                      />
+                    </div>
+                    <div className="price">
+                      <p>Up to 50% off</p>
+                      <h2>
+                        ₹999
+                        <span>/week</span>
+                      </h2>
+                    </div>
+                  </div>
+                  <div className="navigations nav-2">
+                    <a className="button btn-1">Grab 1:1</a>
+                    <a className="button">
+                      <Timer
+                        localStorageKey={"week"}
+                        duration={7 * 24 * 60 * 60 * 1000}
+                      />
+                    </a>
+                  </div>
+                </Grid2>
+
+                <Grid3 className="info-grid">
+                  <h3>
+                    View the <span>Live</span> Demo or watch{" "}
+                    <span>Youtube</span> for tutorial
+                  </h3>
+                  <div className="grid3-nav">
+                    <a className="btn-1 button">Visit the website</a>
+                    <a className="button">Watch on youtube</a>
+                  </div>
+                </Grid3>
               </InfoGrid>
             </div>
           </Content>
@@ -371,7 +426,9 @@ const ProjectBlog = () => {
         </Grid>
       </MoreSection>
 
-      <Footer header={true} />
+      <FooterSection>
+        <Footer header={true} />
+      </FooterSection>
     </>
   );
 };
@@ -389,14 +446,21 @@ const Animation = keyframes`
   }
 `;
 
+const FooterSection = styled.div`
+  position: relative;
+  background-color: #2b4162;
+  background-image: linear-gradient(315deg, #2b4162 0%, #12100e 74%);
+`;
+
 const ProjectBlogSection = styled.section`
-  background: black;
+  background-color: #2b4162;
+  background-image: linear-gradient(315deg, #2b4162 0%, #12100e 74%);
 `;
 
 const Container = styled.div`
   max-width: 1000px;
   margin: 0 auto;
-  padding: 10rem 0 0 0;
+  padding: 10rem 0 2rem 0;
   color: #333;
   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
 
@@ -483,20 +547,49 @@ const InfoGrid = styled.div`
   gap: 1rem;
   margin-top: 1rem;
 
-  div {
+  .info-grid {
     animation: ${Animation} linear;
     animation-timeline: view();
     animation-range: entry 0% cover 40%;
+    background-color: #2b4162;
+    background-image: linear-gradient(315deg, #2b4162 0%, #12100e 74%);
     flex: 1;
     text-align: center;
     padding: 1rem;
-    background-color: #f9f9f9;
     font-size: 1.1rem;
+    border: 1px solid white;
+    color: white;
+  }
 
-    span {
-      display: block;
-      font-weight: bold;
-      margin-top: 0.5rem;
+  .navigations {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+
+    .btn-1 {
+      background: linear-gradient(90deg, #ff00ff, #ff7300);
+    }
+  }
+
+  .button {
+    display: block;
+    background-color: transparent;
+    border: 1px solid white;
+    width: 100%;
+    padding: 0.7rem 0;
+    border-radius: 5px;
+    outline: none;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: white;
+    margin: 0.5rem 0 0 0;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-4%);
+    }
     }
   }
 
@@ -516,6 +609,133 @@ const InfoGrid = styled.div`
 
   @media (max-width: 479px) {
     grid-template-columns: 1fr;
+  }
+`;
+
+const Grid1 = styled.div`
+  h3 {
+    text-align: left;
+    margin-left: 1rem;
+
+    span {
+      background: linear-gradient(90deg, #ff00ff, #ff7300);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  .sub-grid-1 {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    align-items: center;
+    margin: 0.5rem 0;
+
+    .price {
+      max-width: max-content;
+      padding: 0.5rem;
+      p {
+        max-width: max-content;
+        padding: 0.25rem 0.5rem;
+        font-size: 1rem;
+        text-align: left;
+        color: white;
+        font-weight: 800;
+        background: linear-gradient(90deg, #ff00ff, #ff7300);
+      }
+      h2 {
+        margin: 0.5rem 0;
+        font-size: 2.5rem;
+        span {
+          display: inline-block;
+          margin: 0 0 0 0.4rem;
+          font-size: 1.3rem;
+          color: rgba(255, 255, 255, 0.6);
+          position: relative;
+
+          &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            height: 1px;
+            background: white;
+          }
+        }
+      }
+    }
+  }
+`;
+
+const Grid2 = styled.div`
+  h3 {
+    text-align: left;
+    margin-left: 1rem;
+
+    span {
+      background: linear-gradient(90deg, #ff00ff, #ff7300);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  .sub-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    align-items: center;
+    margin: 0.5rem 0;
+
+    .price {
+      max-width: max-content;
+      padding: 0.5rem;
+      p {
+        max-width: max-content;
+        padding: 0.25rem 0.5rem;
+        font-size: 1rem;
+        text-align: left;
+        color: white;
+        font-weight: 800;
+        background: linear-gradient(90deg, #ff00ff, #ff7300);
+      }
+      h2 {
+        margin: 0.5rem 0;
+        font-size: 2.5rem;
+        span {
+          display: inline-block;
+          font-size: 1.3rem;
+          color: rgba(255, 255, 255, 0.6);
+          position: relative;
+        }
+      }
+    }
+  }
+
+  .nav-2 {
+    margin: -0.5rem 0 0 0;
+  }
+`;
+
+const Grid3 = styled.div`
+  h3 {
+    text-align: left;
+    margin-left: 1rem;
+
+    span {
+      background: linear-gradient(90deg, #ff00ff, #ff7300);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  .grid3-nav {
+    margin: 2rem 0;
+    display: grid;
+    gap: 0.5rem;
+
+    .btn-1 {
+      background: #2f1c6a;
+    }
   }
 `;
 
