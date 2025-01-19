@@ -90,7 +90,7 @@ const Offers = () => {
               <p>Up to 50% off</p>
               <h2>
                 ₹3499
-                <span>/month</span>
+                <span>/mon </span>
               </h2>
             </div>
           </div>
@@ -271,7 +271,7 @@ const Grid1 = styled.div`
 
     .image {
       max-width: 100%;
-      max-height: 160px;
+      max-height: 200px;
       img {
         width: 100%;
         height: 100%;
@@ -343,7 +343,7 @@ const Grid2 = styled.div`
 
     .image {
       max-width: 100%;
-      max-height: 160px;
+      max-height: 200px;
       img {
         width: 100%;
         height: 100%;
@@ -403,14 +403,14 @@ const Grid3 = styled.div`
 
   .sub-grid-3 {
     display: grid;
-    grid-template-columns: 1fr 1.25fr;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
     gap: 0.5rem;
     padding: 0.7rem 0 0.5rem 1rem;
 
     .image {
       max-width: 100%;
-      max-height: 160px;
+      max-height: 200px;
       overflow: hidden;
 
       img {
