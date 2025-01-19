@@ -227,7 +227,11 @@ const InfoGrid = styled.div`
     transition: all 0.3s ease;
     
     &:hover {
-      transform: translateY(-4%);
+      transform: translateY(-5%);
+    }
+
+    @media (max-width: 479px) {
+        font-size: 1rem;
     }
     }
   }
@@ -252,6 +256,10 @@ const Grid1 = styled.div`
       background: linear-gradient(90deg, #ff00ff, #ff7300);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+    }
+
+    @media (max-width: 450px) {
+      font-size: 1rem;
     }
   }
 
@@ -303,6 +311,9 @@ const Grid1 = styled.div`
             background: white;
           }
         }
+        @media (max-width: 479px) {
+          font-size: 1.8rem;
+        }
       }
     }
   }
@@ -317,6 +328,10 @@ const Grid2 = styled.div`
       background: linear-gradient(90deg, #ff00ff, #ff7300);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+    }
+
+    @media (max-width: 450px) {
+      font-size: 1rem;
     }
   }
 
@@ -362,6 +377,9 @@ const Grid2 = styled.div`
           color: rgba(255, 255, 255, 0.6);
           position: relative;
         }
+        @media (max-width: 479px) {
+          font-size: 1.8rem;
+        }
       }
     }
   }
@@ -376,6 +394,10 @@ const Grid3 = styled.div`
       background: linear-gradient(90deg, #ff00ff, #ff7300);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+    }
+
+    @media (max-width: 450px) {
+      font-size: 1rem;
     }
   }
 
@@ -416,6 +438,9 @@ const Grid3 = styled.div`
           font-size: 1.3rem;
           color: rgba(255, 255, 255, 0.6);
           position: relative;
+        }
+        @media (max-width: 479px) {
+          font-size: 1.8rem;
         }
       }
     }
