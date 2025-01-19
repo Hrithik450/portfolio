@@ -12,7 +12,9 @@ export const generateTokenandSetcookie = (res, userID) => {
     maxAge: 7 * 24 * 60 * 60 * 1000,
     path: "/",
     domain:
-      process.env.NODE_ENV === "production" && "https://hruthik.onrender.com",
+      process.env.NODE_ENV === "production"
+        ? "https://hruthik.onrender.com"
+        : "https://hruthik-backend.onrender.com",
   });
 
   return token;
