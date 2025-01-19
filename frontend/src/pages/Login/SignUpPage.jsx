@@ -57,7 +57,7 @@ const SignUpPage = ({ handleAuth }) => {
 
     if (result.type === "auth/signup/rejected") {
       showAlert({
-        msg: result && result.payload.message,
+        msg: (result.payload && result.payload.message) || "Network Error",
         color: "#5a2323",
         bgcolor: "#ffcccc",
       });

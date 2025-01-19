@@ -3,6 +3,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const API_URL = "https://hruthik-backend.onrender.com";
+const API_URL2 = "http://localhost:7000";
 
 export const login = createAsyncThunk(
   "auth/login",
@@ -54,12 +55,16 @@ export const Oauth = createAsyncThunk(
 
 export const verifyemail = createAsyncThunk(
   "email/verify",
-  async (code, thunkAPI) => {
+  async (credentials, thunkAPI) => {
     try {
       const response = await axios.post(
         `${API_URL}/api/auth/verify-email`,
-        { code },
-        { withCredentials: true }
+        { code: credentials.code },
+        {
+          headers: {
+            Authorization: `Bearer ${credentials.token}`,
+          },
+        }
       );
       return response.data;
     } catch (error) {
@@ -97,7 +102,7 @@ export const authSlice = createSlice({
       })
       .addCase(signup.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.user = action.payload;
+        state.user = action.payload && action.payload.user;
       })
       .addCase(signup.rejected, (state, action) => {
         state.isLoading = false;
@@ -109,7 +114,7 @@ export const authSlice = createSlice({
       })
       .addCase(Oauth.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.user = action.payload.user;
+        state.user = action.payload;
       })
       .addCase(Oauth.rejected, (state, action) => {
         state.isLoading = false;

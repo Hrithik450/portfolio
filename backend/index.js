@@ -23,9 +23,12 @@ const PORT = process.env.PORT;
 app.set("view engine", "ejs");
 app.set("views", path.resolve("./views"));
 
+const mainurl = "https://hruthik.onrender.com";
+const devurl = "http://localhost:5173";
+
 app.use(
   cors({
-    origin: "https://hruthik.onrender.com",
+    origin: `${mainurl}`,
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })

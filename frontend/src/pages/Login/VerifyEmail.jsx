@@ -10,7 +10,7 @@ const Verifyemail = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [alert, setalert] = useState([]);
-  const { isLoading } = useSelector((state) => state.auth);
+  const { isLoading, user } = useSelector((state) => state.auth);
 
   const [code, setcode] = useState(["", "", "", "", "", ""]);
   const inputRefs = useRef([]);
@@ -47,10 +47,12 @@ const Verifyemail = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const verificationCode = code.join("");
-    const res = await dispatch(verifyemail(verificationCode));
-    if (res.type === "email/verify/fufilled") {
+    const res = await dispatch(
+      verifyemail({ code: verificationCode, token: user.token })
+    );
+    if (res.type === "email/verify/fulfilled") {
       showAlert({
-        msg: "Verified Successfully",
+        msg: "Email verified successfully",
         color: "#155724",
         bgcolor: "#d4edda",
       });
@@ -59,7 +61,7 @@ const Verifyemail = () => {
 
     if (res.type === "email/verify/rejected") {
       showAlert({
-        msg: result && result.payload.message,
+        msg: (res.payload && res.payload.message) || "Network Error",
         color: "#5a2323",
         bgcolor: "#ffcccc",
       });
@@ -207,7 +209,7 @@ const Body = styled.div`
     border: 1px solid white;
 
     @media (max-width: 479px) {
-      padding: 3rem 2rem;
+      padding: 3rem 1rem;
     }
 
     h2 {

@@ -83,26 +83,23 @@ export const signup = async (req, res, next) => {
       userID: userID,
     });
 
-    generateTokenandSetcookie(res, userID);
+    const token = generateTokenandSetcookie(res, userID);
 
     const templatePath = path.resolve("views", "verifyEmail.ejs");
     const htmlcontent = await ejs.renderFile(templatePath, {
       verificationToken,
     });
 
-    const response = await axios.post(
-      "https://email-api-tui3.onrender.com/send-email",
-      {
-        email: email,
-        subject: "Your Email Verification Code for Hruthik M",
-        message: htmlcontent,
-      }
-    );
+    await axios.post("https://email-api-tui3.onrender.com/send-email", {
+      email: email,
+      subject: "Your Email Verification Code for Hruthik M",
+      message: htmlcontent,
+    });
 
     res.status(201).json({
       success: true,
       message: "Successfully Registered",
-      user: { ...user },
+      user: { token },
     });
   } catch (error) {
     next(error);
@@ -135,9 +132,16 @@ export const verifyemail = async (req, res, next) => {
       verificationTokenExpiresAt: null,
     });
 
+    const updatedDoc = await getDoc(UserDocRef);
+    const updatedData = updatedDoc.data();
+
     res.status(200).json({
       success: true,
       message: "Email verified successfully",
+      user: {
+        ...updatedData,
+        password: null,
+      },
     });
   } catch (error) {
     next(error);
