@@ -6,10 +6,11 @@ export const generateTokenandSetcookie = (res, userID) => {
   });
 
   res.cookie("token", token, {
+    path: "/",
     httpOnly: true,
     secure: true,
     sameSite: "none",
-    path: "/",
+    domain: "hruthik.onrender.com",
     expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
   });
 
