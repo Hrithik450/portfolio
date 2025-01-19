@@ -29,7 +29,6 @@ const devurl = "http://localhost:5173";
 app.use(
   cors({
     origin: `${mainurl}`,
-    methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
 );
