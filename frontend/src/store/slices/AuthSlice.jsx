@@ -52,6 +52,22 @@ export const Oauth = createAsyncThunk(
   }
 );
 
+export const verifyemail = createAsyncThunk(
+  "email/verify",
+  async (code, thunkAPI) => {
+    try {
+      const response = await axios.post(
+        `${API_URL}/api/auth/verify-email`,
+        { code },
+        { withCredentials: true }
+      );
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data);
+    }
+  }
+);
+
 export const authSlice = createSlice({
   name: "auth",
   initialState: {
@@ -96,6 +112,18 @@ export const authSlice = createSlice({
         state.user = action.payload.user;
       })
       .addCase(Oauth.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(verifyemail.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(verifyemail.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.user = action.payload;
+      })
+      .addCase(verifyemail.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       });

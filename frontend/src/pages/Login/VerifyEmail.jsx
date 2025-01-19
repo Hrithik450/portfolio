@@ -1,7 +1,17 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
+import { verifyemail } from "../../store/slices/AuthSlice";
+import AlertBox from "../../components/AlertBox";
+import DotSpinner from "../../components/Spinner_1";
 
 const Verifyemail = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [alert, setalert] = useState([]);
+  const { isLoading } = useSelector((state) => state.auth);
+
   const [code, setcode] = useState(["", "", "", "", "", ""]);
   const inputRefs = useRef([]);
 
@@ -34,10 +44,26 @@ const Verifyemail = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const verificationCode = code.join("");
-    console.log(verificationCode);
+    const res = await dispatch(verifyemail(verificationCode));
+    if (res.type === "email/verify/fufilled") {
+      showAlert({
+        msg: "Verified Successfully",
+        color: "#155724",
+        bgcolor: "#d4edda",
+      });
+      navigate("/");
+    }
+
+    if (res.type === "email/verify/rejected") {
+      showAlert({
+        msg: result && result.payload.message,
+        color: "#5a2323",
+        bgcolor: "#ffcccc",
+      });
+    }
   };
 
   useEffect(() => {
@@ -45,6 +71,19 @@ const Verifyemail = () => {
       handleSubmit(new Event("submit"));
     }
   }, [code]);
+
+  useEffect(() => {
+    if (alert.length > 0) {
+      const timer = setTimeout(() => {
+        setalert((alert) => alert.slice(1));
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [alert]);
+
+  const showAlert = (alert) => {
+    setalert((prev) => [...prev, alert]);
+  };
 
   return (
     <AuthSection>
@@ -72,7 +111,15 @@ const Verifyemail = () => {
                   ))}
               </div>
               <a className="resend-email">Resend email</a>
-              <button>Verify Email</button>
+              <button>{isLoading ? <DotSpinner /> : "Verify Email"}</button>
+
+              {alert.length > 0 && alert[0].msg && (
+                <AlertBox
+                  msg={alert[0].msg}
+                  color={alert[0].color}
+                  bgcolor={alert[0].bgcolor}
+                />
+              )}
             </form>
           </div>
         </Body>
@@ -160,7 +207,7 @@ const Body = styled.div`
     border: 1px solid white;
 
     @media (max-width: 479px) {
-      padding: 3rem 1rem;
+      padding: 3rem 2rem;
     }
 
     h2 {
@@ -211,6 +258,10 @@ const Body = styled.div`
           border: 1px solid #bfb3f2;
           &:focus {
             border-color: #5f41e4;
+          }
+
+          @media (max-width: 479px) {
+            height: 2.1rem;
           }
         }
       }
