@@ -260,6 +260,7 @@ const Grid1 = styled.div`
 
     @media (max-width: 450px) {
       font-size: 1rem;
+      margin-left: 0;
     }
   }
 
@@ -332,6 +333,7 @@ const Grid2 = styled.div`
 
     @media (max-width: 450px) {
       font-size: 1rem;
+      margin-left: 0;
     }
   }
 
