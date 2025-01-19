@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import LoginPage from "./LoginPage";
 import SignUpPage from "./SignUpPage";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 const AuthPage = () => {
   const [login, setlogin] = useState(true);
@@ -31,7 +31,21 @@ const AuthPage = () => {
 
 export default AuthPage;
 
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+`;
+
 const AuthSection = styled.section`
+  background-color: #2b4162;
+  background-image: linear-gradient(315deg, #2b4162 0%, #12100e 74%);
+
   min-height: 100vh;
   overflow: hidden;
 
@@ -42,8 +56,9 @@ const AuthSection = styled.section`
 `;
 
 const Header = styled.div`
+  animation: ${fadeIn} 1000ms ease-in-out;
   padding: 1.5rem 0 0 0;
-
+  width: max-content;
   h1 {
     color: white;
     font-size: 3rem;

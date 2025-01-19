@@ -124,7 +124,8 @@ export default Home;
 
 const HomeSection = styled.section`
   position: relative;
-  background: black;
+  background-color: #2b4162;
+  background-image: linear-gradient(315deg, #2b4162 0%, #12100e 74%);
 `;
 
 const Loading = styled.div`

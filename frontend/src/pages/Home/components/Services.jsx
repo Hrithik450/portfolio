@@ -67,7 +67,6 @@ const ServicesSection = styled.section`
   max-width: 1280px;
   margin: auto;
   height: auto;
-  background-color: #000;
   color: #fff;
   padding: 6rem 20px;
   text-align: center;

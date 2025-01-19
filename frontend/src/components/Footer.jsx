@@ -106,7 +106,6 @@ const Container = styled.div`
   max-width: 1480px;
   margin: auto;
   padding: 2rem 3rem;
-  background-color: #000;
   color: #fff;
   font-family: Arial, sans-serif;
   text-align: center;

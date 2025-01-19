@@ -125,7 +125,7 @@ const fadeIn = keyframes`
 
 const LoginSection = styled.div`
   position: relative;
-
+  animation: ${fadeIn} 1000ms ease-in-out;
   .login-container {
     &::before {
       content: "";

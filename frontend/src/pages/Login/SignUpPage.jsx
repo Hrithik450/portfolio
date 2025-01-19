@@ -52,7 +52,7 @@ const SignUpPage = ({ handleAuth }) => {
         color: "#155724",
         bgcolor: "#d4edda",
       });
-      navigate("/");
+      navigate("/verify-email");
     }
 
     if (result.type === "auth/signup/rejected") {
@@ -134,7 +134,7 @@ const fadeIn = keyframes`
 
 const SignUpSection = styled.div`
   position: relative;
-
+  animation: ${fadeIn} 1000ms ease-in-out;
   .signup-container {
     &::before {
       content: "";

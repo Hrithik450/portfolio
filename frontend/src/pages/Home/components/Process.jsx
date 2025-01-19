@@ -88,7 +88,6 @@ const ProcessContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 10rem 50px;
-  background-color: black;
   color: white;
   gap: 3rem;
 

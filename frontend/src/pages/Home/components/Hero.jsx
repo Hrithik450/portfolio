@@ -1,7 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 import { FaArrowRight } from "react-icons/fa";
-import { IoPlayCircleOutline } from "react-icons/io5";
 import { FaYoutube } from "react-icons/fa";
 
 const Hero = () => {
@@ -33,7 +32,7 @@ const Hero = () => {
             </Button>
             <Button
               className="play-btn"
-              href="https://youtube.com/@mhrithik479?si=B4xlNyPRb1VLUJ-a"
+              href="https://youtube.com/@mhrithik450?si=n2sWk9ZUxgDlNeRn"
             >
               <FaYoutube />
               <h1>Watch Now</h1>

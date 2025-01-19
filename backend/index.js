@@ -23,8 +23,6 @@ const PORT = process.env.PORT;
 app.set("view engine", "ejs");
 app.set("views", path.resolve("./views"));
 
-// https://hruthik.onrender.com
-// middlewares
 app.use(
   cors({
     origin: "https://hruthik.onrender.com",
