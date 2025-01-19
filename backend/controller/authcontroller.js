@@ -485,3 +485,26 @@ export const setCookie = async (req, res, next) => {
     next(error);
   }
 };
+
+export const Profile = async (req, res, next) => {
+  try {
+    const UserId = req.user.userID;
+    const UserDocRef = doc(db, "users", UserId);
+    const UserSnapShot = await getDoc(UserDocRef);
+
+    if (!UserSnapShot.exists()) {
+      return next(new ErrorHandler("User not found!!", 404));
+    }
+
+    const user = UserSnapShot.data();
+    return res.status(200).json({
+      success: true,
+      user: {
+        ...user,
+        password: null,
+      },
+    });
+  } catch (error) {
+    next(error);
+  }
+};

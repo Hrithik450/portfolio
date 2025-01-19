@@ -73,6 +73,20 @@ export const verifyemail = createAsyncThunk(
   }
 );
 
+export const fetchprofile = createAsyncThunk(
+  "fetch/profile",
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get(`${API_URL}/api/auth/profile`, {
+        withCredentials: true,
+      });
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data);
+    }
+  }
+);
+
 export const authSlice = createSlice({
   name: "auth",
   initialState: {
@@ -80,6 +94,7 @@ export const authSlice = createSlice({
     token: null,
     isLoading: false,
     error: null,
+    isAuthenticated: false,
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -91,6 +106,7 @@ export const authSlice = createSlice({
       .addCase(login.fulfilled, (state, action) => {
         state.isLoading = false;
         state.user = action.payload;
+        state.isAuthenticated = true;
       })
       .addCase(login.rejected, (state, action) => {
         state.isLoading = false;
@@ -103,6 +119,7 @@ export const authSlice = createSlice({
       .addCase(signup.fulfilled, (state, action) => {
         state.isLoading = false;
         state.user = action.payload && action.payload.user;
+        state.isAuthenticated = true;
       })
       .addCase(signup.rejected, (state, action) => {
         state.isLoading = false;
@@ -129,6 +146,18 @@ export const authSlice = createSlice({
         state.user = action.payload;
       })
       .addCase(verifyemail.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(fetchprofile.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(fetchprofile.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.user = action.payload;
+      })
+      .addCase(fetchprofile.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       });

@@ -16,7 +16,7 @@ import { IoChatbubblesOutline } from "react-icons/io5";
 import { FaProjectDiagram } from "react-icons/fa";
 import { FaPenNib } from "react-icons/fa";
 import { GrLogin } from "react-icons/gr";
-import { Oauth } from "../../store/slices/AuthSlice";
+import { fetchprofile, Oauth } from "../../store/slices/AuthSlice";
 import { useDispatch, useSelector } from "react-redux";
 import DotSpinner from "../../components/Spinner_1";
 import { useNavigate } from "react-router-dom";
@@ -65,7 +65,9 @@ const object = {
 const Home = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { error, isLoading } = useSelector((state) => state.auth);
+  const { error, isLoading, isAuthenticated } = useSelector(
+    (state) => state.auth
+  );
 
   useEffect(() => {
     const handleOAuthSuccess = async () => {
@@ -86,8 +88,16 @@ const Home = () => {
         }
       }
     };
+
+    const fetchProfile = async () => {
+      if (isAuthenticated) {
+        await dispatch(fetchprofile());
+      }
+    };
+
     handleOAuthSuccess();
-  }, []);
+    fetchProfile();
+  }, [isAuthenticated, dispatch]);
 
   return (
     <>
